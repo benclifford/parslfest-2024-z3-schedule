@@ -89,6 +89,7 @@ YaduConstraints = Or(And(OnDay(talk_sessions[4], 1), OnDay(talk_sessions[23], 2)
 special_talk_constraints = [
   talk_sessions[0] == 1,  # Ben should give first talk of whats changed in Parsl this year
   OnDay(talk_sessions[1], 1),  # andrew can only do day 1
+  OnDay(talk_sessions[5], 1),  # kevin can only do day 1
   talk_sessions[10] <= talk_sessions[18], # doug taskvine general should come before colin
   talk_sessions[16] == 3, # tz australia
   talk_sessions[17] == 4, # josh should start day 2
@@ -97,6 +98,16 @@ special_talk_constraints = [
   talk_sessions[33] == 4, # tz europe
   YaduConstraints # Yadu's 2 talks should be on different days.
   ]
+
+
+possible_session_chairs = [
+  "Dan Katz",  # only day 1
+  "Ben Clifford",
+  "Kevin Hunter Kesling",
+  "Yadu Babuji",
+  "Kyle Chard"
+  ]
+
 
 num_moved = Sum(*[If(talk_sessions[n] == talk_titles_prefs[n][1], 0, talk_titles_prefs[n][2] if len(talk_titles_prefs[n]) > 2 else 1) for n in range(0,len(talk_titles_prefs)) if talk_titles_prefs[n][1] is not None])
 
