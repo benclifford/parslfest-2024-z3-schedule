@@ -6,9 +6,11 @@ talk_titles_prefs = \
     # first entry is talk title
     # second entry is the published schedule slot (or None if they have none) so that
     #     the solver can try to not move people from the already published schedule.
-    # third entry is moveability-prefence: put Parsl and Globus Compute staff low so that the
+    # third entry is session stickiness: put Parsl and Globus Compute staff low so that the
     #     solver prefers to move them around rather than other speakers, but non-zero so that
     #     there is still some preference to keep them in the assigned slot
+    #     a lower stickiness means these will be moved in preference to a higher stickiness talk
+
     #0 
     ("Ben Clifford: A Year in Parsl Development", 1, 0.1),
     ("Andrew S. Rosen: The Quantum Accelerator: Accessible and Scalable Materials Science Workflows", 1),
