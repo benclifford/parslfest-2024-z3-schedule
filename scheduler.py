@@ -1,5 +1,9 @@
 from z3 import *
 
+# how much we care about schedule stickiness
+stickiness_factor = 0.01
+topics_factor = 1
+
 talk_titles_prefs = \
   [
 
@@ -12,50 +16,50 @@ talk_titles_prefs = \
     #     a lower stickiness means these will be moved in preference to a higher stickiness talk
 
     #0 
-    ("Ben Clifford: A Year in Parsl Development", 1, 0.1),
-    ("Andrew S. Rosen: The Quantum Accelerator: Accessible and Scalable Materials Science Workflows", 1),
-    ("Sander Vandenhaute: Scalable Molecular Simulation", 1),
-    ("Douglas N. Friedel: Tracking File Provenance with Parsl", 1, 0.1),
-    ("Yadu Babuji: MPI+FaaS: Extending Parsl and Globus Compute to Represent and Execute MPI Tasks", 1, 0.1),
+    ("Ben Clifford: A Year in Parsl Development", 1, 0.1, []),
+    ("Andrew S. Rosen: The Quantum Accelerator: Accessible and Scalable Materials Science Workflows", 1, 1, ["chem"]),
+    ("Sander Vandenhaute: Scalable Molecular Simulation", 1, 1, ["chem"]),
+    ("Douglas N. Friedel: Tracking File Provenance with Parsl", 1, 0.1, ["provenance"]),
+    ("Yadu Babuji: MPI+FaaS: Extending Parsl and Globus Compute to Represent and Execute MPI Tasks", 1, 0.1, ["parslgc"]),
 
     #5
-    ("Kevin Hunter Kesling: Globus Compute Update", 2, 0.1),
-    ("Christopher Harrop: Federated Numerical Weather Prediction Workflows with MPAS", 2),
-    ("Mansi Sakarvadia: Scaling ML Interpretability Experiments Using Parsl", 2),
-    ("Michael Buehlmann: Analysis Portal for Cosmological Simulations", 2),
-    ("Takuya Kurihana: ", 2),
-    ("Douglas Thain: TaskVine Overview", 2),
+    ("Kevin Hunter Kesling: Globus Compute Update", 2, 0.1, ["gc-core"]),
+    ("Christopher Harrop: Federated Numerical Weather Prediction Workflows with MPAS", 2, 1, ["earth"]),
+    ("Mansi Sakarvadia: Scaling ML Interpretability Experiments Using Parsl", 2, 1, ["ai/ml"]),
+    ("Michael Buehlmann: Analysis Portal for Cosmological Simulations", 2, 1, []),
+    ("Takuya Kurihana: ", 2, 1, []),
+    ("Douglas Thain: TaskVine Overview", 2, 1, ["taskvine"]),
 
     #11
-    ("Christine Simpson: Parsl at ALCF: Use cases and challenges for IRI, Aurora, and beyond", 3),
-    ("Zilinghan Li and Ravi K. Madduri: Using Globus Compute to Streamline Federated Learning Applications", 3),
-    ("Matthew Baughman: Task Orchestration in Heterogeneous Computing Environments using Globus Compute", 3),
-    ("Nitin Ranjan: Application of AI analytics to Taxation", 3),
-    ("Akila Ravihansa Perera: Enabling Economical and Scalable Genomic Workflows", 3),
-    ("Gus Ellerm: Extending Globus Compute with RO-Crate provenance models", 3),
+    ("Christine Simpson: Parsl at ALCF: Use cases and challenges for IRI, Aurora, and beyond", 3, 1, ["infrastructure"]),
+    ("Zilinghan Li and Ravi K. Madduri: Using Globus Compute to Streamline Federated Learning Applications", 3, 1, ["gc"]),
+    ("Matthew Baughman: Task Orchestration in Heterogeneous Computing Environments using Globus Compute", 3, 1, ["gc"]),
+    ("Nitin Ranjan: Application of AI analytics to Taxation", 3, 1, ["ai/ml"]),
+    ("Akila Ravihansa Perera: Enabling Economical and Scalable Genomic Workflows", 3, 1, ["bio"]),
+    ("Gus Ellerm: Extending Globus Compute with RO-Crate provenance models", 3, 1, ["gc", "provenance"]),
 
     #17
-    ("Josh A. Bryan: Future of Globus Compute", 4, 0.1),
-    ("Colin Thomas: Parsl and TaskVine: Interactions Between DAG Managers and Workflow Executors", 4),
-    ("Andre Bauer: The Globus Compute Dataset: An Open Function-as-a-Service Dataset From the Edge to the Cloud", 4),
-    ("Rajat Bhattarai: Dynamic Resource Management for Elastic Scientific Workflows", 4),
-    ("Inna Brodkin: Extreme-Scale Monitoring of Parsl Workflows with Chronolog", 4),
-    ("Hemant Sharma: Parsl and Globus Compute for a Hybrid Workflow", 4),
-    ("Yadu Babuji: Replacing Channels with Globus Compute Executors in Parsl", 5, 0.1),
+    ("Josh A. Bryan: Future of Globus Compute", 4, 0.1, ["gc-core"]),
+    ("Colin Thomas: Parsl and TaskVine: Interactions Between DAG Managers and Workflow Executors", 4, 1, ["taskvine"]),
+    ("Andre Bauer: The Globus Compute Dataset: An Open Function-as-a-Service Dataset From the Edge to the Cloud", 4, 1, ["gc"]),
+    ("Rajat Bhattarai: Dynamic Resource Management for Elastic Scientific Workflows", 4, 1, []),
+    ("Inna Brodkin: Extreme-Scale Monitoring of Parsl Workflows with Chronolog", 4, 1, ["infrastructure"]),
+    ("Hemant Sharma: Parsl and Globus Compute for a Hybrid Workflow", 4, 1, ["parslgc"]),
+    ("Yadu Babuji: Replacing Channels with Globus Compute Executors in Parsl", 5, 0.1, ["parslgc"]),
 
     #24
-    ("Daniel S. Katz: An Update on Parsl Sustainability", 5, 0.1),
-    ("Valerie Hayot-Sasson: Developing Distributed High-performance Computing Capabilities of an Open Science Platform for Robust Epidemic Analysis", 5),
-    ("Arha Gautram: Decorators and Function Parameters", 5),
-    ("Tyler J. Skluzacek: A Workflows Ecosystem for ESGF Data", 5),
-    ("Nischay Karle: Usage Tracking Stats of Parsl", 5),
-    ("Lola Obielodan: Synergies among Parsl, MLOPs, and custom cloud clusters", 5),
-    ("Reid Mello: Multi-user Globus Compute endpoints", 5, 0.1),
+    ("Daniel S. Katz: An Update on Parsl Sustainability", 5, 0.1, []),
+    ("Valerie Hayot-Sasson: Developing Distributed High-performance Computing Capabilities of an Open Science Platform for Robust Epidemic Analysis", 5, 1, []),
+    ("Arha Gautram: Decorators and Function Parameters", 5, 1, []),
+    ("Tyler J. Skluzacek: A Workflows Ecosystem for ESGF Data", 5, 1, ["earth"]),
+    ("Nischay Karle: Usage Tracking Stats of Parsl", 5, 1, []),
+    ("Lola Obielodan: Synergies among Parsl, MLOPs, and custom cloud clusters", 5, 1, ["ai/ml"]),
+    ("Reid Mello: Multi-user Globus Compute endpoints", 5, 0.1, ["gc-core"]),
 
     #31
-    ("Haotian Xie (Rutgers University): TBD – talk about Diamond, an integration portal that allows users to easily use globus-compute via a frontend.", 1),
-    ("Divyansh Goyal (Guru Gobind Singh Indraprastha University): Parallel scripting in medical imaging", 4),
-    ("Dante D. Sanchez-Gallegos (University Carlos III of Madrid): Creating Wide-Area Distribution Systems with DynoStore and Globus Compute", 4)
+    ("Haotian Xie (Rutgers University): TBD – talk about Diamond, an integration portal that allows users to easily use globus-compute via a frontend.", 1, 1, ["gc"]),
+    ("Divyansh Goyal (Guru Gobind Singh Indraprastha University): Parallel scripting in medical imaging", 4, 1, ["bio"]),
+    ("Dante D. Sanchez-Gallegos (University Carlos III of Madrid): Creating Wide-Area Distribution Systems with DynoStore and Globus Compute", 4, 1, ["gc"])
   ]
 
 
@@ -143,6 +147,32 @@ special_chair_constraints = [
 
 num_moved = Sum(*[If(talk_sessions[n] == talk_titles_prefs[n][1], 0, talk_titles_prefs[n][2] if len(talk_titles_prefs[n]) > 2 else 1) for n in range(0,len(talk_titles_prefs)) if talk_titles_prefs[n][1] is not None])
 
+topics = set()
+for talk in talk_titles_prefs:
+  topics.update(talk[3])
+
+print(f"topics are: {topics}")
+
+def Max(x, y):
+  return (x+y) / 2 + Abs( (x - y) / 2)
+
+def TopicSessionScore(topic, session):
+  print(f"session {session} vs topic {topic}")
+
+  se1 = [If(talk_sessions[n] == session, 1, 0) for n in range(0, len(talk_titles_prefs)) if topic in talk_titles_prefs[n][3]]
+  print(f"se1 = {se1}")
+  score = Sum(*se1)
+  print(score)
+  # return If(score > 0, score - 1, 0)
+  return Max(score - 1, 0)
+
+topic_cluster = Sum(*[TopicSessionScore(topic, session) for topic in topics for session in range(1,n_sessions+1)])
+
+print("TOPIC CLUSTER rules")
+print(topic_cluster)
+
+objective_function = stickiness_factor * num_moved + topics_factor * (-topic_cluster)
+
 print("solving")
 s = Optimize()
 s.add(talks_in_valid_sessions)
@@ -153,7 +183,7 @@ s.add(session_chairs_are_valid)
 s.add(chairs_maximum_one_session)
 s.add(special_chair_constraints)
 
-s.minimize(num_moved)
+s.minimize(objective_function)
 print(s.check())
 m=s.model()
 print(m)
@@ -169,7 +199,8 @@ for session in range(1, n_sessions+1):
         print("**NEW** ", end='')
       elif session != talk_titles_prefs[n][1]:
         print("**MOVED** ", end='')
-      print(talk_titles_prefs[n][0])
+      print(talk_titles_prefs[n][0], end='   ')
+      print(talk_titles_prefs[n][3])
       used += 1
   for _ in range(0, session_sizes[session-1] - used):
     print("**SPARE SLOT**")
