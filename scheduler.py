@@ -69,7 +69,7 @@ talks_in_valid_sessions = [And(t >= 1, t <= n_sessions) for t in talk_sessions]
 def SessionSize(session, size):
     return AtMost(*[t == session for t in talk_sessions], size)
 
-session_sizes = [6,6,6,7,9]
+session_sizes = [6,6,6,8,8]
 
 sessions_have_sizes = [SessionSize(n+1, session_sizes[n]) for n in range(0,len(session_sizes))]
 print(sessions_have_sizes)
