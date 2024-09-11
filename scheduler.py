@@ -103,7 +103,8 @@ possible_session_chairs = [
   "Ben Clifford",
   "Kevin Hunter Kesling",
   "Yadu Babuji",
-  "Kyle Chard"
+  "Kyle Chard",
+  "Reid Mello"
   ]
 
 
@@ -123,13 +124,19 @@ def ChairTalkExclusion(talk, chairnum):
 
 special_chair_constraints = [
    ChairTalkExclusion(0, 1),   # talk 0 cannot be in session chaired by chair 1 -- that's Ben
+
    ChairTalkExclusion(24, 0),  # Dan
+
    ChairTalkExclusion(5, 2),   # Kevin
+   session_chairs[3] != 2, # Kevin cannot chair on any day2 session
+   session_chairs[4] != 2,  # Kevin cannot chair on any day2 session
+
    ChairTalkExclusion(4, 3),   # Yadu
    ChairTalkExclusion(23, 3),   # Yadu
+
    session_chairs[0] != 4, # Kyle (doesn't have a talk in the sense of this scheduler, but is doing intro)
-   session_chairs[3] != 2, # Kevin cannot chair on any day2 session
-   session_chairs[4] != 2  # Kevin cannot chair on any day2 session
+
+   ChairTalkExclusion(30, 5)   # Reid
  ]
 
 num_moved = Sum(*[If(talk_sessions[n] == talk_titles_prefs[n][1], 0, talk_titles_prefs[n][2] if len(talk_titles_prefs[n]) > 2 else 1) for n in range(0,len(talk_titles_prefs)) if talk_titles_prefs[n][1] is not None])
