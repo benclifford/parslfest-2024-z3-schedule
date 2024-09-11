@@ -27,7 +27,7 @@ talk_titles_prefs = \
     ("Christopher Harrop: Federated Numerical Weather Prediction Workflows with MPAS", 2, 1, ["earth"]),
     ("Mansi Sakarvadia: Scaling ML Interpretability Experiments Using Parsl", 2, 1, ["ai/ml"]),
     ("Michael Buehlmann: Analysis Portal for Cosmological Simulations", 2, 1, []),
-    ("Takuya Kurihana: ", 2, 1, []),
+    ("Takuya Kurihana: Scalable earth observation ML workflow in climate  applications", 2, 1, ["earth", "ai/ml"]),
     ("Douglas Thain: TaskVine Overview", 2, 1, ["taskvine"]),
 
     #11
@@ -49,7 +49,7 @@ talk_titles_prefs = \
 
     #24
     ("Daniel S. Katz: An Update on Parsl Sustainability", 5, 0.1, []),
-    ("Valerie Hayot-Sasson: Developing Distributed High-performance Computing Capabilities of an Open Science Platform for Robust Epidemic Analysis", 5, 1, []),
+    ("Valerie Hayot-Sasson: Developing Distributed High-performance Computing Capabilities of an Open Science Platform for Robust Epidemic Analysis", 5, 1, ["bio"]),
     ("Arha Gautram: Decorators and Function Parameters", 5, 1, []),
     ("Tyler J. Skluzacek: A Workflows Ecosystem for ESGF Data", 5, 1, ["earth"]),
     ("Nischay Karle: Usage Tracking Stats of Parsl", 5, 1, []),
