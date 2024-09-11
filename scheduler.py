@@ -116,8 +116,10 @@ for session in range(1, n_sessions+1):
   used = 0
   for n in range(0, len(talk_titles_prefs)):
     if m.evaluate(talk_sessions[n]) == session:
-      if session != talk_titles_prefs[n][1]:
-        print("**NEW/MOVED** ", end='')
+      if talk_titles_prefs[n][1] is None:
+        print("**NEW** ", end='')
+      elif session != talk_titles_prefs[n][1]:
+        print("**MOVED** ", end='')
       print(talk_titles_prefs[n][0])
       used += 1
   for _ in range(0, session_sizes[session-1] - used):
