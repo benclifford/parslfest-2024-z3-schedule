@@ -37,8 +37,8 @@ talk_titles_prefs = \
     ("Colin Thomas: Parsl and TaskVine: Interactions Between DAG Managers and Workflow Executors", 4),
     ("Andre Bauer: The Globus Compute Dataset: An Open Function-as-a-Service Dataset From the Edge to the Cloud", 4),
     ("Rajat Bhattarai: Dynamic Resource Management for Elastic Scientific Workflows", 4),
-    ("Inna Brodkin: Extreme-Scale Monitoring of Parsl Workflows with Chronolog", 5),
-    ("Hemant Sharma: Parsl and Globus Compute for a Hybrid Workflow", 5),
+    ("Inna Brodkin: Extreme-Scale Monitoring of Parsl Workflows with Chronolog", 4),
+    ("Hemant Sharma: Parsl and Globus Compute for a Hybrid Workflow", 4),
     ("Yadu Babuji: Replacing Channels with Globus Compute Executors in Parsl", 4, 0.1),
 
     #24
@@ -51,9 +51,9 @@ talk_titles_prefs = \
     ("Reid Mello: Multi-user Globus Compute endpoints", 5, 0.1),
 
     #31
-    ("Haotian Xie (Rutgers University): TBD – talk about Diamond, an integration portal that allows users to easily use globus-compute via a frontend.", 1),
-    ("Divyansh Goyal (Guru Gobind Singh Indraprastha University): Parallel scripting in medical imaging", 4),
-    ("Dante D. Sanchez-Gallegos (University Carlos III of Madrid): Creating Wide-Area Distribution Systems with DynoStore and Globus Compute", 4)
+    ("Haotian Xie (Rutgers University): TBD – talk about Diamond, an integration portal that allows users to easily use globus-compute via a frontend.", None),
+    ("Divyansh Goyal (Guru Gobind Singh Indraprastha University): Parallel scripting in medical imaging", None),
+    ("Dante D. Sanchez-Gallegos (University Carlos III of Madrid): Creating Wide-Area Distribution Systems with DynoStore and Globus Compute", None)
   ]
 
 
