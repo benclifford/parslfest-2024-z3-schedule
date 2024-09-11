@@ -93,7 +93,6 @@ special_talk_constraints = [
   talk_sessions[10] <= talk_sessions[18], # doug taskvine general should come before colin
   talk_sessions[16] == 3, # tz australia
   talk_sessions[17] == 4, # josh should start day 2
-  OnDay(talk_sessions[24], 1), # Dan needs to be on Day 1
   talk_sessions[32] == 4, # tz india
   talk_sessions[33] == 4, # tz europe
   YaduConstraints # Yadu's 2 talks should be on different days.
@@ -101,7 +100,7 @@ special_talk_constraints = [
 
 
 possible_session_chairs = [
-  "Dan Katz",  # only day 1
+  "Dan Katz",
   "Ben Clifford",
   "Kevin Hunter Kesling",
   "Yadu Babuji",
