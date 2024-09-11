@@ -36,7 +36,11 @@ talk_titles_prefs = \
     ("Tyler J. Skluzacek: A Workflows Ecosystem for ESGF Data", 5),
     ("Nischay Karle: Usage Tracking Stats of Parsl", 5),
     ("Lola Obielodan: Synergies among Parsl, MLOPs, and custom cloud clusters", 5),
-    ("Reid Mello: Multi-user Globus Compute endpoints", 5)
+    ("Reid Mello: Multi-user Globus Compute endpoints", 5),
+
+    ("Haotian Xie (Rutgers University): TBD – talk about Diamond, an integration portal that allows users to easily use globus-compute via a frontend.", None),
+    ("Divyansh Goyal (Guru Gobind Singh Indraprastha University): Parallel scripting in medical imaging", None),
+    ("Dante D. Sanchez-Gallegos (University Carlos III of Madrid): Creating Wide-Area Distribution Systems with DynoStore and Globus Compute", None)
   ]
 
 
@@ -52,16 +56,18 @@ talks_in_valid_sessions = [And(t >= 1, t <= n_sessions) for t in talk_sessions]
 def SessionSize(session, size):
     return AtMost(*[t == session for t in talk_sessions], size)
 
-sessions_have_sizes = [SessionSize(1, 6),
-                       SessionSize(2, 6),
-                       SessionSize(3, 6),
-                       SessionSize(4, 7),  # actually 7.5!
-                       SessionSize(5, 9)]
+session_sizes = [6,6,6,7,9]
+
+sessions_have_sizes = [SessionSize(n+1, session_sizes[n]) for n in range(0,len(session_sizes))]
+print(sessions_have_sizes)
+
+num_moved = Sum(*[If(talk_sessions[n] == talk_titles_prefs[n][1], 0, 1) for n in range(0,len(talk_titles_prefs)) if talk_titles_prefs[n][1] is not None])
 
 print("solving")
-s = Solver()
+s = Optimize()
 s.add(talks_in_valid_sessions)
 s.add(sessions_have_sizes)
+s.minimize(num_moved)
 print(s.check())
 m=s.model()
 print(m)
@@ -69,8 +75,14 @@ print("\n\nformatted:")
 
 for session in range(1, n_sessions+1):
   print(f"\nSession {session}")
+  used = 0
   for n in range(0, len(talk_titles_prefs)):
     if m.evaluate(talk_sessions[n]) == session:
       print(talk_titles_prefs[n][0])
       if session != talk_titles_prefs[n][1]:
         print("**MOVED** ")
+      used += 1
+  for _ in range(0, session_sizes[session-1] - used):
+    print("**SPARE SLOT**")
+  if used > session_sizes[session-1]:
+    print("**ERROR** too many talks assigned to this session")
