@@ -67,6 +67,18 @@ session_sizes = [6,6,6,7,9]
 sessions_have_sizes = [SessionSize(n+1, session_sizes[n]) for n in range(0,len(session_sizes))]
 print(sessions_have_sizes)
 
+def OnDay(talk_session, day):
+  if day == 1:
+    return And(talk_session >= 1, talk_session <= 3)
+  elif day == 2:
+    return And(talk_session >= 4, talk_session <= 5)
+  else:
+    raise RuntimeError("bad day")
+
+YaduConstraints = Or(And(OnDay(talk_sessions[4], 1), OnDay(talk_sessions[23], 2)),
+                     And(OnDay(talk_sessions[4], 2), OnDay(talk_sessions[23], 1)))
+  
+
 special_talk_constraints = [
   talk_sessions[0] == 1,  # Ben should give first talk of whats changed in Parsl this year
   talk_sessions[1] <= 3,  # andrew can only do day 1
@@ -74,7 +86,8 @@ special_talk_constraints = [
   talk_sessions[16] == 3, # tz australia
   talk_sessions[17] == 4, # josh should start day 2
   talk_sessions[32] == 4, # tz india
-  talk_sessions[33] == 4  # tz europe
+  talk_sessions[33] == 4, # tz europe
+  YaduConstraints # Yadu's 2 talks should be on different days.
   ]
 
 num_moved = Sum(*[If(talk_sessions[n] == talk_titles_prefs[n][1], 0, 1) for n in range(0,len(talk_titles_prefs)) if talk_titles_prefs[n][1] is not None])
