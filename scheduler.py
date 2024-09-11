@@ -72,7 +72,6 @@ def SessionSize(session, size):
 session_sizes = [6,6,6,8,8]
 
 sessions_have_sizes = [SessionSize(n+1, session_sizes[n]) for n in range(0,len(session_sizes))]
-print(sessions_have_sizes)
 
 def OnDay(talk_session, day):
   if day == 1:
@@ -108,6 +107,31 @@ possible_session_chairs = [
   ]
 
 
+session_chairs = [Int(f'session_{n}_has_chair') for n in range(0,n_sessions)]
+
+session_chairs_are_valid = [And(sc >= 0, sc < len(possible_session_chairs)) for sc in session_chairs]
+
+# check that someone does not chair two sessions
+
+def ChairHasMaxOneSession(chairnum):
+  return AtMost(*[sc == chairnum for sc in session_chairs], 1)
+
+chairs_maximum_one_session = And(*[ChairHasMaxOneSession(n) for n in range(0, len(possible_session_chairs))])
+
+def ChairTalkExclusion(talk, chairnum):
+  return And(*[Not(And(talk_sessions[talk] == session+1, session_chairs[session] == chairnum)) for session in range(0, n_sessions)])
+
+special_chair_constraints = [
+   ChairTalkExclusion(0, 1),   # talk 0 cannot be in session chaired by chair 1 -- that's Ben
+   ChairTalkExclusion(24, 0),  # Dan
+   ChairTalkExclusion(5, 2),   # Kevin
+   ChairTalkExclusion(4, 3),   # Yadu
+   ChairTalkExclusion(23, 3),   # Yadu
+   session_chairs[0] != 4, # Kyle (doesn't have a talk in the sense of this scheduler, but is doing intro)
+   session_chairs[3] != 2, # Kevin cannot chair on any day2 session
+   session_chairs[4] != 2  # Kevin cannot chair on any day2 session
+ ]
+
 num_moved = Sum(*[If(talk_sessions[n] == talk_titles_prefs[n][1], 0, talk_titles_prefs[n][2] if len(talk_titles_prefs[n]) > 2 else 1) for n in range(0,len(talk_titles_prefs)) if talk_titles_prefs[n][1] is not None])
 
 print("solving")
@@ -115,6 +139,11 @@ s = Optimize()
 s.add(talks_in_valid_sessions)
 s.add(sessions_have_sizes)
 s.add(special_talk_constraints)
+
+s.add(session_chairs_are_valid)
+s.add(chairs_maximum_one_session)
+s.add(special_chair_constraints)
+
 s.minimize(num_moved)
 print(s.check())
 m=s.model()
@@ -122,7 +151,8 @@ print(m)
 print("\n\nformatted:")
 
 for session in range(1, n_sessions+1):
-  print(f"\nSession {session}")
+  chairname = possible_session_chairs[m.evaluate(session_chairs[session - 1]).as_long()]
+  print(f"\nSession {session} - chair {chairname}")
   used = 0
   for n in range(0, len(talk_titles_prefs)):
     if m.evaluate(talk_sessions[n]) == session:
