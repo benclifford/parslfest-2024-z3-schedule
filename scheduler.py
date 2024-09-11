@@ -2,15 +2,22 @@ from z3 import *
 
 talk_titles_prefs = \
   [
+
+    # first entry is talk title
+    # second entry is the published schedule slot (or None if they have none) so that
+    #     the solver can try to not move people from the already published schedule.
+    # third entry is moveability-prefence: put Parsl and Globus Compute staff low so that the
+    #     solver prefers to move them around rather than other speakers, but non-zero so that
+    #     there is still some preference to keep them in the assigned slot
     #0 
-    ("Ben Clifford: A Year in Parsl Development", 1),
+    ("Ben Clifford: A Year in Parsl Development", 1, 0.1),
     ("Andrew S. Rosen: The Quantum Accelerator: Accessible and Scalable Materials Science Workflows", 1),
     ("Sander Vandenhaute: Scalable Molecular Simulation", 1),
-    ("Douglas N. Friedel: Tracking File Provenance with Parsl", 1),
-    ("Yadu Babuji: MPI+FaaS: Extending Parsl and Globus Compute to Represent and Execute MPI Tasks", 1),
+    ("Douglas N. Friedel: Tracking File Provenance with Parsl", 1, 0.1),
+    ("Yadu Babuji: MPI+FaaS: Extending Parsl and Globus Compute to Represent and Execute MPI Tasks", 1, 0.1),
 
     #5
-    ("Kevin Hunter Kesling: Globus Compute Update", 2),
+    ("Kevin Hunter Kesling: Globus Compute Update", 2, 0.1),
     ("Christopher Harrop: Federated Numerical Weather Prediction Workflows with MPAS", 2),
     ("Mansi Sakarvadia: Scaling ML Interpretability Experiments Using Parsl", 2),
     ("Michael Buehlmann: Analysis Portal for Cosmological Simulations", 2),
@@ -26,22 +33,22 @@ talk_titles_prefs = \
     ("Gus Ellerm: Extending Globus Compute with RO-Crate provenance models", 3),
 
     #17
-    ("Josh A. Bryan: Future of Globus Compute", 4),
+    ("Josh A. Bryan: Future of Globus Compute", 4, 0.1),
     ("Colin Thomas: Parsl and TaskVine: Interactions Between DAG Managers and Workflow Executors", 4),
     ("Andre Bauer: The Globus Compute Dataset: An Open Function-as-a-Service Dataset From the Edge to the Cloud", 4),
     ("Rajat Bhattarai: Dynamic Resource Management for Elastic Scientific Workflows", 4),
     ("Inna Brodkin: Extreme-Scale Monitoring of Parsl Workflows with Chronolog", 5),
     ("Hemant Sharma: Parsl and Globus Compute for a Hybrid Workflow", 5),
-    ("Yadu Babuji: Replacing Channels with Globus Compute Executors in Parsl", 4),
+    ("Yadu Babuji: Replacing Channels with Globus Compute Executors in Parsl", 4, 0.1),
 
     #24
-    ("Daniel S. Katz: An Update on Parsl Sustainability", 5),
+    ("Daniel S. Katz: An Update on Parsl Sustainability", 5, 0.1),
     ("Valerie Hayot-Sasson: Developing Distributed High-performance Computing Capabilities of an Open Science Platform for Robust Epidemic Analysis", 5),
     ("Arha Gautram: Decorators and Function Parameters", 5),
     ("Tyler J. Skluzacek: A Workflows Ecosystem for ESGF Data", 5),
     ("Nischay Karle: Usage Tracking Stats of Parsl", 5),
     ("Lola Obielodan: Synergies among Parsl, MLOPs, and custom cloud clusters", 5),
-    ("Reid Mello: Multi-user Globus Compute endpoints", 5),
+    ("Reid Mello: Multi-user Globus Compute endpoints", 5, 0.1),
 
     #31
     ("Haotian Xie (Rutgers University): TBD – talk about Diamond, an integration portal that allows users to easily use globus-compute via a frontend.", 1),
@@ -90,7 +97,7 @@ special_talk_constraints = [
   YaduConstraints # Yadu's 2 talks should be on different days.
   ]
 
-num_moved = Sum(*[If(talk_sessions[n] == talk_titles_prefs[n][1], 0, 1) for n in range(0,len(talk_titles_prefs)) if talk_titles_prefs[n][1] is not None])
+num_moved = Sum(*[If(talk_sessions[n] == talk_titles_prefs[n][1], 0, talk_titles_prefs[n][2] if len(talk_titles_prefs[n]) > 2 else 1) for n in range(0,len(talk_titles_prefs)) if talk_titles_prefs[n][1] is not None])
 
 print("solving")
 s = Optimize()
