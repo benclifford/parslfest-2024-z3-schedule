@@ -81,7 +81,7 @@ YaduConstraints = Or(And(OnDay(talk_sessions[4], 1), OnDay(talk_sessions[23], 2)
 
 special_talk_constraints = [
   talk_sessions[0] == 1,  # Ben should give first talk of whats changed in Parsl this year
-  talk_sessions[1] <= 3,  # andrew can only do day 1
+  OnDay(talk_sessions[1], 1),  # andrew can only do day 1
   talk_sessions[10] <= talk_sessions[18], # doug taskvine general should come before colin
   talk_sessions[16] == 3, # tz australia
   talk_sessions[17] == 4, # josh should start day 2
