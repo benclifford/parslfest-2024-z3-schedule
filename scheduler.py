@@ -39,7 +39,7 @@ talk_titles_prefs = \
     ("Rajat Bhattarai: Dynamic Resource Management for Elastic Scientific Workflows", 4),
     ("Inna Brodkin: Extreme-Scale Monitoring of Parsl Workflows with Chronolog", 4),
     ("Hemant Sharma: Parsl and Globus Compute for a Hybrid Workflow", 4),
-    ("Yadu Babuji: Replacing Channels with Globus Compute Executors in Parsl", 4, 0.1),
+    ("Yadu Babuji: Replacing Channels with Globus Compute Executors in Parsl", 5, 0.1),
 
     #24
     ("Daniel S. Katz: An Update on Parsl Sustainability", 5, 0.1),
@@ -51,9 +51,9 @@ talk_titles_prefs = \
     ("Reid Mello: Multi-user Globus Compute endpoints", 5, 0.1),
 
     #31
-    ("Haotian Xie (Rutgers University): TBD – talk about Diamond, an integration portal that allows users to easily use globus-compute via a frontend.", None),
-    ("Divyansh Goyal (Guru Gobind Singh Indraprastha University): Parallel scripting in medical imaging", None),
-    ("Dante D. Sanchez-Gallegos (University Carlos III of Madrid): Creating Wide-Area Distribution Systems with DynoStore and Globus Compute", None)
+    ("Haotian Xie (Rutgers University): TBD – talk about Diamond, an integration portal that allows users to easily use globus-compute via a frontend.", 1),
+    ("Divyansh Goyal (Guru Gobind Singh Indraprastha University): Parallel scripting in medical imaging", 4),
+    ("Dante D. Sanchez-Gallegos (University Carlos III of Madrid): Creating Wide-Area Distribution Systems with DynoStore and Globus Compute", 4)
   ]
 
 
