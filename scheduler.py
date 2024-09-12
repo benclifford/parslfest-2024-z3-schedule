@@ -159,14 +159,6 @@ topics_deterministic = sorted(list(topics))
 
 # constraint based topics
 
-def TopicConstraint(topic):
-  topic_int = Int(f'topic_{topic}')
-  talks_in_topic = [talk_sessions[n] for n in range(0, len(talk_titles_prefs)) if topic in talk_titles_prefs[n][3]]
-  print(f"Topic {topic} has {len(talks_in_topic)} talks")
-  return And(*[t == topic_int for t in talks_in_topic])
-
-topic_constraints = [TopicConstraint(topic) for topic in topics_deterministic]
-
 objective_function = stickiness_factor * num_moved
 
 print("solving")
