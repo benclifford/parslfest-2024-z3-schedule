@@ -168,7 +168,10 @@ def TopicSessionScore(topic, session):
   score = Sum(*se1)
   return Max(score - 1, 0)
 
-topic_cluster = Sum(*[TopicSessionScore(topic, session) for topic in topics for session in range(1,n_sessions+1)])
+topics_deterministic = sorted(list(topics))
+print(f"topics {topics}, topics_deteministic {topics_deterministic}")
+
+topic_cluster = Sum(*[TopicSessionScore(topic, session) for topic in topics_deterministic for session in range(1,n_sessions+1)])
 
 
 # constraint based topics
@@ -179,7 +182,7 @@ def TopicConstraint(topic):
   print(f"Topic {topic} has {len(talks_in_topic)} talks")
   return And(*[t == topic_int for t in talks_in_topic])
 
-topic_constraints = [TopicConstraint(topic) for topic in topics]
+topic_constraints = [TopicConstraint(topic) for topic in topics_deterministic]
 
 objective_function = stickiness_factor * num_moved
 
@@ -193,7 +196,7 @@ s.add(session_chairs_are_valid)
 s.add(chairs_maximum_one_session)
 s.add(special_chair_constraints)
 
-for topic in topics:
+for topic in topics_deterministic:
   talks_in_topic = [talk_sessions[n] for n in range(0, len(talk_titles_prefs)) if topic in talk_titles_prefs[n][3]]
   for a in talks_in_topic:
     for b in talks_in_topic:
@@ -216,7 +219,7 @@ for session in range(1, n_sessions+1):
       if talk_titles_prefs[n][1] is None:
         print("**NEW** ", end='')
       elif session != talk_titles_prefs[n][1]:
-        print("**MOVED** ", end='')
+        pass # print("**MOVED** ", end='')
       print(talk_titles_prefs[n][0], end='   ')
       print(talk_titles_prefs[n][3])
       used += 1
