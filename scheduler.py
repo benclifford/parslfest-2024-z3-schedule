@@ -65,7 +65,7 @@ talk_titles_prefs = \
 
 talk_sessions = [Int(f'talk_{n}_in_session') for n in range(0,len(talk_titles_prefs))]
 
-n_sessions = 5
+n_sessions = 6
 
 # each talk must be in a valid session
 talks_in_valid_sessions = [And(t >= 1, t <= n_sessions) for t in talk_sessions]
@@ -75,7 +75,7 @@ talks_in_valid_sessions = [And(t >= 1, t <= n_sessions) for t in talk_sessions]
 def SessionSize(session, size):
     return AtMost(*[t == session for t in talk_sessions], size)
 
-session_sizes = [6,6,6,8,8]
+session_sizes = [6,6,6,6,5,5]
 
 sessions_have_sizes = [SessionSize(n+1, session_sizes[n]) for n in range(0,len(session_sizes))]
 
@@ -83,7 +83,7 @@ def OnDay(talk_session, day):
   if day == 1:
     return And(talk_session >= 1, talk_session <= 3)
   elif day == 2:
-    return And(talk_session >= 4, talk_session <= 5)
+    return And(talk_session >= 4, talk_session <= 6)
   else:
     raise RuntimeError("bad day")
 
@@ -140,6 +140,7 @@ special_chair_constraints = [
    ChairTalkExclusion(5, 2),   # Kevin
    session_chairs[3] != 2, # Kevin cannot chair on any day2 session
    session_chairs[4] != 2,  # Kevin cannot chair on any day2 session
+   session_chairs[5] != 2,  # Kevin cannot chair on any day2 session
 
    ChairTalkExclusion(4, 3),   # Yadu
    ChairTalkExclusion(23, 3),   # Yadu
