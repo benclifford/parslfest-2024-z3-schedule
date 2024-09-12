@@ -157,7 +157,6 @@ for talk in talk_titles_prefs:
 
 topics_deterministic = sorted(list(topics))
 
-# constraint based topics
 
 objective_function = stickiness_factor * num_moved
 
@@ -170,6 +169,8 @@ s.add(special_talk_constraints)
 s.add(session_chairs_are_valid)
 s.add(chairs_maximum_one_session)
 s.add(special_chair_constraints)
+
+# constraint based topics
 
 for topic in topics_deterministic:
   talks_in_topic = [talk_sessions[n] for n in range(0, len(talk_titles_prefs)) if topic in talk_titles_prefs[n][3]]
