@@ -52,7 +52,7 @@ talk_titles_prefs = \
     ("Arha Gautram: Decorators and Function Parameters", 1, 1, ["parsl-core"]),
     ("Tyler J. Skluzacek: A Workflows Ecosystem for ESGF Data", 2, 1, ["earth"]),
     ("Nischay Karle: Usage Tracking Stats of Parsl", 1, 1, ["parsl-core"]),
-    ("Lola Obielodan: Synergies among Parsl, MLOPs, and custom cloud clusters", 5, 5, ["ai/ml"]),
+    ("Lola Obielodan: Synergies among Parsl, MLOPs, and custom cloud clusters", 5, 1, ["ai/ml"]),
     ("Reid Mello: Multi-user Globus Compute endpoints", 4, 0.1, ["gc-core"]),
 
     #31
@@ -190,7 +190,10 @@ m=s.model()
 print(m)
 print("objectives:")
 print(s.objectives())
+print("sexpr:")
+print(s.sexpr())
 print("\n\nformatted:")
+
 
 for session in range(1, n_sessions+1):
   chairname = possible_session_chairs[m.evaluate(session_chairs[session - 1]).as_long()]
