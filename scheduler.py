@@ -41,7 +41,7 @@ talk_titles_prefs = \
     #17
     ("Josh A. Bryan: Future of Globus Compute", 4, 0.1, ["gc-core"]),
     ("Colin Thomas: Parsl and TaskVine: Interactions Between DAG Managers and Workflow Executors", 4, 1, ["taskvine"]),
-    ("Andre Bauer: The Globus Compute Dataset: An Open Function-as-a-Service Dataset From the Edge to the Cloud", 4, 1, ["gc"]),
+    ("Andre Bauer: The Globus Compute Dataset: An Open Function-as-a-Service Dataset From the Edge to the Cloud", 4, 1, []),
     ("Rajat Bhattarai: Dynamic Resource Management for Elastic Scientific Workflows", 4, 1, []),
     ("Inna Brodkin: Extreme-Scale Monitoring of Parsl Workflows with Chronolog", 4, 1, ["infrastructure"]),
     ("Hemant Sharma: Parsl and Globus Compute for a Hybrid Workflow", 4, 1, ["parslgc"]),
@@ -151,8 +151,7 @@ topics = set()
 for talk in talk_titles_prefs:
   topics.update(talk[3])
 
-print(f"topics are: {topics}")
-
+# objective-function style topics, which didn't cluster particularly well...
 def Max(x, y):
   return (x+y) / 2 + Abs( (x - y) / 2)
 
@@ -168,10 +167,18 @@ def TopicSessionScore(topic, session):
 
 topic_cluster = Sum(*[TopicSessionScore(topic, session) for topic in topics for session in range(1,n_sessions+1)])
 
-print("TOPIC CLUSTER rules")
-print(topic_cluster)
 
-objective_function = stickiness_factor * num_moved + topics_factor * (-topic_cluster)
+# constraint based topics
+
+def TopicConstraint(topic):
+  topic_int = Int(f'topic_{topic}')
+  talks_in_topic = [talk_sessions[n] for n in range(0, len(talk_titles_prefs)) if topic in talk_titles_prefs[n][3]]
+  print(f"Topic {topic} has {len(talks_in_topic)} talks")
+  return And(*[t == topic_int for t in talks_in_topic])
+
+topic_constraints = [TopicConstraint(topic) for topic in topics]
+
+objective_function = stickiness_factor * num_moved
 
 print("solving")
 s = Optimize()
@@ -182,6 +189,9 @@ s.add(special_talk_constraints)
 s.add(session_chairs_are_valid)
 s.add(chairs_maximum_one_session)
 s.add(special_chair_constraints)
+
+for t in topic_constraints:
+  s.add_soft(t)
 
 s.minimize(objective_function)
 print(s.check())
