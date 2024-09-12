@@ -19,45 +19,45 @@ talk_titles_prefs = \
     ("Ben Clifford: A Year in Parsl Development", 1, 0.1, ["parsl-core"]),
     ("Andrew S. Rosen: The Quantum Accelerator: Accessible and Scalable Materials Science Workflows", 1, 1, ["chem"]),
     ("Sander Vandenhaute: Scalable Molecular Simulation", 1, 1, ["chem"]),
-    ("Douglas N. Friedel: Tracking File Provenance with Parsl", 1, 0.1, ["provenance"]),
-    ("Yadu Babuji: MPI+FaaS: Extending Parsl and Globus Compute to Represent and Execute MPI Tasks", 1, 0.1, ["parslgc"]),
+    ("Douglas N. Friedel: Tracking File Provenance with Parsl", 3, 0.1, ["provenance"]),
+    ("Yadu Babuji: MPI+FaaS: Extending Parsl and Globus Compute to Represent and Execute MPI Tasks", 6, 0.1, ["parslgc"]),
 
     #5
-    ("Kevin Hunter Kesling: Globus Compute Update", 2, 0.1, ["gc-core"]),
+    ("Kevin Hunter Kesling: Globus Compute Update", 3, 0.1, ["gc-core"]),
     ("Christopher Harrop: Federated Numerical Weather Prediction Workflows with MPAS", 2, 1, ["earth"]),
-    ("Mansi Sakarvadia: Scaling ML Interpretability Experiments Using Parsl", 2, 1, ["ai/ml"]),
+    ("Mansi Sakarvadia: Scaling ML Interpretability Experiments Using Parsl", 5, 1, ["ai/ml"]),
     ("Michael Buehlmann: Analysis Portal for Cosmological Simulations", 2, 1, ["portal"]),
-    ("Takuya Kurihana: Scalable earth observation ML workflow in climate applications", 2, 1, ["earth", "ai/ml"]),
+    ("Takuya Kurihana: Scalable earth observation ML workflow in climate applications", 5, 1, ["earth", "ai/ml"]),
     ("Douglas Thain: TaskVine Overview", 2, 1, ["taskvine"]),
 
     #11
-    ("Christine Simpson: Parsl at ALCF: Use cases and challenges for IRI, Aurora, and beyond", 3, 1, ["infrastructure"]),
-    ("Zilinghan Li and Ravi K. Madduri: Using Globus Compute to Streamline Federated Learning Applications", 3, 1, ["ai/ml"]),
-    ("Matthew Baughman: Task Orchestration in Heterogeneous Computing Environments using Globus Compute", 3, 1, ["infrastructure"]),
-    ("Nitin Ranjan: Application of AI analytics to Taxation", 3, 1, ["ai/ml"]),
+    ("Christine Simpson: Parsl at ALCF: Use cases and challenges for IRI, Aurora, and beyond", 6, 1, ["infrastructure"]),
+    ("Zilinghan Li and Ravi K. Madduri: Using Globus Compute to Streamline Federated Learning Applications", 5, 1, ["ai/ml"]),
+    ("Matthew Baughman: Task Orchestration in Heterogeneous Computing Environments using Globus Compute", 6, 1, ["infrastructure"]),
+    ("Nitin Ranjan: Application of AI analytics to Taxation", 5, 1, ["ai/ml"]),
     ("Akila Ravihansa Perera: Enabling Economical and Scalable Genomic Workflows", 3, 1, ["bio"]),
     ("Gus Ellerm: Extending Globus Compute with RO-Crate provenance models", 3, 1, ["provenance"]),
 
     #17
     ("Josh A. Bryan: Future of Globus Compute", 4, 0.1, ["gc-core"]),
-    ("Colin Thomas: Parsl and TaskVine: Interactions Between DAG Managers and Workflow Executors", 4, 1, ["taskvine"]),
+    ("Colin Thomas: Parsl and TaskVine: Interactions Between DAG Managers and Workflow Executors", 2, 1, ["taskvine"]),
     ("Andre Bauer: The Globus Compute Dataset: An Open Function-as-a-Service Dataset From the Edge to the Cloud", 4, 1, ["gc-core"]),
-    ("Rajat Bhattarai: Dynamic Resource Management for Elastic Scientific Workflows", 4, 1, ["infrastructure"]),
-    ("Inna Brodkin: Extreme-Scale Monitoring of Parsl Workflows with Chronolog", 4, 1, ["infrastructure"]),
-    ("Hemant Sharma: Parsl and Globus Compute for a Hybrid Workflow", 4, 1, ["parslgc"]),
-    ("Yadu Babuji: Replacing Channels with Globus Compute Executors in Parsl", 5, 0.1, ["parslgc"]),
+    ("Rajat Bhattarai: Dynamic Resource Management for Elastic Scientific Workflows", 6, 1, ["infrastructure"]),
+    ("Inna Brodkin: Extreme-Scale Monitoring of Parsl Workflows with Chronolog", 6, 1, ["infrastructure"]),
+    ("Hemant Sharma: Parsl and Globus Compute for a Hybrid Workflow", 3, 1, ["parslgc"]),
+    ("Yadu Babuji: Replacing Channels with Globus Compute Executors in Parsl", 3, 0.1, ["parslgc"]),
 
     #24
-    ("Daniel S. Katz: An Update on Parsl Sustainability", 5, 0.1, ["parsl-core"]),
-    ("Valerie Hayot-Sasson: Developing Distributed High-performance Computing Capabilities of an Open Science Platform for Robust Epidemic Analysis", 5, 1, ["bio"]),
-    ("Arha Gautram: Decorators and Function Parameters", 5, 1, ["parsl-core"]),
-    ("Tyler J. Skluzacek: A Workflows Ecosystem for ESGF Data", 5, 1, ["earth"]),
-    ("Nischay Karle: Usage Tracking Stats of Parsl", 5, 1, ["parsl-core"]),
-    ("Lola Obielodan: Synergies among Parsl, MLOPs, and custom cloud clusters", 5, 1, ["ai/ml"]),
-    ("Reid Mello: Multi-user Globus Compute endpoints", 5, 0.1, ["gc-core"]),
+    ("Daniel S. Katz: An Update on Parsl Sustainability", 1, 0.1, ["parsl-core"]),
+    ("Valerie Hayot-Sasson: Developing Distributed High-performance Computing Capabilities of an Open Science Platform for Robust Epidemic Analysis", 4, 1, ["bio"]),
+    ("Arha Gautram: Decorators and Function Parameters", 1, 1, ["parsl-core"]),
+    ("Tyler J. Skluzacek: A Workflows Ecosystem for ESGF Data", 2, 1, ["earth"]),
+    ("Nischay Karle: Usage Tracking Stats of Parsl", 1, 1, ["parsl-core"]),
+    ("Lola Obielodan: Synergies among Parsl, MLOPs, and custom cloud clusters", 5, 5, ["ai/ml"]),
+    ("Reid Mello: Multi-user Globus Compute endpoints", 4, 0.1, ["gc-core"]),
 
     #31
-    ("Haotian Xie (Rutgers University): TBD – talk about Diamond, an integration portal that allows users to easily use globus-compute via a frontend.", 1, 1, ["portal"]),
+    ("Haotian Xie (Rutgers University): TBD – talk about Diamond, an integration portal that allows users to easily use globus-compute via a frontend.", 2, 1, ["portal"]),
     ("Divyansh Goyal (Guru Gobind Singh Indraprastha University): Parallel scripting in medical imaging", 4, 1, ["bio"]),
     ("Dante D. Sanchez-Gallegos (University Carlos III of Madrid): Creating Wide-Area Distribution Systems with DynoStore and Globus Compute", 4, 1, ["infrastructure"])
   ]
@@ -219,7 +219,7 @@ for session in range(1, n_sessions+1):
       if talk_titles_prefs[n][1] is None:
         print("**NEW** ", end='')
       elif session != talk_titles_prefs[n][1]:
-        pass # print("**MOVED** ", end='')
+        print("**MOVED** ", end='')
       print(talk_titles_prefs[n][0], end='   ')
       print(talk_titles_prefs[n][3])
       used += 1
