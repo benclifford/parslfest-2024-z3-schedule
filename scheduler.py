@@ -26,14 +26,14 @@ talk_titles_prefs = \
     ("Kevin Hunter Kesling: Globus Compute Update", 2, 0.1, ["gc-core"]),
     ("Christopher Harrop: Federated Numerical Weather Prediction Workflows with MPAS", 2, 1, ["earth"]),
     ("Mansi Sakarvadia: Scaling ML Interpretability Experiments Using Parsl", 2, 1, ["ai/ml"]),
-    ("Michael Buehlmann: Analysis Portal for Cosmological Simulations", 2, 1, ["gc"]),
+    ("Michael Buehlmann: Analysis Portal for Cosmological Simulations", 2, 1, ["gc", "portal"]),
     ("Takuya Kurihana: Scalable earth observation ML workflow in climate applications", 2, 1, ["earth", "ai/ml"]),
     ("Douglas Thain: TaskVine Overview", 2, 1, ["taskvine"]),
 
     #11
     ("Christine Simpson: Parsl at ALCF: Use cases and challenges for IRI, Aurora, and beyond", 3, 1, ["infrastructure"]),
-    ("Zilinghan Li and Ravi K. Madduri: Using Globus Compute to Streamline Federated Learning Applications", 3, 1, ["gc"]),
-    ("Matthew Baughman: Task Orchestration in Heterogeneous Computing Environments using Globus Compute", 3, 1, ["gc"]),
+    ("Zilinghan Li and Ravi K. Madduri: Using Globus Compute to Streamline Federated Learning Applications", 3, 1, ["ai/ml", "gc"]),
+    ("Matthew Baughman: Task Orchestration in Heterogeneous Computing Environments using Globus Compute", 3, 1, ["infrastructure"]),
     ("Nitin Ranjan: Application of AI analytics to Taxation", 3, 1, ["ai/ml"]),
     ("Akila Ravihansa Perera: Enabling Economical and Scalable Genomic Workflows", 3, 1, ["bio"]),
     ("Gus Ellerm: Extending Globus Compute with RO-Crate provenance models", 3, 1, ["gc", "provenance"]),
@@ -57,7 +57,7 @@ talk_titles_prefs = \
     ("Reid Mello: Multi-user Globus Compute endpoints", 5, 0.1, ["gc-core"]),
 
     #31
-    ("Haotian Xie (Rutgers University): TBD – talk about Diamond, an integration portal that allows users to easily use globus-compute via a frontend.", 1, 1, ["gc"]),
+    ("Haotian Xie (Rutgers University): TBD – talk about Diamond, an integration portal that allows users to easily use globus-compute via a frontend.", 1, 1, ["gc", "portal"]),
     ("Divyansh Goyal (Guru Gobind Singh Indraprastha University): Parallel scripting in medical imaging", 4, 1, ["bio"]),
     ("Dante D. Sanchez-Gallegos (University Carlos III of Madrid): Creating Wide-Area Distribution Systems with DynoStore and Globus Compute", 4, 1, ["gc"])
   ]
