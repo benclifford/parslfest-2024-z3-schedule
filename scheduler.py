@@ -16,7 +16,7 @@ talk_titles_prefs = \
     #     a lower stickiness means these will be moved in preference to a higher stickiness talk
 
     #0 
-    ("Ben Clifford: A Year in Parsl Development", 1, 0.1, []),
+    ("Ben Clifford: A Year in Parsl Development", 1, 0.1, ["parsl-core"]),
     ("Andrew S. Rosen: The Quantum Accelerator: Accessible and Scalable Materials Science Workflows", 1, 1, ["chem"]),
     ("Sander Vandenhaute: Scalable Molecular Simulation", 1, 1, ["chem"]),
     ("Douglas N. Friedel: Tracking File Provenance with Parsl", 1, 0.1, ["provenance"]),
@@ -26,8 +26,8 @@ talk_titles_prefs = \
     ("Kevin Hunter Kesling: Globus Compute Update", 2, 0.1, ["gc-core"]),
     ("Christopher Harrop: Federated Numerical Weather Prediction Workflows with MPAS", 2, 1, ["earth"]),
     ("Mansi Sakarvadia: Scaling ML Interpretability Experiments Using Parsl", 2, 1, ["ai/ml"]),
-    ("Michael Buehlmann: Analysis Portal for Cosmological Simulations", 2, 1, []),
-    ("Takuya Kurihana: Scalable earth observation ML workflow in climate  applications", 2, 1, ["earth", "ai/ml"]),
+    ("Michael Buehlmann: Analysis Portal for Cosmological Simulations", 2, 1, ["gc"]),
+    ("Takuya Kurihana: Scalable earth observation ML workflow in climate applications", 2, 1, ["earth", "ai/ml"]),
     ("Douglas Thain: TaskVine Overview", 2, 1, ["taskvine"]),
 
     #11
@@ -41,18 +41,18 @@ talk_titles_prefs = \
     #17
     ("Josh A. Bryan: Future of Globus Compute", 4, 0.1, ["gc-core"]),
     ("Colin Thomas: Parsl and TaskVine: Interactions Between DAG Managers and Workflow Executors", 4, 1, ["taskvine"]),
-    ("Andre Bauer: The Globus Compute Dataset: An Open Function-as-a-Service Dataset From the Edge to the Cloud", 4, 1, []),
-    ("Rajat Bhattarai: Dynamic Resource Management for Elastic Scientific Workflows", 4, 1, []),
+    ("Andre Bauer: The Globus Compute Dataset: An Open Function-as-a-Service Dataset From the Edge to the Cloud", 4, 1, ["gc-core"]),
+    ("Rajat Bhattarai: Dynamic Resource Management for Elastic Scientific Workflows", 4, 1, ["infrastructure"]),
     ("Inna Brodkin: Extreme-Scale Monitoring of Parsl Workflows with Chronolog", 4, 1, ["infrastructure"]),
     ("Hemant Sharma: Parsl and Globus Compute for a Hybrid Workflow", 4, 1, ["parslgc"]),
     ("Yadu Babuji: Replacing Channels with Globus Compute Executors in Parsl", 5, 0.1, ["parslgc"]),
 
     #24
-    ("Daniel S. Katz: An Update on Parsl Sustainability", 5, 0.1, []),
+    ("Daniel S. Katz: An Update on Parsl Sustainability", 5, 0.1, ["parsl-core"]),
     ("Valerie Hayot-Sasson: Developing Distributed High-performance Computing Capabilities of an Open Science Platform for Robust Epidemic Analysis", 5, 1, ["bio"]),
-    ("Arha Gautram: Decorators and Function Parameters", 5, 1, []),
+    ("Arha Gautram: Decorators and Function Parameters", 5, 1, ["parsl-core"]),
     ("Tyler J. Skluzacek: A Workflows Ecosystem for ESGF Data", 5, 1, ["earth"]),
-    ("Nischay Karle: Usage Tracking Stats of Parsl", 5, 1, []),
+    ("Nischay Karle: Usage Tracking Stats of Parsl", 5, 1, ["parsl-core"]),
     ("Lola Obielodan: Synergies among Parsl, MLOPs, and custom cloud clusters", 5, 1, ["ai/ml"]),
     ("Reid Mello: Multi-user Globus Compute endpoints", 5, 0.1, ["gc-core"]),
 
@@ -190,8 +190,11 @@ s.add(session_chairs_are_valid)
 s.add(chairs_maximum_one_session)
 s.add(special_chair_constraints)
 
-for t in topic_constraints:
-  s.add_soft(t)
+for topic in topics:
+  talks_in_topic = [talk_sessions[n] for n in range(0, len(talk_titles_prefs)) if topic in talk_titles_prefs[n][3]]
+  for a in talks_in_topic:
+    for b in talks_in_topic:
+      s.add_soft(a == b)
 
 s.minimize(objective_function)
 print(s.check())
