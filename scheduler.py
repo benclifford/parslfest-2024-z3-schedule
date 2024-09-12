@@ -205,6 +205,8 @@ s.minimize(objective_function)
 print(s.check())
 m=s.model()
 print(m)
+print("objectives:")
+print(s.objectives())
 print("\n\nformatted:")
 
 for session in range(1, n_sessions+1):
