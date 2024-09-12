@@ -108,14 +108,15 @@ special_talk_constraints = [
 
 
 possible_session_chairs = [
-  "Dan Katz",
-  "Ben Clifford",
-  "Kevin Hunter Kesling",
-  "Yadu Babuji",
-  "Kyle Chard",
-  "Reid Mello"
+  "Dan Katz",  #0
+  "Ben Clifford", #1
+  "Kevin Hunter Kesling", #2
+  "Yadu Babuji", #3
+  "Kyle Chard", #4
+  "Reid Mello" #5
   ]
 
+sticky_session_chairs = [2, 0, 5, 4, 3, 1]
 
 session_chairs = [Int(f'session_{n}_has_chair') for n in range(0,n_sessions)]
 
@@ -179,6 +180,11 @@ for topic in topics_deterministic:
       s.add_soft(a == b)
 
 s.minimize(objective_function)
+
+# session chairs are sticky
+for n in range(n_sessions):
+  s.add_soft(session_chairs[n] == sticky_session_chairs[n], weight="0.1")
+
 print(s.check())
 m=s.model()
 print(m)
