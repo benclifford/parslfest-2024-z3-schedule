@@ -160,14 +160,12 @@ for talk in talk_titles_prefs:
 def Max(x, y):
   return (x+y) / 2 + Abs( (x - y) / 2)
 
+# this will give points to talks in the same topic that are next to each other:
+# when a session S has n talks on topic T, it will score n-1. (so 1 talk alone will score
+# 0, 2 talks together will score 1, 3 talks together will score 2, ...)
 def TopicSessionScore(topic, session):
-  print(f"session {session} vs topic {topic}")
-
   se1 = [If(talk_sessions[n] == session, 1, 0) for n in range(0, len(talk_titles_prefs)) if topic in talk_titles_prefs[n][3]]
-  print(f"se1 = {se1}")
   score = Sum(*se1)
-  print(score)
-  # return If(score > 0, score - 1, 0)
   return Max(score - 1, 0)
 
 topic_cluster = Sum(*[TopicSessionScore(topic, session) for topic in topics for session in range(1,n_sessions+1)])
