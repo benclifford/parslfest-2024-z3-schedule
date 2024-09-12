@@ -96,6 +96,10 @@ special_talk_constraints = [
   OnDay(talk_sessions[1], 1),  # andrew can only do day 1
   OnDay(talk_sessions[5], 1),  # kevin can only do day 1
   talk_sessions[10] <= talk_sessions[18], # doug taskvine general should come before colin
+
+  OnDay(talk_sessions[15], 1),  # Akila told Ben: I'd prefer to be scheduled on 26th evening (CDT) since I've a conflict on 27th.
+  talk_sessions[15] == 3, # Akila -- actually is a tighter version of the directly above constraint
+
   talk_sessions[16] == 3, # tz australia
   talk_sessions[17] == 4, # josh should start day 2
   talk_sessions[32] == 4, # tz india
