@@ -58,7 +58,9 @@ talk_titles_prefs = \
     #31
     ("Haotian Xie (Rutgers University): TBD – talk about Diamond, an integration portal that allows users to easily use globus-compute via a frontend.", 2, 1, ["portal"]),
     ("Divyansh Goyal (Guru Gobind Singh Indraprastha University): Parallel scripting in medical imaging", 4, 1, ["bio"]),
-    ("Dante D. Sanchez-Gallegos (University Carlos III of Madrid): Creating Wide-Area Distribution Systems with DynoStore and Globus Compute", 4, 1, ["infrastructure"])
+    ("Dante D. Sanchez-Gallegos (University Carlos III of Madrid): Creating Wide-Area Distribution Systems with DynoStore and Globus Compute", 4, 1, ["infrastructure"]),
+    ("Satyarth Praveen: Leveraging Globus API for High-Performance Data Transfer and Computation", 1, 1, []),
+    ("Greg Pauloski: TaPS: A Performance Evaluation Suite for Task-based Execution Frameworks ", 3, 1, [])
   ]
 
 
@@ -74,7 +76,7 @@ talks_in_valid_sessions = [And(t >= 1, t <= n_sessions) for t in talk_sessions]
 def SessionSize(session, size):
     return AtMost(*[t == session for t in talk_sessions], size)
 
-session_sizes = [6,6,6,6,5,5]
+session_sizes = [7,6,7,6,5,5]
 
 sessions_have_sizes = [SessionSize(n+1, session_sizes[n]) for n in range(0,len(session_sizes))]
 
@@ -161,7 +163,6 @@ topics_deterministic = sorted(list(topics))
 
 objective_function = stickiness_factor * num_moved
 
-print("solving")
 s = Optimize()
 s.add(talks_in_valid_sessions)
 s.add(sessions_have_sizes)
@@ -185,7 +186,15 @@ s.minimize(objective_function)
 for n in range(n_sessions):
   s.add_soft(session_chairs[n] == sticky_session_chairs[n], weight="0.1")
 
-print(s.check())
+print("solving")
+result = s.check()
+
+print(result)
+
+if result == unsat :
+    print(s.unsat_core())
+    raise RuntimeError("Cannot schedule ParslFest 2024 :(")
+
 m=s.model()
 print(m)
 print("objectives:")
