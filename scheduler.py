@@ -192,6 +192,8 @@ print("objectives:")
 print(s.objectives())
 print("sexpr:")
 print(s.sexpr())
+print("stats:")
+print(s.statistics())
 print("\n\nformatted:")
 
 
