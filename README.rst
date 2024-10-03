@@ -104,6 +104,20 @@ I don't really have a feel for how well this works in general, but for the Parsl
 In the end we didn't label the sessions with topics but I guess I could have done this semi-automatically. The generated programme output listed the topic tags for each talk so at themes are visible by eye.
 
 
+Stickiness
+----------
+
+My colleague Sophie replaced the online programme with the output of this code the day after I implemented topic grouping above. After that, I wanted the code to keep session assignments if possible, only changing people to different slots if this led to better grouping. Otherwise, it was possible that changing constraints would generate a completely different but equally satisfactory programme.
+
+So I implemented session stickiness. I added a published session value to every talk, which was a manual record of which session the talk had been published to be in. Then for every talk I added a soft constraint that that talk should be placed in that session. This would not stop rearrangements if it led to a better programme, but would otherwise nudge the programme towards staying the same.
+
+I implemented this with objective functions rather than ``add_soft`` constraints, because at the time of implementation I had learned about objective functions and not about ``add_soft``. 
+
+Generally, for each talk that was moved, the schedule got 1 penalty point. But I also implemented a friendly-speakers option: each talk was annotated with a movement penalty score. This let me specify that some speakers (generally people on the core teams who I knew personally) should be moved in preference to others.
+
+If I implemented this again, i would have used ``add_soft`` - and in the chair handling code that's what I did.
+
+
 
 Run this code
 =============
