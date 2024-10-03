@@ -31,7 +31,7 @@ The first constraints I added are to do with the structure of the sessions, rath
 
 * each talk must be in a valid session: for example, a talk cannot be scheduled in session 99.
 
-  This was implemented by declaring this constaint 35 times (one for each talk):
+  This was implemented by declaring this constraint 35 times (one for each talk):
 
   .. code-block::
 
@@ -118,6 +118,39 @@ Generally, for each talk that was moved, the schedule got 1 penalty point. But I
 If I implemented this again, i would have used ``add_soft`` - and in the chair handling code that's what I did.
 
 
+Session chairs
+--------------
+
+Each session has a chair, to keep order and pace.
+
+These have also been allocated manually in previous years, extremely informally.
+
+As it is usually me allocating the session chairs manually and I was in the flow, I added that here too.
+
+I put in a list of (around 6) available chairs, who were all also speakers.
+
+For each session, I declared a variable identifying the chair. This relation is the other way round to talks having a session: talks have one identified session, but sessions have one identified chair.
+
+Then I added constraints for:
+
+* basic structure: a session must be chaired by a valid chair (a valid chair number)
+
+* chair availability: like with the talks, some people were only available on some days. (abstracting back a level, this is availability on a human, rather than on a talk or a chair, and maybe it would be interesting to describe availability relations with that abstraction, once... but here there were sufficiently few constraints I did not do so)
+
+* chairs should not speak in a session they chair. This was implemented as a manual list of which chairs had which numbered talks.
+
+* chairs should chair at most 1 session (although they might not be used as a chair at all: unlike talks, there is no requirement to schedule all possible chairs)
+
+* chair assignment should be sticky - like sticky talk sessions, but using ``add_soft``
+
+None of this chair scheduling was complicated compared to the earlier parts.
+
+Would I do this again?
+----------------------
+
+Yes. We got a better schedule than manual scheduling, because we got talk grouping, something people have asked for; we got more confidence about our hard constraints; and we were easily able to reschedule after a "major event" within minutes: adding so many more talks that we wanted to restructure two sessions into three.
+
+Most of the time (a very long evening) was spent learning Z3 and techniques for scheduling. This README is in part for when I want to do this again, so I don't have to re-learn. (hello, me in 2025!)
 
 Run this code
 =============
