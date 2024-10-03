@@ -24,6 +24,9 @@ The solution that Z3 outputs is then a tuple of 35 integers, mapping talks to se
 
 Without any further constraints, this doesn't result in a valid programme. For example, it would be legitimate for z3 to map all talks to session 99 which does not exist (and I think what happened was that all talks were mapped to session 0).
 
+Session structure
+-----------------
+
 The first constraints I added are to do with the structure of the sessions, rather than the constraints I talked about in the introduction:
 
 * each talk must be in a valid session: for example, a talk cannot be scheduled in session 99.
@@ -49,6 +52,9 @@ The first constraints I added are to do with the structure of the sessions, rath
     sessions_have_sizes = [SessionSize(n+1, session_sizes[n]) for n in range(0,len(session_sizes))]
 
 With these constraints, the code will output a schedule with the right number of talks in each session, but without any of the constraints mentioned in the introduction. This is roughly the same as taking talks from the list and putting them anywhere there is a hole in the schedule.
+
+Talk constraints
+----------------
 
 Now I added in the hard constraints for individual talk timing. This is an explicit list of constraints on numbered talks (or rather, on the Z3 variable mapping a particular talk to a session). The comments next to each talk describe the talk.
 
@@ -79,6 +85,9 @@ There are two functions that give custom constraints: ``OnDay`` knows how to con
 
 
 This gave a schedule which satisfied all of our hard constraints, and as an advantage to the manual approach, allowed further experimentation while preserving all the constraints. This is maybe the point that this code became "better" than the manual approach. Although I was the only one editing constraints, it would have been possible for someone else to have pushed other constraints into the code, like any other code modification, and there was a GitHub-visible list of constraints so that others could check if a particular constraint was specified, even if they weren't editing the constraints.
+
+Grouping by topics
+------------------
 
 Next, I wanted to see what theme based grouping I could make work here. I assigned each talk a list of topic keywords based on what I knew about each talk: the talk title and in some cases personal knowledge of the speaker's work. I tried a couple of ways of implementing grouping. My first implementation (introduced in `this commit <https://github.com/benclifford/parslfest-2024-z3-schedule/commit/6746bb0f296bf6bc750d9e0326e3627c100bfb00#diff-e875a684611661e9011e4e179a1c6c2c398a3bd2148862694388a87e7b3a55e3R150>`_ and subsequently removed) was quite maths-heavy and slow to solve). I replaced that with a soft constraint based implementation which solves much faster. For every topic, every pair of talks that shares that topic gets a soft constraint to be in the same session.
 
