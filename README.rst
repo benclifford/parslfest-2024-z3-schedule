@@ -48,9 +48,37 @@ The first constraints I added are to do with the structure of the sessions, rath
 
     sessions_have_sizes = [SessionSize(n+1, session_sizes[n]) for n in range(0,len(session_sizes))]
 
-With these constraints, the code will output a schedule with the right number of talks in each session, but without any of the constraints mentioned in the introduction.
+With these constraints, the code will output a schedule with the right number of talks in each session, but without any of the constraints mentioned in the introduction. This is roughly the same as taking talks from the list and putting them anywhere there is a hole in the schedule.
+
+Now I added in the hard constraints for individual talk timing. This is an explicit list of constraints on numbered talks (or rather, on the Z3 variable mapping a particular talk to a session). The comments next to each talk describe the talk.
+
+There are two functions that give custom constraints: ``OnDay`` knows how to constrain a talk to a particular day (day 1 or day 2) rather than a particular session. It is implemented with an ``if`` statement that generates a bunch of session constraints.
+
+``YaduConstraints`` is a set of constraints over two talks. My colleague Yadu was the only speaker giving two lightning talks and I wanted his talks to be on different days (without constraining which talk went on which day). ``YaduConstraints`` is implemented in terms of ``OnDay`` on both of his talks: either his talk 4 is on day 1 and his talk 23 is on day 2, or the other way round.
+
+  .. code-block::
+
+    special_talk_constraints = [
+      talk_sessions[0] == 1,  # Ben should give first talk of whats changed in Parsl this year
+      OnDay(talk_sessions[1], 1),  # andrew can only do day 1
+      OnDay(talk_sessions[5], 1),  # kevin can only do day 1
+      talk_sessions[10] <= talk_sessions[18], # doug taskvine general should come before colin
+
+      OnDay(talk_sessions[15], 1),  # Akila told Ben: I'd prefer to be scheduled on 26th evening (CDT) since I've a conflict on 27th.
+      talk_sessions[15] == 3, # Akila -- actually is a tighter version of the directly above constraint
+
+      talk_sessions[16] == 3, # tz australia
+      talk_sessions[17] == 4, # josh should start day 2
+      talk_sessions[32] == 4, # tz india
+      talk_sessions[33] == 4, # tz europe
+      YaduConstraints # Yadu's 2 talks should be on different days.
+      ]
+
+      YaduConstraints = Or(And(OnDay(talk_sessions[4], 1), OnDay(talk_sessions[23], 2)),
+                           And(OnDay(talk_sessions[4], 2), OnDay(talk_sessions[23], 1)))
 
 
+This gave a schedule which satisfied all of our hard constraints.
 
 Run this code
 =============
