@@ -13,6 +13,45 @@ One evening a couple of weeks before ParslFest, I was reading about the `Z3 Theo
 
 This git repository is the result of that.
 
+How it works
+============
+
+The code defines 35 integer Z3 variables, mapping each of 35 talks to a numbered session.
+
+Near the top of the code, ``talk_titles_prefs`` is an array that maps talk numbers to a human readable description along with some other metadata I will talk about later.
+
+The solution that Z3 outputs is then a tuple of 35 integers, mapping talks to sessions. At the end of the code, this is pretty-printed into something that looks more like the event programme, for human consumption.
+
+Without any further constraints, this doesn't result in a valid programme. For example, it would be legitimate for z3 to map all talks to session 99 which does not exist (and I think what happened was that all talks were mapped to session 0).
+
+The first constraints I added are to do with the structure of the sessions, rather than the constraints I talked about in the introduction:
+
+* each talk must be in a valid session: for example, a talk cannot be scheduled in session 99.
+
+  This was implemented by declaring this constaint 35 times (one for each talk):
+
+  .. code-block::
+
+    And(t >= 1, t <= n_sessions) for t in talk_sessions
+
+
+* each sessions has a maximum number of talks - because of break placement, the sessions weren't all the same size.
+
+  Z3 lets you declare that out of a collection of boolean statements, no more than a specified maximum may be true, using `AtMost`. For each session, I made 35 boolean statements to check if a talk is in that session, and constrained the maximum number of those statements that could be true.
+ 
+  .. code-block::
+
+    session_sizes = [7,6,6,6,5,6]
+
+    def SessionSize(session, size):
+      return AtMost(*[t == session for t in talk_sessions], size)
+
+    sessions_have_sizes = [SessionSize(n+1, session_sizes[n]) for n in range(0,len(session_sizes))]
+
+With these constraints, the code will output a schedule with the right number of talks in each session, but without any of the constraints mentioned in the introduction.
+
+
+
 Run this code
 =============
 
