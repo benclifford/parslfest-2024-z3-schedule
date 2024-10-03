@@ -78,7 +78,23 @@ There are two functions that give custom constraints: ``OnDay`` knows how to con
                            And(OnDay(talk_sessions[4], 2), OnDay(talk_sessions[23], 1)))
 
 
-This gave a schedule which satisfied all of our hard constraints.
+This gave a schedule which satisfied all of our hard constraints, and as an advantage to the manual approach, allowed further experimentation while preserving all the constraints. This is maybe the point that this code became "better" than the manual approach. Although I was the only one editing constraints, it would have been possible for someone else to have pushed other constraints into the code, like any other code modification, and there was a GitHub-visible list of constraints so that others could check if a particular constraint was specified, even if they weren't editing the constraints.
+
+Next, I wanted to see what theme based grouping I could make work here. I assigned each talk a list of topic keywords based on what I knew about each talk: the talk title and in some cases personal knowledge of the speaker's work. I tried a couple of ways of implementing grouping. My first implementation (introduced in `this commit <https://github.com/benclifford/parslfest-2024-z3-schedule/commit/6746bb0f296bf6bc750d9e0326e3627c100bfb00#diff-e875a684611661e9011e4e179a1c6c2c398a3bd2148862694388a87e7b3a55e3R150>`_ and subsequently removed) was quite maths-heavy and slow to solve). I replaced that with a soft constraint based implementation which solves much faster. For every topic, every pair of talks that shares that topic gets a soft constraint to be in the same session.
+
+.. code-block::
+
+  for topic in topics_deterministic:
+    talks_in_topic = [talk_sessions[n] for n in range(0, len(talk_titles_prefs)) if topic in talk_titles_prefs[n][3]]
+    for a in talks_in_topic:
+      for b in talks_in_topic:
+        s.add_soft(a == b)
+
+I don't really have a feel for how well this works in general, but for the ParslFest programme it produced some acceptable groupings: All ``ai/ml`` talks ended up in session 5, and that session was only ``ai/ml`` talks. Session 6 was mostly ``infrastructure`` talks, and other sessions contained groups of smaller topic tags. The most varied session was session 3, caused primarily by timezone constraints forcing a few speakers here that could not bring their whole topic group with them.
+
+In the end we didn't label the sessions with topics but I guess I could have done this semi-automatically. The generated programme output listed the topic tags for each talk so at themes are visible by eye.
+
+
 
 Run this code
 =============
