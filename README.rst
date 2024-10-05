@@ -159,6 +159,8 @@ Even More Overengineering
 
 * what different ways are available for grouping talks? I feel like the current talk grouping will do things like double the affinity of talks that share two keywords, which I don't think I want to happen.
 
+* More explicit representation of humans: because they were present in several places (eg. Yadu's two talks, and six session chairs)
+
 Run this code
 =============
 
