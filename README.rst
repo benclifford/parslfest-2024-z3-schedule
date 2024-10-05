@@ -152,6 +152,13 @@ Yes. We got a better schedule than manual scheduling, because we got talk groupi
 
 Most of the time (a very long evening) was spent learning Z3 and techniques for scheduling. This README is in part for when I want to do this again, so I don't have to re-learn. (hello, me in 2025!)
 
+Even More Overengineering
+-------------------------
+
+* break placement: there was some flexibility on how many talks were in each session (for example, fairly regularly spaced breaks but we could have moved them slightly to accomodate talk grouping)
+
+* what different ways are available for grouping talks? I feel like the current talk grouping will do things like double the affinity of talks that share two keywords, which I don't think I want to happen.
+
 Run this code
 =============
 
