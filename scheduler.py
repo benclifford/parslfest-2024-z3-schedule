@@ -1,5 +1,10 @@
 from z3 import *
 
+# numbers will be represented as bitvecs with this
+# many bits - so user must manually make sure its big enough
+# to hold results.
+BITFIELD = 4
+
 # how much we care about schedule stickiness
 stickiness_factor = 0.01
 
@@ -64,7 +69,7 @@ talk_titles_prefs = \
   ]
 
 
-talk_sessions = [Int(f'talk_{n}_in_session') for n in range(0,len(talk_titles_prefs))]
+talk_sessions = [BitVec(f'talk_{n}_in_session', BITFIELD) for n in range(0,len(talk_titles_prefs))]
 
 n_sessions = 6
 
@@ -120,7 +125,7 @@ possible_session_chairs = [
 
 sticky_session_chairs = [2, 0, 5, 4, 3, 1]
 
-session_chairs = [Int(f'session_{n}_has_chair') for n in range(0,n_sessions)]
+session_chairs = [BitVec(f'session_{n}_has_chair', BITFIELD) for n in range(0,n_sessions)]
 
 session_chairs_are_valid = [And(sc >= 0, sc < len(possible_session_chairs)) for sc in session_chairs]
 
