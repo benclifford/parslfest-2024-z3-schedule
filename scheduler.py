@@ -27,7 +27,7 @@ talk_titles_prefs = \
     # sheet row 2 
     ("Kyle Chard", 1, 1, ["parslfest-meta"], "Introduction to ParslFest", True),
     ("Ben Clifford", None, 0.1, ["parsl-core"], "HTEX Interchange in 3 languages", False),
-    ("James Klassen", None, 1, ["geo/env"], "Calculating optimal size of Parsl runs for DEM production", False),
+    ("James Klassen", None, 1, ["geo/env", "imaging"], "Calculating optimal size of Parsl runs for DEM production", False),
     ("Zhao Zhang", None, 1, ["ml"], "Training Neural Networks with Diamond", False),
     ("Sicheng Zhou", None, 1, ["tooling/infra"], "WRATH: Workflow Resilience Across Task Hierarchies in Task-based Parallel Programming Frameworks", False),
     ("Dave Bunten", None, 1, ["bio"], "With Great Parsl Comes Great Portability: Using Parsl through CytoTable for Harmonizing Single-cell Data", False),
