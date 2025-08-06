@@ -1,3 +1,8 @@
+# TODOs for parslfest 2025
+# maybe put in some session constraints on a mix of remote and in person, as there is a lot of remote this time?
+# also output for speakers: topics and remoteness
+# list "bad" topics: topics for which there is only one talk - bad in the sense that there is nothing to cluster them with. although that's good in the sense that they can fill in whereever.
+
 from z3 import *
 
 # numbers will be represented as bitvecs with this
@@ -11,67 +16,54 @@ stickiness_factor = 0.01
 talk_titles_prefs = \
   [
 
-    # first entry is talk title
+    # first entry is speaker
     # second entry is the published schedule slot (or None if they have none) so that
     #     the solver can try to not move people from the already published schedule.
     # third entry is session stickiness: put Parsl and Globus Compute staff low so that the
     #     solver prefers to move them around rather than other speakers, but non-zero so that
     #     there is still some preference to keep them in the assigned slot
     #     a lower stickiness means these will be moved in preference to a higher stickiness talk
+    # fourth entry is talk title
 
-    #0 
-    ("Ben Clifford: A Year in Parsl Development", 1, 0.1, ["parsl-core"]),
-    ("Andrew S. Rosen: The Quantum Accelerator: Accessible and Scalable Materials Science Workflows", 1, 1, ["chem"]),
-    ("Sander Vandenhaute: Scalable Molecular Simulation", 1, 1, ["chem"]),
-    ("Douglas N. Friedel: Tracking File Provenance with Parsl", 3, 0.1, ["provenance"]),
-    ("Yadu Babuji: MPI+FaaS: Extending Parsl and Globus Compute to Represent and Execute MPI Tasks", 6, 0.1, ["parslgc"]),
-
-    #5
-    ("Kevin Hunter Kesling: Globus Compute Update", 3, 0.1, ["gc-core"]),
-    ("Christopher Harrop: Federated Numerical Weather Prediction Workflows with MPAS", 2, 1, ["earth"]),
-    ("Mansi Sakarvadia: Scaling ML Interpretability Experiments Using Parsl", 5, 1, ["ai/ml"]),
-    ("Michael Buehlmann: Analysis Portal for Cosmological Simulations", 2, 1, ["portal"]),
-    ("Takuya Kurihana: Scalable earth observation ML workflow in climate applications", 5, 1, ["earth", "ai/ml"]),
-    ("Douglas Thain: TaskVine Overview", 2, 1, ["taskvine"]),
-
-    #11
-    ("Christine Simpson: Parsl at ALCF: Use cases and challenges for IRI, Aurora, and beyond", 6, 1, ["infrastructure"]),
-    ("Zilinghan Li and Ravi K. Madduri: Using Globus Compute to Streamline Federated Learning Applications", 5, 1, ["ai/ml"]),
-    ("Matthew Baughman: Task Orchestration in Heterogeneous Computing Environments using Globus Compute", 6, 1, ["infrastructure"]),
-    ("Nitin Ranjan: Application of AI analytics to Taxation", 5, 1, ["ai/ml"]),
-    ("Akila Ravihansa Perera: Enabling Economical and Scalable Genomic Workflows", 3, 1, ["bio"]),
-    ("Gus Ellerm: Extending Globus Compute with RO-Crate provenance models", 3, 1, ["provenance"]),
-
-    #17
-    ("Josh A. Bryan: Future of Globus Compute", 4, 0.1, ["gc-core"]),
-    ("Colin Thomas: Parsl and TaskVine: Interactions Between DAG Managers and Workflow Executors", 2, 1, ["taskvine"]),
-    ("Andre Bauer: The Globus Compute Dataset: An Open Function-as-a-Service Dataset From the Edge to the Cloud", 4, 1, ["gc-core"]),
-    ("Rajat Bhattarai: Dynamic Resource Management for Elastic Scientific Workflows", 6, 1, ["infrastructure"]),
-    ("Inna Brodkin: Extreme-Scale Monitoring of Parsl Workflows with Chronolog", 6, 1, ["infrastructure"]),
-    ("Hemant Sharma: Parsl and Globus Compute for a Hybrid Workflow", 3, 1, ["parslgc"]),
-    ("Yadu Babuji: Replacing Channels with Globus Compute Executors in Parsl", 3, 0.1, ["parslgc"]),
-
-    #24
-    ("Daniel S. Katz: An Update on Parsl Sustainability", 1, 0.1, ["parsl-core"]),
-    ("Valerie Hayot-Sasson: Developing Distributed High-performance Computing Capabilities of an Open Science Platform for Robust Epidemic Analysis", 4, 1, ["bio"]),
-    ("Arha Gautram: Decorators and Function Parameters", 1, 1, ["parsl-core"]),
-    ("Tyler J. Skluzacek: A Workflows Ecosystem for ESGF Data", 2, 1, ["earth"]),
-    ("Nischay Karle: Usage Tracking Stats of Parsl", 1, 1, ["parsl-core"]),
-    ("Lola Obielodan: Synergies among Parsl, MLOPs, and custom cloud clusters", 5, 1, ["ai/ml"]),
-    ("Reid Mello: Multi-user Globus Compute endpoints", 4, 0.1, ["gc-core"]),
-
-    #31
-    ("Haotian Xie (Rutgers University): TBD – talk about Diamond, an integration portal that allows users to easily use globus-compute via a frontend.", 2, 1, ["portal"]),
-    ("Divyansh Goyal (Guru Gobind Singh Indraprastha University): Parallel scripting in medical imaging", 4, 1, ["bio"]),
-    ("Dante D. Sanchez-Gallegos (University Carlos III of Madrid): Creating Wide-Area Distribution Systems with DynoStore and Globus Compute", 4, 1, ["infrastructure"]),
-    ("Satyarth Praveen: Leveraging Globus API for High-Performance Data Transfer and Computation", 1, 1, []),
-    ("Greg Pauloski: TaPS: A Performance Evaluation Suite for Task-based Execution Frameworks ", 6, 1, ["infrastructure"])
+    # sheet row 2 
+    ("Kyle Chard", 1, 1, ["parslfest-meta"], "Introduction to ParslFest"),
+    ("Ben Clifford", None, 0.1, ["fun"], "HTEX Interchange in 3 languages"),
+    ("James Klassen", None, 1, ["geo/env"], "Calculating optimal size of Parsl runs for DEM production"),
+    ("Zhao Zhang", None, 1, ["ml"], "Training Neural Networks with Diamond"),
+    ("Sicheng Zhou", None, 1, ["tooling/infra"], "WRATH: Workflow Resilience Across Task Hierarchies in Task-based Parallel Programming Frameworks"),
+    ("Dave Bunten", None, 1, ["bio"], "With Great Parsl Comes Great Portability: Using Parsl through CytoTable for Harmonizing Single-cell Data"),
+    ("Josh Bryan", None, 0.1, ["gc-core"], "Globus Compute Past and Future"),
+    ("Chris Janidlo", None, 0.1, ["gc-core"], "Globus Compute Serialization Overview"),
+    ("Yadu Babuji", None, 0.1, ["site", "tooling/infra"], "Parsl scaling on Aurora"),
+    ("Laura Walitzer", None, 1, ["simulations"], "A Multifidelity, Multiobjective Optimization Workflow With Parsl"),
+    ("Dan Dietz", None, 1, ["site"], "Globus Compute at OLCF"),
+    ("Tianle Wang", None, 1, ["tooling/infra"], "Integration of globus compute and harvester for ATLAS workflow at HPC"),
+    ("Patrick Wells", None, 1, [], ""),
+    ("Sou Cheng Choi", None, 1, ["simulations"], "Using Parsl for Speeding up QMCPy"),
+    ("João Gabriel Loureiro de Lima Lembo", None, 1, ["tooling/infra"], "Implementing Cold-Start Reduction Techniques on Globus Compute"),
+    ("Chris Harrop", None, 1, ["tooling/infra"], "Enhancements for Parsl and Globus Compute Integration"),
+    ("Haochen Pan", None, 1, ["tooling/infra"], "Globus MCPs for Science and High Performance Computing"),
+    ("Alok Kamatar", None, 1, ["geo/env"], "Core Hours and Carbon: The Environmental Impact of Federated Computing"),
+    ("Hai Duc Nguyen", None, 1, ["imaging", "tomography"], "Resilient Solutions for Tomographic Reconstruction"),
+    ("Daniel Babnigg", None, 1, ["imaging", "astronomy"], "Parallel Scripting in a Integral Field Unit Spectroscopy Pipeline"),
+    ("Geoffrey Lentner", None, 1, ["site", "tooling/infra"], "Enabling Science for NSF ACCESS via Globus Compute"),
+    ("Pedro Enrique Martinez Fernandez", None, 1, ["provenance/repro"], "Globus Compute + DataLad: Provenance tracking for remote workflows"),
+    ("Douglas N Friedel", None, 0.1, ["tooling/infra"], "KeepItRunning: A New Tool for Migrating Running Jobs Between HPC Resources"),
+    ("Will Engler", None, 1, ["ml", "tooling/infra"], "Garden: Lessons learned from serving AI for Science models with Globus Compute"),
+    ("Greg Pauloski", None, 1, [], ""),
+    ("Mike Tynes", None, 1, ["materials", "simulations", "ml"], "Distributed on-the-fly training of neural network potentials with Parsl and Colmena"),
+    ("Matt Baughman", None, 1, ["tooling/infra"], "Adaptive Task Management: Enabling Multi-Site Workflows with Globus Compute"),
+    ("Valerie Hayot-Sasson", None, 1, ["provenance/repro"], "Facilitating Reproducibility Evaluations on HPC with Globus Compute and GitHub Actions"),
+    ("Arham Khan", None, 1, [], "LSHBloom: Memory-efficient, Extreme-scale Document Deduplication"),
   ]
 
 
 talk_sessions = [BitVec(f'talk_{n}_in_session', BITFIELD) for n in range(0,len(talk_titles_prefs))]
 
-n_sessions = 6
+session_sizes = [5,5,5,5,5,5]
+n_sessions = len(session_sizes)
+
+assert sum(session_sizes) >= len(talk_titles_prefs), "must be enough slots for each talk"
 
 # each talk must be in a valid session
 talks_in_valid_sessions = [And(t >= 1, t <= n_sessions) for t in talk_sessions]
@@ -81,7 +73,6 @@ talks_in_valid_sessions = [And(t >= 1, t <= n_sessions) for t in talk_sessions]
 def SessionSize(session, size):
     return AtMost(*[t == session for t in talk_sessions], size)
 
-session_sizes = [7,6,6,6,5,6]
 
 sessions_have_sizes = [SessionSize(n+1, session_sizes[n]) for n in range(0,len(session_sizes))]
 
@@ -93,34 +84,39 @@ def OnDay(talk_session, day):
   else:
     raise RuntimeError("bad day")
 
-YaduConstraints = Or(And(OnDay(talk_sessions[4], 1), OnDay(talk_sessions[23], 2)),
-                     And(OnDay(talk_sessions[4], 2), OnDay(talk_sessions[23], 1)))
+# YaduConstraints = Or(And(OnDay(talk_sessions[4], 1), OnDay(talk_sessions[23], 2)),
+#                      And(OnDay(talk_sessions[4], 2), OnDay(talk_sessions[23], 1)))
   
 
 special_talk_constraints = [
-  talk_sessions[0] == 1,  # Ben should give first talk of whats changed in Parsl this year
-  OnDay(talk_sessions[1], 1),  # andrew can only do day 1
-  OnDay(talk_sessions[5], 1),  # kevin can only do day 1
-  talk_sessions[10] <= talk_sessions[18], # doug taskvine general should come before colin
+   OnDay(talk_sessions[6], 1),  # Josh can only do day 1 in person
+   talk_sessions[6] != talk_sessions[0], # GC intro should not be in same session as Parsl into 
+   talk_sessions[6] <= talk_sessions[7], # GC intro should come before other GC talks
+   talk_sessions[1] >= 3,  # Ben doesn't want to talk in first two sessions
+   ]
 
-  OnDay(talk_sessions[15], 1),  # Akila told Ben: I'd prefer to be scheduled on 26th evening (CDT) since I've a conflict on 27th.
-  talk_sessions[15] == 3, # Akila -- actually is a tighter version of the directly above constraint
+#  OnDay(talk_sessions[1], 1),  # andrew can only do day 1
+#  OnDay(talk_sessions[5], 1),  # kevin can only do day 1
+#  talk_sessions[10] <= talk_sessions[18], # doug taskvine general should come before colin
 
-  talk_sessions[16] == 3, # tz australia
-  talk_sessions[17] == 4, # josh should start day 2
-  talk_sessions[32] == 4, # tz india
-  talk_sessions[33] == 4, # tz europe
-  YaduConstraints # Yadu's 2 talks should be on different days.
-  ]
+#  OnDay(talk_sessions[15], 1),  # Akila told Ben: I'd prefer to be scheduled on 26th evening (CDT) since I've a conflict on 27th.
+#  talk_sessions[15] == 3, # Akila -- actually is a tighter version of the directly above constraint
+
+#  talk_sessions[16] == 3, # tz australia
+#  talk_sessions[17] == 4, # josh should start day 2
+#  talk_sessions[32] == 4, # tz india
+#  talk_sessions[33] == 4, # tz europe
+#  YaduConstraints # Yadu's 2 talks should be on different days.
+#  ]
 
 
 possible_session_chairs = [
   "Dan Katz",  #0
-  "Ben Clifford", #1
-  "Kevin Hunter Kesling", #2
-  "Yadu Babuji", #3
-  "Kyle Chard", #4
-  "Reid Mello" #5
+  "ADDITIONAL CHAIR #1", #1
+  "Yadu Babuji", #2
+  "Kyle Chard", #3
+  "ADDITIONAL CHAIR #4", #4
+  "ADDITIONAL CHAIR #6", #5
   ]
 
 sticky_session_chairs = [2, 0, 5, 4, 3, 1]
@@ -136,35 +132,49 @@ def ChairHasMaxOneSession(chairnum):
 
 chairs_maximum_one_session = And(*[ChairHasMaxOneSession(n) for n in range(0, len(possible_session_chairs))])
 
+# exclude speakers from chairing their own session
+
 def ChairTalkExclusion(talk, chairnum):
   return And(*[Not(And(talk_sessions[talk] == session+1, session_chairs[session] == chairnum)) for session in range(0, n_sessions)])
 
-special_chair_constraints = [
-   ChairTalkExclusion(0, 1),   # talk 0 cannot be in session chaired by chair 1 -- that's Ben
+special_chair_constraints = []
 
-   ChairTalkExclusion(24, 0),  # Dan
+for sc_n in range(0, len(possible_session_chairs)):
+  print(f"Excluding talks for possibel session chair {sc_n} -- {possible_session_chairs[sc_n]}")
+  for ses_n in range(0, len(talk_titles_prefs)):
+    if talk_titles_prefs[ses_n][0] == possible_session_chairs[sc_n]:
+      print(f"Excluding speaker for talk {ses_n}")
+      special_chair_constraints.append(ChairTalkExclusion(ses_n, sc_n))
 
-   ChairTalkExclusion(5, 2),   # Kevin
-   session_chairs[3] != 2, # Kevin cannot chair on any day2 session
-   session_chairs[4] != 2,  # Kevin cannot chair on any day2 session
-   session_chairs[5] != 2,  # Kevin cannot chair on any day2 session
 
-   ChairTalkExclusion(4, 3),   # Yadu
-   ChairTalkExclusion(23, 3),   # Yadu
+#   ChairTalkExclusion(0, 1),   # talk 0 cannot be in session chaired by chair 1 -- that's Ben
 
-   session_chairs[0] != 4, # Kyle (doesn't have a talk in the sense of this scheduler, but is doing intro)
+#   ChairTalkExclusion(24, 0),  # Dan
 
-   ChairTalkExclusion(30, 5)   # Reid
- ]
+#   ChairTalkExclusion(5, 2),   # Kevin
+#   session_chairs[3] != 2, # Kevin cannot chair on any day2 session
+#   session_chairs[4] != 2,  # Kevin cannot chair on any day2 session
+#   session_chairs[5] != 2,  # Kevin cannot chair on any day2 session
+
+#   ChairTalkExclusion(4, 3),   # Yadu
+#   ChairTalkExclusion(23, 3),   # Yadu
+
+#   session_chairs[0] != 4, # Kyle (doesn't have a talk in the sense of this scheduler, but is doing intro)
+
+#   ChairTalkExclusion(30, 5)   # Reid
+# ]
 
 num_moved = Sum(*[If(talk_sessions[n] == talk_titles_prefs[n][1], 0, talk_titles_prefs[n][2] if len(talk_titles_prefs[n]) > 2 else 1) for n in range(0,len(talk_titles_prefs)) if talk_titles_prefs[n][1] is not None])
 
 topics = set()
 for talk in talk_titles_prefs:
+  assert isinstance(talk[3], list)
   topics.update(talk[3])
 
+print(f"Topics: {topics}")
 topics_deterministic = sorted(list(topics))
 
+print(f"Topics deteministic: {topics}")
 
 objective_function = stickiness_factor * num_moved
 
@@ -181,10 +191,31 @@ s.add(special_chair_constraints)
 
 for topic in topics_deterministic:
   talks_in_topic = [talk_sessions[n] for n in range(0, len(talk_titles_prefs)) if topic in talk_titles_prefs[n][3]]
-  for a in talks_in_topic:
-    for b in talks_in_topic:
-      s.add_soft(a == b)
 
+  if len(talks_in_topic) > 1:
+
+    # so that we will get a soft score of 1 if all the soft constraints for this topic are satisfied
+    talk_constraint_strength = 1.0 / (len(talks_in_topic) * (len(talks_in_topic) - 1))
+
+    print(f"Topic {topic} has {len(talks_in_topic)} talks. Soft constraint score is {talk_constraint_strength}")
+
+
+    for a in talks_in_topic:
+      for b in talks_in_topic:
+        # these tests should massively reduce the number of soft constraints on large topic groups
+        # in practice on parslfest 2025, this reduce solving from 15 minute to 5 seconds
+        if a is b:
+          print("skipping self-pairing")
+        elif id(a) > id(b):  # arbitrary ordering
+          print("skipping mirror pairing")
+        else:
+          print(f"Adding a topic affinity for {a} and {b}")
+          s.add_soft(a == b, weight=talk_constraint_strength)
+
+# if you're getting errors here about objective function being a float,
+# (and of value 0), it's because there aren't any stickiness pairs to
+# evaluate - because nothing is pinned. Pin a single talk (eg the
+# intro) by hand.
 s.minimize(objective_function)
 
 # session chairs are sticky
@@ -217,11 +248,13 @@ for session in range(1, n_sessions+1):
   used = 0
   for n in range(0, len(talk_titles_prefs)):
     if m.evaluate(talk_sessions[n]) == session:
-      if talk_titles_prefs[n][1] is None:
-        print("**NEW** ", end='')
-      elif session != talk_titles_prefs[n][1]:
-        print("**MOVED** ", end='')
+      # if talk_titles_prefs[n][1] is None:
+      #  print("**NEW** ", end='')
+      # elif session != talk_titles_prefs[n][1]:
+      #  print("**MOVED** ", end='')
       print(talk_titles_prefs[n][0], end='   ')
+      print(" - ", end='')
+      print(talk_titles_prefs[n][4], end='   ')
       print(talk_titles_prefs[n][3])
       used += 1
   for _ in range(0, session_sizes[session-1] - used):
