@@ -54,6 +54,10 @@ talk_titles_prefs = \
     ("Matt Baughman", None, 1, ["tooling/infra", "multisite"], "Adaptive Task Management: Enabling Multi-Site Workflows with Globus Compute", False),
     ("Valerie Hayot-Sasson", None, 1, ["provenance/repro"], "Facilitating Reproducibility Evaluations on HPC with Globus Compute and GitHub Actions", False),
     ("Arham Khan", None, 1, [], "LSHBloom: Memory-efficient, Extreme-scale Document Deduplication", True),
+    ("Mansi Sakarvadia", None, 1, ["ml"], "Topology-Aware Knowledge Propagation in Decentralized Learning", False),
+    ("Logan Ward", None, 0.1, ["materials", "ml", "simulations"], "Deploying AI+Simulation Workflows for MOF Design (with Parsl)", False),
+    ("Kelechi Annabelle Nwankwo", None, 1, ["tooling/infra"], "Parslet: Making Workflow Automation Accessible on Android and Low-Power Devices", False),
+    ("Stefan Gary", None, 1, [], "Using parsl-perf to evaluate performance in a hybrid HPC environment", False),
   ]
 
 
@@ -61,7 +65,7 @@ talk_sessions = [BitVec(f'talk_{n}_in_session', BITFIELD) for n in range(0,len(t
 
 # two different session structures: 2 bigger sessions, or 3 smaller sessions, per day
 # session_sizes = [7,8,0,7,7,0]
-session_sizes = [5,5,5,5,5,5]
+session_sizes = [6,6,6,6,6,6]
 n_sessions = len(session_sizes)
 
 assert sum(session_sizes) >= len(talk_titles_prefs), "must be enough slots for each talk"
