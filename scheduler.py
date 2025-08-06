@@ -57,7 +57,7 @@ talk_titles_prefs = \
     ("Mansi Sakarvadia", None, 1, ["ml"], "Topology-Aware Knowledge Propagation in Decentralized Learning", False),
     ("Logan Ward", None, 0.1, ["materials", "ml", "simulations"], "Deploying AI+Simulation Workflows for MOF Design (with Parsl)", False),
     ("Kelechi Annabelle Nwankwo", None, 1, ["tooling/infra"], "Parslet: Making Workflow Automation Accessible on Android and Low-Power Devices", False),
-    ("Stefan Gary", None, 1, [], "Using parsl-perf to evaluate performance in a hybrid HPC environment", False),
+    ("Stefan Gary", None, 1, ["tooling/infra", "multisite"], "Using parsl-perf to evaluate performance in a hybrid HPC environment", False),
   ]
 
 
@@ -76,8 +76,8 @@ talks_in_valid_sessions = [And(t >= 1, t <= n_sessions) for t in talk_sessions]
 # session capacities
 
 def SessionSize(session, size):
-    return AtMost(*[t == session for t in talk_sessions], size)
-
+    return And(AtMost(*[t == session for t in talk_sessions], size),
+               AtLeast(*[t == session for t in talk_sessions], size-1))
 
 sessions_have_sizes = [SessionSize(n+1, session_sizes[n]) for n in range(0,len(session_sizes))]
 
