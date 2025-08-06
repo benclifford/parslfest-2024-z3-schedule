@@ -118,7 +118,8 @@ possible_session_chairs = [
   "ADDITIONAL CHAIR #6", #5
   ]
 
-sticky_session_chairs = [2, 0, 5, 4, 3, 1]
+# sticky_session_chairs = [2, 0, 5, 4, 3, 1]
+sticky_session_chairs = [None, None, None, None, None, None]
 
 session_chairs = [BitVec(f'session_{n}_has_chair', BITFIELD) for n in range(0,n_sessions)]
 
@@ -219,7 +220,8 @@ s.minimize(objective_function)
 
 # session chairs are sticky
 for n in range(n_sessions):
-  s.add_soft(session_chairs[n] == sticky_session_chairs[n], weight="0.1")
+  if sticky_session_chairs[n] is not None:
+    s.add_soft(session_chairs[n] == sticky_session_chairs[n], weight="0.1")
 
 print("solving")
 result = s.check()
