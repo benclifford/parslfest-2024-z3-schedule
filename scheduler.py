@@ -59,6 +59,8 @@ talk_titles_prefs = \
 
 talk_sessions = [BitVec(f'talk_{n}_in_session', BITFIELD) for n in range(0,len(talk_titles_prefs))]
 
+# two different session structures: 2 bigger sessions, or 3 smaller sessions, per day
+# session_sizes = [7,8,0,7,7,0]
 session_sizes = [5,5,5,5,5,5]
 n_sessions = len(session_sizes)
 
@@ -88,6 +90,7 @@ def OnDay(talk_session, day):
   
 
 special_talk_constraints = [
+   talk_sessions[0] == 1, # Kyle must talk first
    OnDay(talk_sessions[6], 1),  # Josh can only do day 1 in person
    talk_sessions[6] != talk_sessions[0], # GC intro should not be in same session as Parsl into 
    talk_sessions[6] <= talk_sessions[7], # GC intro should come before other GC talks
