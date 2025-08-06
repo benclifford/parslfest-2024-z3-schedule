@@ -259,9 +259,9 @@ for session in range(1, n_sessions+1):
       #  print("**NEW** ", end='')
       # elif session != talk_titles_prefs[n][1]:
       #  print("**MOVED** ", end='')
-      print(talk_titles_prefs[n][0], end='   ')
+      print(talk_titles_prefs[n][0], end='')
       print(" - ", end='')
-      print(talk_titles_prefs[n][4], end='   ')
+      print(talk_titles_prefs[n][4], end='  ')
       if talk_titles_prefs[n][5]:
         print("(in person)", end=' ')
       else:
