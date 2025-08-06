@@ -111,7 +111,7 @@ special_talk_constraints = [
 
 possible_session_chairs = [
   "Dan Katz",  #0
-  "ADDITIONAL CHAIR #1", #1
+  "Chris Janidlo", #1
   "Yadu Babuji", #2
   "Kyle Chard", #3
   "ADDITIONAL CHAIR #4", #4
@@ -137,7 +137,10 @@ chairs_maximum_one_session = And(*[ChairHasMaxOneSession(n) for n in range(0, le
 def ChairTalkExclusion(talk, chairnum):
   return And(*[Not(And(talk_sessions[talk] == session+1, session_chairs[session] == chairnum)) for session in range(0, n_sessions)])
 
-special_chair_constraints = []
+special_chair_constraints = [
+  session_chairs[0] != 1,  # Chris first time chair, so make two sessions happen before he chairs to get vibe
+  session_chairs[1] != 1,  # "
+  ]
 
 for sc_n in range(0, len(possible_session_chairs)):
   print(f"Excluding talks for possibel session chair {sc_n} -- {possible_session_chairs[sc_n]}")
