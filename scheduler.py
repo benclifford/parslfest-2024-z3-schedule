@@ -25,39 +25,39 @@ talk_titles_prefs = \
     # fifth entry is "in person" (true)  or "remote" (false)
 
     # sheet row 2 
-    ("Kyle Chard", 1, 1, ["parslfest-meta"], "Introduction to ParslFest", True),
-    ("Ben Clifford", None, 0.1, ["parsl-core"], "HTEX Interchange in 3 languages", False),
-    ("James Klassen", None, 1, ["geo/env", "imaging"], "Calculating optimal size of Parsl runs for DEM production", False),
-    ("Zhao Zhang", None, 1, ["ml"], "Training Neural Networks with Diamond", False),
-    ("Sicheng Zhou", None, 1, ["tooling/infra"], "WRATH: Workflow Resilience Across Task Hierarchies in Task-based Parallel Programming Frameworks", False),
-    ("Dave Bunten", None, 1, ["bio"], "With Great Parsl Comes Great Portability: Using Parsl through CytoTable for Harmonizing Single-cell Data", False),
-    ("Josh Bryan", None, 0.1, ["gc-core"], "Globus Compute Past and Future", True),
-    ("Chris Janidlo", None, 0.1, ["gc-core"], "Globus Compute Serialization Overview", True),
-    ("Yadu Babuji", None, 0.1, ["site"], "Parsl scaling on Aurora", True),
-    ("Laura Walitzer", None, 1, ["simulations"], "A Multifidelity, Multiobjective Optimization Workflow With Parsl", False),
-    ("Dan Dietz", None, 1, ["site"], "Globus Compute at OLCF", True),
-    ("Tianle Wang", None, 1, ["tooling/infra"], "Integration of globus compute and harvester for ATLAS workflow at HPC", True),
-    ("Patrick Wells", None, 1, ["space"], "OpenCosmo", True),
-    ("Sou Cheng Choi", None, 1, ["simulations"], "Using Parsl for Speeding up QMCPy", False),
-    ("João Gabriel Loureiro de Lima Lembo", None, 1, ["tooling/infra"], "Implementing Cold-Start Reduction Techniques on Globus Compute", False),
-    ("Chris Harrop", None, 1, ["tooling/infra"], "Enhancements for Parsl and Globus Compute Integration", True),
-    ("Haochen Pan", None, 1, ["tooling/infra"], "Globus MCPs for Science and High Performance Computing", True),
-    ("Alok Kamatar", None, 1, ["geo/env"], "Core Hours and Carbon: The Environmental Impact of Federated Computing", True),
-    ("Hai Duc Nguyen", None, 1, ["imaging", "tomography"], "Resilient Solutions for Tomographic Reconstruction", True),
-    ("Daniel Babnigg", None, 1, ["imaging", "space"], "Parallel Scripting in a Integral Field Unit Spectroscopy Pipeline", True),
-    ("Geoffrey Lentner", None, 1, ["site"], "Enabling Science for NSF ACCESS via Globus Compute", True),
-    ("Pedro Enrique Martinez Fernandez", None, 1, ["provenance/repro"], "Globus Compute + DataLad: Provenance tracking for remote workflows", False),
-    ("Douglas N Friedel", None, 0.1, ["tooling/infra", "multisite"], "KeepItRunning: A New Tool for Migrating Running Jobs Between HPC Resources", True),
-    ("Will Engler", None, 1, ["ml", "tooling/infra"], "Garden: Lessons learned from serving AI for Science models with Globus Compute", True),
-    ("Greg Pauloski", None, 1, ["tooling/infra"], "Academy", False),
-    ("Mike Tynes", None, 1, ["materials", "simulations", "ml"], "Distributed on-the-fly training of neural network potentials with Parsl and Colmena", True),
-    ("Matt Baughman", None, 1, ["tooling/infra", "multisite"], "Adaptive Task Management: Enabling Multi-Site Workflows with Globus Compute", False),
-    ("Valerie Hayot-Sasson", None, 1, ["provenance/repro"], "Facilitating Reproducibility Evaluations on HPC with Globus Compute and GitHub Actions", False),
-    ("Arham Khan", None, 1, [], "LSHBloom: Memory-efficient, Extreme-scale Document Deduplication", True),
-    ("Mansi Sakarvadia", None, 1, ["ml"], "Topology-Aware Knowledge Propagation in Decentralized Learning", False),
-    ("Logan Ward", None, 0.1, ["materials", "ml", "simulations"], "Deploying AI+Simulation Workflows for MOF Design (with Parsl)", False),
-    ("Kelechi Annabelle Nwankwo", None, 1, ["tooling/infra"], "Parslet: Making Workflow Automation Accessible on Android and Low-Power Devices", False),
-    ("Stefan Gary", None, 1, ["tooling/infra", "multisite"], "Using parsl-perf to evaluate performance in a hybrid HPC environment", False),
+    # ("Kyle Chard", 1, 1, ["parslfest-meta"], "Introduction to ParslFest", True),
+    ("Ben Clifford", 6, 0.1, ["parsl-core"], "HTEX Interchange in 3 languages", False),
+    ("James Klassen", 4, 1, ["geo/env", "imaging"], "Calculating optimal size of Parsl runs for DEM production", False),
+    ("Zhao Zhang", 2, 1, ["ml"], "Training Neural Networks with Diamond", False),
+    ("Sicheng Zhou", 1, 1, ["tooling/infra"], "WRATH: Workflow Resilience Across Task Hierarchies in Task-based Parallel Programming Frameworks", False),
+    ("Dave Bunten", 6, 1, ["bio"], "With Great Parsl Comes Great Portability: Using Parsl through CytoTable for Harmonizing Single-cell Data", False),
+    ("Josh Bryan", 3, 0.1, ["gc-core"], "Globus Compute Past and Future", True),
+    ("Chris Janidlo", 3, 0.1, ["gc-core"], "Globus Compute Serialization Overview", True),
+    ("Yadu Babuji", 6, 0.1, ["site"], "Parsl scaling on Aurora", True),
+    ("Laura Walitzer", 2, 1, ["simulations"], "A Multifidelity, Multiobjective Optimization Workflow With Parsl", False),
+    ("Dan Dietz", 6, 1, ["site"], "Globus Compute at OLCF", True),
+    ("Tianle Wang", 5, 1, ["tooling/infra"], "Integration of globus compute and harvester for ATLAS workflow at HPC", True),
+    ("Patrick Wells", 4, 1, ["space"], "OpenCosmo", True),
+    # ("Sou Cheng Choi", 2, 1, ["simulations"], "Using Parsl for Speeding up QMCPy", False),
+    ("João Gabriel Loureiro de Lima Lembo", 1, 1, ["tooling/infra"], "Implementing Cold-Start Reduction Techniques on Globus Compute", False),
+    ("Chris Harrop", 1, 1, ["tooling/infra"], "Enhancements for Parsl and Globus Compute Integration", True),
+    ("Haochen Pan", 5, 1, ["tooling/infra"], "Globus MCPs for Science and High Performance Computing", True),
+    ("Alok Kamatar", 4, 1, ["geo/env"], "Core Hours and Carbon: The Environmental Impact of Federated Computing", True),
+    ("Hai Duc Nguyen", 1, 1, ["imaging", "tomography"], "Resilient Solutions for Tomographic Reconstruction", True),
+    ("Daniel Babnigg", 4, 1, ["imaging", "space"], "Parallel Scripting in a Integral Field Unit Spectroscopy Pipeline", True),
+    ("Geoffrey Lentner", 6, 1, ["site"], "Enabling Science for NSF ACCESS via Globus Compute", True),
+    ("Pedro Enrique Martinez Fernandez", 3, 1, ["provenance/repro"], "Globus Compute + DataLad: Provenance tracking for remote workflows", False),
+    ("Douglas N Friedel", 5, 0.1, ["tooling/infra", "multisite"], "KeepItRunning: A New Tool for Migrating Running Jobs Between HPC Resources", True),
+    ("Will Engler", 2, 1, ["ml", "tooling/infra"], "Garden: Lessons learned from serving AI for Science models with Globus Compute", True),
+    ("Greg Pauloski", 5, 1, ["tooling/infra"], "Academy", False),
+    ("Mike Tynes", 2, 1, ["materials", "simulations", "ml"], "Distributed on-the-fly training of neural network potentials with Parsl and Colmena", True),
+    ("Matt Baughman", 5, 1, ["tooling/infra", "multisite"], "Adaptive Task Management: Enabling Multi-Site Workflows with Globus Compute", False),
+    ("Valerie Hayot-Sasson", 3, 1, ["provenance/repro"], "Facilitating Reproducibility Evaluations on HPC with Globus Compute and GitHub Actions", False),
+    ("Arham Khan", 3, 1, [], "LSHBloom: Memory-efficient, Extreme-scale Document Deduplication", True),
+    ("Mansi Sakarvadia", 4, 1, ["ml"], "Topology-Aware Knowledge Propagation in Decentralized Learning", False),
+    ("Logan Ward", 2, 0.1, ["materials", "ml", "simulations"], "Deploying AI+Simulation Workflows for MOF Design (with Parsl)", False),
+    ("Kelechi Annabelle Nwankwo", 1, 1, ["tooling/infra"], "Parslet: Making Workflow Automation Accessible on Android and Low-Power Devices", False),
+    ("Stefan Gary", 5, 1, ["tooling/infra", "multisite"], "Using parsl-perf to evaluate performance in a hybrid HPC environment", False),
   ]
 
 
@@ -102,11 +102,11 @@ def OnDay(talk_session, day):
   
 ## num_moved = Sum(*[If(talk_sessions[n] == talk_titles_prefs[n][1], 0, talk_titles_prefs[n][2] if len(talk_titles_prefs[n]) > 2 else 1) for n in range(0,len(talk_titles_prefs)) if talk_titles_prefs[n][1] is not None])
 special_talk_constraints = [
-   talk_sessions[0] == 1, # Kyle must talk first
-   OnDay(talk_sessions[6], 1),  # Josh can only do day 1 in person
-   talk_sessions[6] != talk_sessions[0], # GC intro should not be in same session as Parsl intro 
-   talk_sessions[6] <= talk_sessions[7], # GC intro should come before other GC talks
-   talk_sessions[1] > 3,  # Ben doesn't want to talk in first three sessions (day 1) due to TZ constraints
+   # talk_sessions[0] == 1, # Kyle must talk first
+   OnDay(talk_sessions[5], 1),  # Josh can only do day 1 in person
+   # talk_sessions[5] != talk_sessions[0], # GC intro should not be in same session as Parsl intro 
+   talk_sessions[5] <= talk_sessions[6], # GC intro should come before other GC talks
+   talk_sessions[0] > 3,  # Ben doesn't want to talk in first three sessions (day 1) due to TZ constraints
    ]
 
 #  OnDay(talk_sessions[1], 1),  # andrew can only do day 1
@@ -291,10 +291,10 @@ for session in range(1, n_sessions+1):
   used = 0
   for n in range(0, len(talk_titles_prefs)):
     if m.evaluate(talk_sessions[n]) == session:
-      # if talk_titles_prefs[n][1] is None:
-      #  print("**NEW** ", end='')
-      # elif session != talk_titles_prefs[n][1]:
-      #  print("**MOVED** ", end='')
+      if talk_titles_prefs[n][1] is None:
+        print("**NEW** ", end='')
+      elif session != talk_titles_prefs[n][1]:
+        print("**MOVED** ", end='')
       print(talk_titles_prefs[n][0], end='')
       print(" - ", end='')
       print(talk_titles_prefs[n][4], end='  ')
