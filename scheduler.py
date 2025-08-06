@@ -207,6 +207,7 @@ s.add(special_chair_constraints)
 
 
 for session in range(1, n_sessions+1):
+  num_in_session = Sum(*[If(talk_sessions[n] == session, 1, 0) for n in range(0, len(talk_titles_prefs))])
   num_in_person = Sum(*[If(talk_sessions[n] == session, 1, 0) for n in range(0, len(talk_titles_prefs)) if talk_titles_prefs[n][5]])
   # num_remote = Sum(*[If(talk_sessions[n] == session, 1, 0) for n in range(0, len(talk_titles_prefs)) if not talk_titles_prefs[n][5]])
   # condition = num_in_person >= num_remote
@@ -219,8 +220,10 @@ for session in range(1, n_sessions+1):
   # for 6 sessions - this can probably be computed as the lower and upper bounds of the fraction of talks that are in person
   # compared to the expected slot size, or something like that. or something more complicated for the particular slot based
   # on how many sessions are assigned to that actual slot - so that a 6 entry session always gets 3, but a 5 entry session can have 2?
-  s.add(num_in_person >= 2)
-  s.add(num_in_person <= 3)
+  s.add(Or( And(num_in_person >= 2, num_in_person <=3, num_in_session == 5),
+            And(num_in_person == 3, num_in_session == 6)
+          )
+       )
 
   # for 4 sessions
   # s.add(num_in_person >= 4)
