@@ -37,14 +37,14 @@ talk_titles_prefs = \
     ("Laura Walitzer", None, 1, ["simulations"], "A Multifidelity, Multiobjective Optimization Workflow With Parsl", False),
     ("Dan Dietz", None, 1, ["site"], "Globus Compute at OLCF", True),
     ("Tianle Wang", None, 1, ["tooling/infra"], "Integration of globus compute and harvester for ATLAS workflow at HPC", True),
-    ("Patrick Wells", None, 1, [], "", True),
+    ("Patrick Wells", None, 1, ["space"], "OpenCosmo", True),
     ("Sou Cheng Choi", None, 1, ["simulations"], "Using Parsl for Speeding up QMCPy", False),
     ("João Gabriel Loureiro de Lima Lembo", None, 1, ["tooling/infra"], "Implementing Cold-Start Reduction Techniques on Globus Compute", False),
     ("Chris Harrop", None, 1, ["tooling/infra"], "Enhancements for Parsl and Globus Compute Integration", True),
     ("Haochen Pan", None, 1, ["tooling/infra"], "Globus MCPs for Science and High Performance Computing", True),
     ("Alok Kamatar", None, 1, ["geo/env"], "Core Hours and Carbon: The Environmental Impact of Federated Computing", True),
     ("Hai Duc Nguyen", None, 1, ["imaging", "tomography"], "Resilient Solutions for Tomographic Reconstruction", True),
-    ("Daniel Babnigg", None, 1, ["imaging", "astronomy"], "Parallel Scripting in a Integral Field Unit Spectroscopy Pipeline", True),
+    ("Daniel Babnigg", None, 1, ["imaging", "space"], "Parallel Scripting in a Integral Field Unit Spectroscopy Pipeline", True),
     ("Geoffrey Lentner", None, 1, ["site"], "Enabling Science for NSF ACCESS via Globus Compute", True),
     ("Pedro Enrique Martinez Fernandez", None, 1, ["provenance/repro"], "Globus Compute + DataLad: Provenance tracking for remote workflows", False),
     ("Douglas N Friedel", None, 0.1, ["tooling/infra", "multisite"], "KeepItRunning: A New Tool for Migrating Running Jobs Between HPC Resources", True),
@@ -64,11 +64,14 @@ talk_titles_prefs = \
 talk_sessions = [BitVec(f'talk_{n}_in_session', BITFIELD) for n in range(0,len(talk_titles_prefs))]
 
 # two different session structures: 2 bigger sessions, or 3 smaller sessions, per day
-# session_sizes = [7,8,0,7,7,0]
+# session_sizes = [9,9,9,9]
 session_sizes = [6,6,6,6,6,6]
 n_sessions = len(session_sizes)
 
 assert sum(session_sizes) >= len(talk_titles_prefs), "must be enough slots for each talk"
+
+assert len([t for t in talk_titles_prefs if t[5]]) * 2 >= len(talk_titles_prefs), "must be at least 50% in person to satisfy remote spread count"
+
 
 # each talk must be in a valid session
 talks_in_valid_sessions = [And(t >= 1, t <= n_sessions) for t in talk_sessions]
@@ -76,8 +79,13 @@ talks_in_valid_sessions = [And(t >= 1, t <= n_sessions) for t in talk_sessions]
 # session capacities
 
 def SessionSize(session, size):
+    if size == 0:
+     sp = 0
+    else:
+     sp = size - 1
     return And(AtMost(*[t == session for t in talk_sessions], size),
-               AtLeast(*[t == session for t in talk_sessions], size-1))
+               AtLeast(*[t == session for t in talk_sessions], sp),
+              )
 
 sessions_have_sizes = [SessionSize(n+1, session_sizes[n]) for n in range(0,len(session_sizes))]
 
@@ -92,7 +100,7 @@ def OnDay(talk_session, day):
 # YaduConstraints = Or(And(OnDay(talk_sessions[4], 1), OnDay(talk_sessions[23], 2)),
 #                      And(OnDay(talk_sessions[4], 2), OnDay(talk_sessions[23], 1)))
   
-
+## num_moved = Sum(*[If(talk_sessions[n] == talk_titles_prefs[n][1], 0, talk_titles_prefs[n][2] if len(talk_titles_prefs[n]) > 2 else 1) for n in range(0,len(talk_titles_prefs)) if talk_titles_prefs[n][1] is not None])
 special_talk_constraints = [
    talk_sessions[0] == 1, # Kyle must talk first
    OnDay(talk_sessions[6], 1),  # Josh can only do day 1 in person
@@ -196,6 +204,27 @@ s.add(special_talk_constraints)
 s.add(session_chairs_are_valid)
 s.add(chairs_maximum_one_session)
 s.add(special_chair_constraints)
+
+
+for session in range(1, n_sessions+1):
+  num_in_person = Sum(*[If(talk_sessions[n] == session, 1, 0) for n in range(0, len(talk_titles_prefs)) if talk_titles_prefs[n][5]])
+  # num_remote = Sum(*[If(talk_sessions[n] == session, 1, 0) for n in range(0, len(talk_titles_prefs)) if not talk_titles_prefs[n][5]])
+  # condition = num_in_person >= num_remote
+  # s.add_soft(condition)   # can't be hard because we don't have enough in-person talks at time of writing
+
+  # these numbers are hard-coded from looking at the session sizes and ratios. the hard constraint is to try to speed up optimisation
+  # and to give a hard minimum on the number of in-person talks in a session.
+  # and the soft constraint is to reward when a session goes beyond the minimum that can be achieved for every session.
+
+  # for 6 sessions - this can probably be computed as the lower and upper bounds of the fraction of talks that are in person
+  # compared to the expected slot size, or something like that. or something more complicated for the particular slot based
+  # on how many sessions are assigned to that actual slot - so that a 6 entry session always gets 3, but a 5 entry session can have 2?
+  s.add(num_in_person >= 2)
+  s.add(num_in_person <= 3)
+
+  # for 4 sessions
+  # s.add(num_in_person >= 4)
+  # s.add(num_in_person <= 5)
 
 # constraint based topics
 
