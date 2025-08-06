@@ -1,5 +1,5 @@
-Scheduling ParslFest 2024 with Z3
-=================================
+Scheduling ParslFest 2024 and 2025 with Z3
+==========================================
 
 For the past 6 years, we have run a meetup of 30-100 participants, `ParslFest <http://parsl-project.org/parslfest.html>`_.
 
