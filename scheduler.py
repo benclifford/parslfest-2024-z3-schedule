@@ -104,9 +104,9 @@ def OnDay(talk_session, day):
 special_talk_constraints = [
    talk_sessions[0] == 1, # Kyle must talk first
    OnDay(talk_sessions[6], 1),  # Josh can only do day 1 in person
-   talk_sessions[6] != talk_sessions[0], # GC intro should not be in same session as Parsl into 
+   talk_sessions[6] != talk_sessions[0], # GC intro should not be in same session as Parsl intro 
    talk_sessions[6] <= talk_sessions[7], # GC intro should come before other GC talks
-   talk_sessions[1] >= 3,  # Ben doesn't want to talk in first two sessions
+   talk_sessions[1] > 3,  # Ben doesn't want to talk in first three sessions (day 1) due to TZ constraints
    ]
 
 #  OnDay(talk_sessions[1], 1),  # andrew can only do day 1
