@@ -237,7 +237,13 @@ for topic in topics_deterministic:
   if len(talks_in_topic) > 1:
 
     # so that we will get a soft score of 1 if all the soft constraints for this topic are satisfied
-    talk_constraint_strength = 1.0 / (len(talks_in_topic) * (len(talks_in_topic) - 1))
+    # but we can never have more than the largest size of a session clustered together
+    # so max out there - so that 2 max-sized session clusters will score 2 points.
+
+    max_topic_cluster = min(len(talks_in_topic), max(session_sizes))
+    print(f"Topic {topic} has max cluster size {max_topic_cluster}")
+    # talk_constraint_strength = 1.0 / (len(talks_in_topic) * (len(talks_in_topic) - 1))
+    talk_constraint_strength = 1.0 / (max_topic_cluster * (max_topic_cluster - 1))
 
     print(f"Topic {topic} has {len(talks_in_topic)} talks. Soft constraint score is {talk_constraint_strength}")
 
