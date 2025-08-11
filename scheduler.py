@@ -9,7 +9,7 @@ from z3 import *
 BITFIELD = 4
 
 # how much we care about schedule stickiness
-stickiness_factor = 0.1
+stickiness_factor = True
 
 talk_titles_prefs = \
   [
@@ -205,7 +205,6 @@ topics_deterministic = sorted(list(topics))
 
 print(f"Topics deteministic: {topics}")
 
-objective_function = stickiness_factor * num_moved
 
 s = Optimize()
 s.add(talks_in_valid_sessions)
@@ -216,11 +215,9 @@ s.add(session_chairs_are_valid)
 s.add(chairs_maximum_one_session)
 s.add(special_chair_constraints)
 
-# if you're getting errors here about objective function being a float,
-# (and of value 0), it's because there aren't any stickiness pairs to
-# evaluate - because nothing is pinned. Pin a single talk (eg the
-# intro) by hand.
-s.minimize(objective_function)
+if stickiness_factor:
+  objective_function = num_moved
+  s.minimize(objective_function)
 
 for session in range(1, n_sessions+1):
   num_in_session = Sum(*[If(talk_sessions[n] == session, 1, 0) for n in range(0, len(talk_titles_prefs))])
