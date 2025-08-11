@@ -9,7 +9,7 @@ from z3 import *
 BITFIELD = 4
 
 # how much we care about schedule stickiness
-stickiness_factor = 0.01
+stickiness_factor = 0.1
 
 talk_titles_prefs = \
   [
@@ -26,7 +26,7 @@ talk_titles_prefs = \
 
     # sheet row 2 
     # ("Kyle Chard", 1, 1, ["parslfest-meta"], "Introduction to ParslFest", True),
-    ("Ben Clifford", 6, 0.1, ["pl"], "HTEX Interchange in 3 languages", False),
+    ("Ben Clifford", None, 0.1, ["pl"], "HTEX Interchange in 3 languages", False),
     ("James Klassen", 4, 1, ["geo/env", "imaging"], "Calculating optimal size of Parsl runs for DEM production", False),
     ("Zhao Zhang", 2, 1, ["ml"], "Training Neural Networks with Diamond", False),
     ("Sicheng Zhou", 1, 1, ["tooling/infra"], "WRATH: Workflow Resilience Across Task Hierarchies in Task-based Parallel Programming Frameworks", False),
@@ -59,6 +59,9 @@ talk_titles_prefs = \
     ("Kelechi Annabelle Nwankwo", 1, 1, ["tooling/infra"], "Parslet: Making Workflow Automation Accessible on Android and Low-Power Devices", False),
     ("Stefan Gary", 5, 1, ["tooling/infra", "multisite"], "Using parsl-perf to evaluate performance in a hybrid HPC environment", False),
     ("Ben Clifford", None, 0.1, ["monitoring"], "Recent Parsl monitoring work", False),
+    ("Robert Underwood", None, 1, ["ml"], "Using Parsl to Power the Data Pipelines of AuroraGPT", False),
+    ("Scott Friedman", None, 1, ["tooling/infra"], "An ephemeral Parsl provider for AWS", False),
+    ("Seena Vazifedunn", None, 1, ["tooling/infra"], "StreamHub: High-performance Managed SciStream as a Service", True),
   ]
 
 
@@ -71,7 +74,10 @@ n_sessions = len(session_sizes)
 
 assert sum(session_sizes) >= len(talk_titles_prefs), "must be enough slots for each talk"
 
-assert len([t for t in talk_titles_prefs if t[5]]) * 2 >= len(talk_titles_prefs), "must be at least 50% in person to satisfy remote spread count"
+ipt =  len([t for t in talk_titles_prefs if t[5]])
+ipf = ipt / len(talk_titles_prefs)
+print(f"Fraction of talks that are in-person: {ipt} / {len(talk_titles_prefs)} = {ipf}")
+# assert len([t for t in talk_titles_prefs if t[5]]) * 2 >= len(talk_titles_prefs), "must be at least 50% in person to satisfy remote spread count"
 
 
 # each talk must be in a valid session
@@ -109,8 +115,8 @@ special_talk_constraints = [
    talk_sessions[5] <= talk_sessions[6], # GC intro should come before other GC talks
 
    # these are deliberately different, due to content
-   talk_sessions[0] > 3,  # Ben doesn't want to talk in first three sessions (day 1) due to TZ constraints, and not at beginning due to subject
-   Or(talk_sessions[31] > 3, talk_sessions[31] == 1), # Ben doesn't want to talk in TZ inconvenient times about monitoring
+   talk_sessions[0] > 3,  # 3-languages talk should be on day 2
+   Or(talk_sessions[31] > 3, talk_sessions[31] == 1, talk_sessions[31] == 2), # Ben doesn't want to talk in TZ inconvenient times about monitoring
    talk_sessions[0] != talk_sessions[31],  # ben's two talks should be in different sessions
    ]
 
@@ -187,7 +193,7 @@ for sc_n in range(0, len(possible_session_chairs)):
 #   ChairTalkExclusion(30, 5)   # Reid
 # ]
 
-num_moved = Sum(*[If(talk_sessions[n] == talk_titles_prefs[n][1], 0, talk_titles_prefs[n][2] if len(talk_titles_prefs[n]) > 2 else 1) for n in range(0,len(talk_titles_prefs)) if talk_titles_prefs[n][1] is not None])
+num_moved = Sum(*[If(talk_sessions[n] == talk_titles_prefs[n][1], 0, 1) for n in range(0,len(talk_titles_prefs)) if talk_titles_prefs[n][1] is not None])
 
 topics = set()
 for talk in talk_titles_prefs:
@@ -210,6 +216,11 @@ s.add(session_chairs_are_valid)
 s.add(chairs_maximum_one_session)
 s.add(special_chair_constraints)
 
+# if you're getting errors here about objective function being a float,
+# (and of value 0), it's because there aren't any stickiness pairs to
+# evaluate - because nothing is pinned. Pin a single talk (eg the
+# intro) by hand.
+s.minimize(objective_function)
 
 for session in range(1, n_sessions+1):
   num_in_session = Sum(*[If(talk_sessions[n] == session, 1, 0) for n in range(0, len(talk_titles_prefs))])
@@ -264,13 +275,6 @@ for topic in topics_deterministic:
         else:
           print(f"Adding a topic affinity for {a} and {b}")
           s.add_soft(a == b, weight=talk_constraint_strength)
-
-# if you're getting errors here about objective function being a float,
-# (and of value 0), it's because there aren't any stickiness pairs to
-# evaluate - because nothing is pinned. Pin a single talk (eg the
-# intro) by hand.
-s.minimize(objective_function)
-
 # session chairs are sticky
 for n in range(n_sessions):
   if sticky_session_chairs[n] is not None:
