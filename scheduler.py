@@ -26,7 +26,7 @@ talk_titles_prefs = \
 
     # sheet row 2 
     # ("Kyle Chard", 1, 1, ["parslfest-meta"], "Introduction to ParslFest", True),
-    ("Ben Clifford", 6, 0.1, ["parsl-core"], "HTEX Interchange in 3 languages", False),
+    ("Ben Clifford", 6, 0.1, ["pl"], "HTEX Interchange in 3 languages", False),
     ("James Klassen", 4, 1, ["geo/env", "imaging"], "Calculating optimal size of Parsl runs for DEM production", False),
     ("Zhao Zhang", 2, 1, ["ml"], "Training Neural Networks with Diamond", False),
     ("Sicheng Zhou", 1, 1, ["tooling/infra"], "WRATH: Workflow Resilience Across Task Hierarchies in Task-based Parallel Programming Frameworks", False),
@@ -58,6 +58,7 @@ talk_titles_prefs = \
     ("Logan Ward", 2, 0.1, ["materials", "ml", "simulations"], "Deploying AI+Simulation Workflows for MOF Design (with Parsl)", False),
     ("Kelechi Annabelle Nwankwo", 1, 1, ["tooling/infra"], "Parslet: Making Workflow Automation Accessible on Android and Low-Power Devices", False),
     ("Stefan Gary", 5, 1, ["tooling/infra", "multisite"], "Using parsl-perf to evaluate performance in a hybrid HPC environment", False),
+    ("Ben Clifford", None, 0.1, ["monitoring"], "Recent Parsl monitoring work", False),
   ]
 
 
@@ -106,7 +107,11 @@ special_talk_constraints = [
    OnDay(talk_sessions[5], 1),  # Josh can only do day 1 in person
    # talk_sessions[5] != talk_sessions[0], # GC intro should not be in same session as Parsl intro 
    talk_sessions[5] <= talk_sessions[6], # GC intro should come before other GC talks
-   talk_sessions[0] > 3,  # Ben doesn't want to talk in first three sessions (day 1) due to TZ constraints
+
+   # these are deliberately different, due to content
+   talk_sessions[0] > 3,  # Ben doesn't want to talk in first three sessions (day 1) due to TZ constraints, and not at beginning due to subject
+   Or(talk_sessions[31] > 3, talk_sessions[31] == 1), # Ben doesn't want to talk in TZ inconvenient times about monitoring
+   talk_sessions[0] != talk_sessions[31],  # ben's two talks should be in different sessions
    ]
 
 #  OnDay(talk_sessions[1], 1),  # andrew can only do day 1
