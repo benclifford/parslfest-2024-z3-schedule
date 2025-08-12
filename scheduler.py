@@ -117,7 +117,7 @@ special_talk_constraints = [
    # these are deliberately different, due to content
    talk_sessions[0] > 3,  # 3-languages talk should be on day 2
    Or(talk_sessions[31] > 3, talk_sessions[31] == 1, talk_sessions[31] == 2), # Ben doesn't want to talk in TZ inconvenient times about monitoring
-   talk_sessions[0] != talk_sessions[31],  # ben's two talks should be in different sessions
+   talk_sessions[0] > talk_sessions[31],  # ben's two talks should be in different sessions, and talk 31, being more serious, should come earlier?
    ]
 
 #  OnDay(talk_sessions[1], 1),  # andrew can only do day 1
