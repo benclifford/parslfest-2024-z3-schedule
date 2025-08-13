@@ -26,6 +26,8 @@ talk_titles_prefs = \
 
     # sheet row 2 
     # ("Kyle Chard", 1, 1, ["parslfest-meta"], "Introduction to ParslFest", True),
+
+    #0 
     ("Ben Clifford", None, 0.1, ["pl"], "HTEX Interchange in 3 languages", False),
     ("James Klassen", 4, 1, ["geo/env", "imaging"], "Calculating optimal size of Parsl runs for DEM production", False),
     ("Zhao Zhang", 2, 1, ["ml"], "Training Neural Networks with Diamond", False),
@@ -36,9 +38,10 @@ talk_titles_prefs = \
     ("Yadu Babuji", 6, 0.1, ["site"], "Parsl scaling on Aurora", True),
     ("Laura Walitzer", 2, 1, ["simulations"], "A Multifidelity, Multiobjective Optimization Workflow With Parsl", False),
     ("Dan Dietz", 6, 1, ["site"], "Globus Compute at OLCF", True),
+
+    #10 
     ("Tianle Wang", 5, 1, ["tooling/infra"], "Integration of globus compute and harvester for ATLAS workflow at HPC", True),
     ("Patrick Wells", 4, 1, ["space"], "OpenCosmo", True),
-    # ("Sou Cheng Choi", 2, 1, ["simulations"], "Using Parsl for Speeding up QMCPy", False),
     ("João Gabriel Loureiro de Lima Lembo", 1, 1, ["tooling/infra"], "Implementing Cold-Start Reduction Techniques on Globus Compute", False),
     ("Chris Harrop", 1, 1, ["tooling/infra"], "Enhancements for Parsl and Globus Compute Integration", True),
     ("Haochen Pan", 5, 1, ["tooling/infra"], "Globus MCPs for Science and High Performance Computing", True),
@@ -47,9 +50,12 @@ talk_titles_prefs = \
     ("Daniel Babnigg", 4, 1, ["imaging", "space"], "Parallel Scripting in a Integral Field Unit Spectroscopy Pipeline", True),
     ("Geoffrey Lentner", 6, 1, ["site"], "Enabling Science for NSF ACCESS via Globus Compute", True),
     ("Pedro Enrique Martinez Fernandez", 3, 1, ["provenance/repro"], "Globus Compute + DataLad: Provenance tracking for remote workflows", False),
+
+    #20
     ("Douglas N Friedel", 5, 0.1, ["tooling/infra", "multisite"], "KeepItRunning: A New Tool for Migrating Running Jobs Between HPC Resources", True),
     ("Will Engler", 2, 1, ["ml", "tooling/infra"], "Garden: Lessons learned from serving AI for Science models with Globus Compute", True),
-    ("Greg Pauloski", 5, 1, ["tooling/infra"], "Academy", False),
+    ("Greg Pauloski", None, 1, ["academy"], "Academy", False),
+# XX was session 5 ^
     ("Mike Tynes", 2, 1, ["materials", "simulations", "ml"], "Distributed on-the-fly training of neural network potentials with Parsl and Colmena", True),
     ("Matt Baughman", 5, 1, ["tooling/infra", "multisite"], "Adaptive Task Management: Enabling Multi-Site Workflows with Globus Compute", False),
     ("Valerie Hayot-Sasson", 3, 1, ["provenance/repro"], "Facilitating Reproducibility Evaluations on HPC with Globus Compute and GitHub Actions", False),
@@ -57,11 +63,14 @@ talk_titles_prefs = \
     ("Mansi Sakarvadia", 4, 1, ["ml"], "Topology-Aware Knowledge Propagation in Decentralized Learning", False),
     ("Logan Ward", 2, 0.1, ["materials", "ml", "simulations"], "Deploying AI+Simulation Workflows for MOF Design (with Parsl)", False),
     ("Kelechi Annabelle Nwankwo", 1, 1, ["tooling/infra"], "Parslet: Making Workflow Automation Accessible on Android and Low-Power Devices", False),
+
+    #30
     ("Stefan Gary", 5, 1, ["tooling/infra", "multisite"], "Using parsl-perf to evaluate performance in a hybrid HPC environment", False),
-    ("Ben Clifford", None, 0.1, ["monitoring"], "Recent Parsl monitoring work", False),
+    ("Ben Clifford", None, 0.1, ["monitoring"], "Parsl monitoring message flows", False),
     ("Robert Underwood", None, 1, ["ml"], "Using Parsl to Power the Data Pipelines of AuroraGPT", False),
     ("Scott Friedman", None, 1, ["tooling/infra"], "An ephemeral Parsl provider for AWS", False),
     ("Seena Vazifedunn", None, 1, ["tooling/infra"], "StreamHub: High-performance Managed SciStream as a Service", True),
+    ("Naomi Kolodisner", None, 1, ["academy"], "Adaptive Tool Selection in a Scalable Genomics Pipeline", False),
   ]
 
 
@@ -116,8 +125,10 @@ special_talk_constraints = [
 
    # these are deliberately different, due to content
    talk_sessions[0] > 3,  # 3-languages talk should be on day 2
-   Or(talk_sessions[31] > 3, talk_sessions[31] == 1, talk_sessions[31] == 2), # Ben doesn't want to talk in TZ inconvenient times about monitoring
+   talk_sessions[31] !=  3, # Ben doesn't want to talk in TZ inconvenient times about monitoring
    talk_sessions[0] > talk_sessions[31],  # ben's two talks should be in different sessions, and talk 31, being more serious, should come earlier?
+
+   talk_sessions[35] >= talk_sessions[22],  # academy app talk should be after greg's main academy talk
    ]
 
 #  OnDay(talk_sessions[1], 1),  # andrew can only do day 1
