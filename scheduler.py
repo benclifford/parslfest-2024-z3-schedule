@@ -54,8 +54,7 @@ talk_titles_prefs = \
     #20
     ("Douglas N Friedel", 5, 0.1, ["tooling/infra", "multisite"], "KeepItRunning: A New Tool for Migrating Running Jobs Between HPC Resources", True),
     ("Will Engler", 2, 1, ["ml", "tooling/infra"], "Garden: Lessons learned from serving AI for Science models with Globus Compute", True),
-    ("Greg Pauloski", None, 1, ["academy"], "Academy", False),
-# XX was session 5 ^
+    ("Greg Pauloski", 5, 1, ["academy"], "Academy", False),
     ("Mike Tynes", 2, 1, ["materials", "simulations", "ml"], "Distributed on-the-fly training of neural network potentials with Parsl and Colmena", True),
     ("Matt Baughman", 5, 1, ["tooling/infra", "multisite"], "Adaptive Task Management: Enabling Multi-Site Workflows with Globus Compute", False),
     ("Valerie Hayot-Sasson", 3, 1, ["provenance/repro"], "Facilitating Reproducibility Evaluations on HPC with Globus Compute and GitHub Actions", False),
