@@ -70,6 +70,7 @@ talk_titles_prefs = \
     ("Scott Friedman", None, 1, ["tooling/infra"], "An ephemeral Parsl provider for AWS", False),
     ("Seena Vazifedunn", None, 1, ["tooling/infra"], "StreamHub: High-performance Managed SciStream as a Service", True),
     ("Naomi Kolodisner", None, 1, ["academy"], "Adaptive Tool Selection in a Scalable Genomics Pipeline", False),
+    ("Joshua Herman", None, 1, ["montecarlo"], "Accelerating QMCPy Notebook Tests with Parsl", False),
   ]
 
 
@@ -77,7 +78,7 @@ talk_sessions = [BitVec(f'talk_{n}_in_session', BITFIELD) for n in range(0,len(t
 
 # two different session structures: 2 bigger sessions, or 3 smaller sessions, per day
 # session_sizes = [9,9,9,9]
-session_sizes = [6,6,6,6,6,6]
+session_sizes = [7,7,6,6,6,6]
 n_sessions = len(session_sizes)
 
 assert sum(session_sizes) >= len(talk_titles_prefs), "must be enough slots for each talk"
@@ -244,7 +245,8 @@ for session in range(1, n_sessions+1):
   # compared to the expected slot size, or something like that. or something more complicated for the particular slot based
   # on how many sessions are assigned to that actual slot - so that a 6 entry session always gets 3, but a 5 entry session can have 2?
   s.add(Or( And(num_in_person >= 2, num_in_person <=3, num_in_session == 5),
-            And(num_in_person >= 2, num_in_person <=3, num_in_session == 6)
+            And(num_in_person >= 2, num_in_person <=3, num_in_session == 6),
+            And(num_in_person >= 3, num_in_person <=4, num_in_session == 7)
           )
        )
 
