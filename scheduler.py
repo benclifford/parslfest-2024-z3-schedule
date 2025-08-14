@@ -66,11 +66,11 @@ talk_titles_prefs = \
     #30
     ("Stefan Gary", 5, 1, ["tooling/infra", "multisite"], "Using parsl-perf to evaluate performance in a hybrid HPC environment", False),
     ("Ben Clifford", None, 0.1, ["monitoring"], "Parsl monitoring message flows", False),
-    ("Robert Underwood", None, 1, ["ml"], "Using Parsl to Power the Data Pipelines of AuroraGPT", False),
-    ("Scott Friedman", None, 1, ["tooling/infra"], "An ephemeral Parsl provider for AWS", False),
-    ("Seena Vazifedunn", None, 1, ["tooling/infra"], "StreamHub: High-performance Managed SciStream as a Service", True),
-    ("Naomi Kolodisner", None, 1, ["academy"], "Adaptive Tool Selection in a Scalable Genomics Pipeline", False),
-    ("Joshua Herman", None, 1, ["montecarlo"], "Accelerating QMCPy Notebook Tests with Parsl", False),
+    ("Robert Underwood", 2, 1, ["ml"], "Using Parsl to Power the Data Pipelines of AuroraGPT", False),
+    ("Scott Friedman", 1, 1, ["tooling/infra"], "An ephemeral Parsl provider for AWS", False),
+    ("Seena Vazifedunn", 1, 1, ["tooling/infra"], "StreamHub: High-performance Managed SciStream as a Service", True),
+    ("Naomi Kolodisner", 6, 1, ["academy"], "Adaptive Tool Selection in a Scalable Genomics Pipeline", False),
+    ("Joshua Herman", 3, 1, ["montecarlo"], "Accelerating QMCPy Notebook Tests with Parsl", False),
   ]
 
 
