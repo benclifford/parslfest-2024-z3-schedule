@@ -71,7 +71,7 @@ talk_titles_prefs = \
     ("Seena Vazifedunn", 1, 1, ["tooling/infra"], "StreamHub: High-performance Managed SciStream as a Service", True),
     ("Naomi Kolodisner", 6, 1, ["academy"], "Adaptive Tool Selection in a Scalable Genomics Pipeline", False),
     ("Joshua Herman", 3, 1, ["montecarlo"], "Accelerating QMCPy Notebook Tests with Parsl", False),
-    ("Alex Brace", 6, 1, [""], "precorded video", False),
+    ("Alex Brace", 5, 1, [""], "precorded video", False),
   ]
 
 
@@ -249,7 +249,8 @@ for session in range(1, n_sessions+1):
   s.add_soft(Or( And(num_in_person >= 2, num_in_person <=3, num_in_session == 5),
             And(num_in_person >= 2, num_in_person <=3, num_in_session == 6),
             And(num_in_person >= 3, num_in_person <=4, num_in_session == 7)
-          )
+          ),
+          id='session_ratio'
        )
 
   # for 4 sessions
