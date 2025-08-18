@@ -150,13 +150,14 @@ possible_session_chairs = [
   "Dan Katz",  #0
   "Chris Janidlo", #1
   "Yadu Babuji", #2
-  "Kyle Chard", #3
-  "ADDITIONAL CHAIR #4", #4
-  "ADDITIONAL CHAIR #6", #5
+  "Yadu Babuji", #3
+  "Kyle Chard", #4
+  "Kyle Chard", #5
   ]
 
-# sticky_session_chairs = [2, 0, 5, 4, 3, 1]
-sticky_session_chairs = [None, None, None, None, None, None]
+# session numbers here start at 0, not 1
+# sticky_session_chairs = [None, None, None, None, None, None]
+sticky_session_chairs = [0, 2, 4, 3, 1, 5]
 
 session_chairs = [BitVec(f'session_{n}_has_chair', BITFIELD) for n in range(0,n_sessions)]
 
