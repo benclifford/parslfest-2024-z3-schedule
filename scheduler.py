@@ -56,7 +56,7 @@ talk_titles_prefs = \
     ("Will Engler", 2, 1, ["ml", "tooling/infra"], "Garden: Lessons learned from serving AI for Science models with Globus Compute", True),
     ("Greg Pauloski", 5, 1, ["academy"], "Academy", False),
     ("Mike Tynes", 2, 1, ["materials", "simulations", "ml"], "Distributed on-the-fly training of neural network potentials with Parsl and Colmena", True),
-    ("Matt Baughman", 5, 1, ["tooling/infra", "multisite"], "Adaptive Task Management: Enabling Multi-Site Workflows with Globus Compute", False),
+    ("Matt Baughman", 5, 1, ["tooling/infra", "multisite"], "Adaptive Task Management: Enabling Multi-Site Workflows with Globus Compute", True),
     ("Valerie Hayot-Sasson", 3, 1, ["provenance/repro"], "Facilitating Reproducibility Evaluations on HPC with Globus Compute and GitHub Actions", False),
     ("Arham Khan", 3, 1, [], "LSHBloom: Memory-efficient, Extreme-scale Document Deduplication", True),
     ("Mansi Sakarvadia", 4, 1, ["ml"], "Topology-Aware Knowledge Propagation in Decentralized Learning", False),
@@ -100,7 +100,7 @@ def SessionSize(session, size):
     else:
      sp = size - 1
     return And(AtMost(*[t == session for t in talk_sessions], size),
-               AtLeast(*[t == session for t in talk_sessions], sp),
+               AtLeast(*[t == session for t in talk_sessions], 6),  # don't want sessions to be rounded down if they are shorter sessions... the longest sessions are the ones that can flex
               )
 
 sessions_have_sizes = [SessionSize(n+1, session_sizes[n]) for n in range(0,len(session_sizes))]
@@ -245,7 +245,7 @@ for session in range(1, n_sessions+1):
   # for 6 sessions - this can probably be computed as the lower and upper bounds of the fraction of talks that are in person
   # compared to the expected slot size, or something like that. or something more complicated for the particular slot based
   # on how many sessions are assigned to that actual slot - so that a 6 entry session always gets 3, but a 5 entry session can have 2?
-  s.add(Or( And(num_in_person >= 2, num_in_person <=3, num_in_session == 5),
+  s.add_soft(Or( And(num_in_person >= 2, num_in_person <=3, num_in_session == 5),
             And(num_in_person >= 2, num_in_person <=3, num_in_session == 6),
             And(num_in_person >= 3, num_in_person <=4, num_in_session == 7)
           )
