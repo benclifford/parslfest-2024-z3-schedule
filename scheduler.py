@@ -56,7 +56,8 @@ talk_titles_prefs = \
     ("Will Engler", 2, 1, ["ml", "tooling/infra"], "Garden: Lessons learned from serving AI for Science models with Globus Compute", True),
     ("Greg Pauloski", 5, 1, ["academy"], "Academy", False),
     ("Mike Tynes", 2, 1, ["materials", "simulations", "ml"], "Distributed on-the-fly training of neural network potentials with Parsl and Colmena", True),
-    ("Matt Baughman", 2, 1, ["tooling/infra", "multisite"], "Adaptive Task Management: Enabling Multi-Site Workflows with Globus Compute", True),
+    ("Matt Baughman", None, 1, ["tooling/infra", "multisite"], "Adaptive Task Management: Enabling Multi-Site Workflows with Globus Compute", True),
+    # ^ on programme as session 2
     ("Valerie Hayot-Sasson", 3, 1, ["provenance/repro"], "Facilitating Reproducibility Evaluations on HPC with Globus Compute and GitHub Actions", False),
     ("Arham Khan", 3, 1, [], "LSHBloom: Memory-efficient, Extreme-scale Document Deduplication", True),
     ("Mansi Sakarvadia", 4, 1, ["ml"], "Topology-Aware Knowledge Propagation in Decentralized Learning", False),
