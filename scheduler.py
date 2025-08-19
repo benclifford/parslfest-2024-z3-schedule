@@ -248,7 +248,7 @@ for session in range(1, n_sessions+1):
   # compared to the expected slot size, or something like that. or something more complicated for the particular slot based
   # on how many sessions are assigned to that actual slot - so that a 6 entry session always gets 3, but a 5 entry session can have 2?
   s.add_soft(Or( And(num_in_person >= 2, num_in_person <=3, num_in_session == 5),
-            And(num_in_person >= 2, num_in_person <=3, num_in_session == 6),
+            And(num_in_person >= 3, num_in_person <=3, num_in_session == 6),
             And(num_in_person >= 3, num_in_person <=4, num_in_session == 7)
           ),
           id='session_ratio'
