@@ -70,9 +70,10 @@ talk_titles_prefs = \
     ("Robert Underwood", 2, 1, ["ml"], "Using Parsl to Power the Data Pipelines of AuroraGPT", False),
     ("Scott Friedman", 1, 1, ["tooling/infra"], "An ephemeral Parsl provider for AWS", False),
     ("Seena Vazifedunn", 1, 1, ["tooling/infra"], "StreamHub: High-performance Managed SciStream as a Service", True),
-    ("Naomi Kolodisner", 6, 1, ["academy"], "Adaptive Tool Selection in a Scalable Genomics Pipeline", False),
+    ("Naomi Kolodisner", 6, 1, ["academy", "bio"], "Adaptive Tool Selection in a Scalable Genomics Pipeline", False),
     ("Joshua Herman", 3, 1, ["montecarlo"], "Accelerating QMCPy Notebook Tests with Parsl", False),
-    ("Alex Brace", 5, 1, [""], "precorded video", False),
+    ("Alex Brace", None, 1, ["ml", "bio"], "Fast homology detection across 250M proteins with deep learning (precorded video)", False),
+    # is 5 in programme, but as its prerecorded doesn't need to be fixed
   ]
 
 
