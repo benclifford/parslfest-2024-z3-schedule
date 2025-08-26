@@ -74,6 +74,7 @@ talk_titles_prefs = \
     ("Joshua Herman", 3, 1, ["montecarlo"], "Accelerating QMCPy Notebook Tests with Parsl", False),
     ("Alex Brace", None, 1, ["ml", "bio"], "Fast homology detection across 250M proteins with deep learning (precorded video)", False),
     # is 5 in programme, but as its prerecorded doesn't need to be fixed
+    ("Benoit Cote", 3, 1, ["ml", "site"], "Inference service at ALCF", False)
   ]
 
 
@@ -81,7 +82,7 @@ talk_sessions = [BitVec(f'talk_{n}_in_session', BITFIELD) for n in range(0,len(t
 
 # two different session structures: 2 bigger sessions, or 3 smaller sessions, per day
 # session_sizes = [9,9,9,9]
-session_sizes = [7,7,6,6,6,6]
+session_sizes = [7,7,7,7,7,7]
 n_sessions = len(session_sizes)
 
 assert sum(session_sizes) >= len(talk_titles_prefs), "must be enough slots for each talk"
