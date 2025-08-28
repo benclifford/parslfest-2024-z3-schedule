@@ -72,9 +72,12 @@ talk_titles_prefs = \
     ("Seena Vazifedunn", 1, 1, ["tooling/infra"], "StreamHub: High-performance Managed SciStream as a Service", True),
     ("Naomi Kolodisner", 6, 1, ["academy", "bio"], "Adaptive Tool Selection in a Scalable Genomics Pipeline", False),
     ("Joshua Herman", 3, 1, ["montecarlo"], "Accelerating QMCPy Notebook Tests with Parsl", False),
-    ("Alex Brace", None, 1, ["ml", "bio"], "Fast homology detection across 250M proteins with deep learning (precorded video)", False),
-    # is 5 in programme, but as its prerecorded doesn't need to be fixed
-    ("Benoit Cote", 3, 1, ["ml", "site"], "Inference service at ALCF", False)
+    ("Alex Brace", 6, 1, ["ml", "bio"], "Fast homology detection across 250M proteins with deep learning (precorded video)", False),
+    ("Benoit Cote", 3, 1, ["ml", "site"], "Inference service at ALCF", False),
+    ("Thanh Son Phung", 6, 1, ["ml"], "Efficiently Harnessing Opportunistic Resources in HPC Clusters for Lightweight LLM Inferences", False),
+
+    #40
+    ("Dan Katz", 4, 1, ["community"], "Parsl community sustainability", True),
   ]
 
 
