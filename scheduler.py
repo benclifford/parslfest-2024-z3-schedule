@@ -59,7 +59,7 @@ talk_titles_prefs = \
     ("Matt Baughman", None, 1, ["tooling/infra", "multisite"], "Adaptive Task Management: Enabling Multi-Site Workflows with Globus Compute", True),
     # ^ on programme as session 2
     ("Valerie Hayot-Sasson", 3, 1, ["provenance/repro"], "Facilitating Reproducibility Evaluations on HPC with Globus Compute and GitHub Actions", False),
-    ("Arham Khan", 3, 1, [], "LSHBloom: Memory-efficient, Extreme-scale Document Deduplication", True),
+    ("Arham Khan", 3, 1, ["text"], "LSHBloom: Memory-efficient, Extreme-scale Document Deduplication", True),
     ("Mansi Sakarvadia", 4, 1, ["ml"], "Topology-Aware Knowledge Propagation in Decentralized Learning", False),
     ("Logan Ward", 2, 0.1, ["materials", "ml", "simulations"], "Deploying AI+Simulation Workflows for MOF Design (with Parsl)", False),
     ("Kelechi Annabelle Nwankwo", 1, 1, ["tooling/infra"], "Parslet: Making Workflow Automation Accessible on Android and Low-Power Devices", False),
@@ -67,14 +67,13 @@ talk_titles_prefs = \
     #30
     ("Stefan Gary", 5, 1, ["tooling/infra", "multisite"], "Using parsl-perf to evaluate performance in a hybrid HPC environment", False),
     ("Ben Clifford", None, 0.1, ["monitoring"], "Parsl monitoring message flows", False),
-    ("Robert Underwood", 2, 1, ["ml"], "Using Parsl to Power the Data Pipelines of AuroraGPT", False),
+    ("Robert Underwood", 2, 1, ["ml", "text"], "Using Parsl to Power the Data Pipelines of AuroraGPT", False),
     ("Scott Friedman", 1, 1, ["tooling/infra"], "An ephemeral Parsl provider for AWS", False),
     ("Seena Vazifedunn", 1, 1, ["tooling/infra"], "StreamHub: High-performance Managed SciStream as a Service", True),
     ("Naomi Kolodisner", 6, 1, ["academy", "bio"], "Adaptive Tool Selection in a Scalable Genomics Pipeline", False),
     ("Joshua Herman", 3, 1, ["montecarlo"], "Accelerating QMCPy Notebook Tests with Parsl", False),
     ("Alex Brace", 6, 1, ["ml", "bio"], "Fast homology detection across 250M proteins with deep learning (precorded video)", False),
     ("Benoit Cote", 3, 1, ["ml", "site"], "Inference service at ALCF", False),
-    ("Thanh Son Phung", 6, 1, ["ml"], "Efficiently Harnessing Opportunistic Resources in HPC Clusters for Lightweight LLM Inferences", False),
 
     #40
     ("Dan Katz", 4, 1, ["community"], "Parsl community sustainability", True),
