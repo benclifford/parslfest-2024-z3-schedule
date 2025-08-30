@@ -68,14 +68,12 @@ talk_titles_prefs = \
     ("Stefan Gary", 5, 1, ["tooling/infra", "multisite"], "Using parsl-perf to evaluate performance in a hybrid HPC environment", False),
     ("Ben Clifford", None, 0.1, ["monitoring"], "Parsl monitoring message flows", False),
     ("Robert Underwood", 2, 1, ["ml", "text"], "Using Parsl to Power the Data Pipelines of AuroraGPT", False),
-    ("Scott Friedman", 5, 1, ["tooling/infra"], "An ephemeral Parsl provider for AWS (moved)", False),
+    # ("Scott Friedman", 5, 1, ["tooling/infra"], "An ephemeral Parsl provider for AWS (moved)", False),
     ("Seena Vazifedunn", 1, 1, ["tooling/infra"], "StreamHub: High-performance Managed SciStream as a Service", True),
     ("Naomi Kolodisner", 6, 1, ["academy", "bio"], "Adaptive Tool Selection in a Scalable Genomics Pipeline", False),
     ("Joshua Herman", 3, 1, ["montecarlo"], "Accelerating QMCPy Notebook Tests with Parsl", False),
     ("Alex Brace", 6, 1, ["ml", "bio"], "Fast homology detection across 250M proteins with deep learning (precorded video)", False),
     ("Benoit Cote", 3, 1, ["ml", "site"], "Inference service at ALCF", False),
-
-    #40
     ("Dan Katz", 4, 1, ["community"], "Parsl community sustainability", True),
   ]
 
@@ -134,7 +132,7 @@ special_talk_constraints = [
    talk_sessions[31] !=  3, # Ben doesn't want to talk in TZ inconvenient times about monitoring
    talk_sessions[0] > talk_sessions[31],  # ben's two talks should be in different sessions, and talk 31, being more serious, should come earlier?
 
-   talk_sessions[35] >= talk_sessions[22],  # academy app talk should be after greg's main academy talk
+   talk_sessions[34] >= talk_sessions[22],  # academy app talk should be after greg's main academy talk
    ]
 
 #  OnDay(talk_sessions[1], 1),  # andrew can only do day 1
