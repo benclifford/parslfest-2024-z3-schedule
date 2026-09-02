@@ -27,54 +27,49 @@ talk_titles_prefs = \
     # sheet row 2 
     # ("Kyle Chard", 1, 1, ["parslfest-meta"], "Introduction to ParslFest", True),
 
-    #0 
-    ("Ben Clifford", 5, 0.1, ["pl"], "HTEX Interchange in 3 languages", False),
-    ("James Klassen", 4, 1, ["geo/env", "imaging"], "Calculating optimal size of Parsl runs for DEM production", False),
-    ("Zhao Zhang", 2, 1, ["ml"], "Training Neural Networks with Diamond", False),
-    ("Sicheng Zhou", 1, 1, ["tooling/infra"], "WRATH: Workflow Resilience Across Task Hierarchies in Task-based Parallel Programming Frameworks", False),
-    ("Dave Bunten", 6, 1, ["bio"], "With Great Parsl Comes Great Portability: Using Parsl through CytoTable for Harmonizing Single-cell Data", False),
-    ("Josh Bryan", 3, 0.1, ["gc-core"], "Globus Compute Past and Future", True),
-    ("Chris Janidlo", 3, 0.1, ["gc-core"], "Globus Compute Serialization Overview", True),
-    ("Yadu Babuji", 6, 0.1, ["site"], "Parsl scaling on Aurora", True),
-    ("Laura Walitzer", 2, 1, ["simulations"], "A Multifidelity, Multiobjective Optimization Workflow With Parsl", False),
-    ("Dan Dietz", 6, 1, ["site"], "Globus Compute at OLCF", True),
+    # apex 2026
+
+    #0
+    ("Ben Clifford", None, 0, ["community", "parsl"], "Parsl Community Grants Closing Roundup", False),
+    ("Ben Clifford", None, 0, ["parsl", "pl"], "Formal methods for Parsl block shutdown", False),
+    ("Stephen Hudson", None, 0, ["agents"], "AgentLab: Collaborative Agentic Campaigns across HPC Facilities", False),
+    ("David Abramov", None, 0, ["agents"], "Agentic Workflows for Tomography and Knowledge Curation", False),
+    ("Daniel Rosendo", None, 0, ["agents"], "An Agentic AI Framework to Accelerate Scientific Discovery in Plant Phenotyping", False),
+    ("Matt Baughman", None, 0, ["agents"], "Tritium Splash: Using Agents to Drive Large-Scale Exploration of Multiphysics Simulations for Fusion Fuels", False),
+    ("Max Burnette", None, 0, [], "Diamond Platform", False),
+    ("Amal Gueroudji", None, 0, ["agents", "observability", "provenance"], "Provenance Collection for Agentic frameworks", False),
+    ("Owen Price-Skelly", None, 0, ["agents"], "Self-steering MLIP Committee with Rootstock and Academy Agents", False),
+    ("Chris Harrop", None, 0, [], "Academy Agents for Numerical Weather Prediction", False),
 
     #10 
-    ("Tianle Wang", 5, 1, ["tooling/infra"], "Integration of globus compute and harvester for ATLAS workflow at HPC", True),
-    ("Patrick Wells", 4, 1, ["space"], "OpenCosmo", True),
-    ("João Gabriel Loureiro de Lima Lembo", 1, 1, ["tooling/infra"], "Implementing Cold-Start Reduction Techniques on Globus Compute", False),
-    ("Chris Harrop", 1, 1, ["tooling/infra"], "Enhancements for Parsl and Globus Compute Integration", True),
-    ("Haochen Pan", 5, 1, ["tooling/infra"], "Globus MCPs for Science and High Performance Computing", True),
-    ("Alok Kamatar", 4, 1, ["geo/env"], "Core Hours and Carbon: The Environmental Impact of Federated Computing", True),
-    ("Hai Duc Nguyen", 1, 1, ["imaging", "tomography"], "Resilient Solutions for Tomographic Reconstruction", True),
-    ("Daniel Babnigg", 4, 1, ["imaging", "space"], "Parallel Scripting in a Integral Field Unit Spectroscopy Pipeline", True),
-    ("Geoffrey Lentner", 6, 1, ["site"], "Enabling Science for NSF ACCESS via Globus Compute", True),
-    ("Pedro Enrique Martinez Fernandez", 3, 1, ["provenance/repro"], "Globus Compute + DataLad: Provenance tracking for remote workflows", False),
+    ("Logan Ward", None, 0, [], "TBD", False),
+    ("Chandrachur Bhattacharya", None, 0, [], "AISAC", False),
+    ("Valesca Moura", None, 0, ["agents", "observability", "provenance"], "Agentic provenance", False),
+    ("Valerie Hayot-Sasson", None, 0, [], "Continuous reproducibility with Correct", False),
+    ("Geoffrey Lentner", None, 0, ["Globus Compute"], "The Anvil MEP and building on top of Globus Compute", False),
+    ("Mike Tynes", None, 0, [], "TBD", False),
+    ("Alex Brace", None, 0, ["agents"], "DeepDriveWE: An agentic approach to enhanced sampling molecular dynamics", False),
+    ("Haotian Xie", None, 0, ["agents"], "Diamond Agents", False),
+    ("Tim Dunn", None, 0, [], "TBD", False),
+    ("Suman Raj", None, 0, ["agents"], "Agents Migration across Federated Compute Resources", False),
 
     #20
-    ("Douglas N Friedel", 5, 0.1, ["tooling/infra", "multisite"], "KeepItRunning: A New Tool for Migrating Running Jobs Between HPC Resources", True),
-    ("Will Engler", 2, 1, ["ml", "tooling/infra"], "Garden: Lessons learned from serving AI for Science models with Globus Compute", True),
-    ("Greg Pauloski", 5, 1, ["academy"], "Academy", False),
-    ("Mike Tynes", 2, 1, ["materials", "simulations", "ml"], "Distributed on-the-fly training of neural network potentials with Parsl and Colmena", True),
-    ("Matt Baughman", 2, 1, ["tooling/infra", "multisite"], "Adaptive Task Management: Enabling Multi-Site Workflows with Globus Compute", True),
-    # ^ on programme as session 2
-    ("Valerie Hayot-Sasson", 3, 1, ["provenance/repro"], "Facilitating Reproducibility Evaluations on HPC with Globus Compute and GitHub Actions", False),
-    ("Arham Khan", 3, 1, ["text"], "LSHBloom: Memory-efficient, Extreme-scale Document Deduplication", True),
-    ("Mansi Sakarvadia", 4, 1, ["ml"], "Topology-Aware Knowledge Propagation in Decentralized Learning", False),
-    ("Logan Ward", 2, 0.1, ["materials", "ml", "simulations"], "Deploying AI+Simulation Workflows for MOF Design (with Parsl)", False),
-    ("Kelechi Annabelle Nwankwo", 1, 1, ["tooling/infra"], "Parslet: Making Workflow Automation Accessible on Android and Low-Power Devices", False),
+    ("Matt Sinclair", None, 0, ["agents"], "Federated deployment of an agentic biology framework at scale", False),
+    ("Harikrishna Tummalapalli", None, 0, ["parsl"], "Ensemble Executor for Insane-Scale Compute", False),
+    ("Alex Zhang", None, 0, ["agents"], "Per-action Authorization for Shared Agents", False),
+    ("Ryan Chard", None, 0, ["agents"], "Reputation as Community Memory for the Agentic Web", False),
+    ("Augustus Ellerm", None, 0, [], "HPCBridge", False),
+    ("Alok Kamatar", None, 0, [], "TBD", False),
+    ("Yadu Babuji", None, 0, ["agents", "observability"], "Academy Dashboard", False),
+    ("Kevin Hunter Kesling", None, 0, ["Globus Compute"], "TBD", False),
+    ("Haochen Pan", None, 0, [], "Resilient parallel workflows", False),
+    ("Seena Vazifedunn", None, 0, ["Globus Compute"], "Globus Tunnels + Compute", False),
 
     #30
-    ("Stefan Gary", 5, 1, ["tooling/infra", "multisite"], "Using parsl-perf to evaluate performance in a hybrid HPC environment", False),
-    ("Ben Clifford", 4, 0.1, ["monitoring"], "Parsl monitoring message flows", False),
-    ("Robert Underwood", 2, 1, ["ml", "text"], "Using Parsl to Power the Data Pipelines of AuroraGPT", False),
-    # ("Scott Friedman", 5, 1, ["tooling/infra"], "An ephemeral Parsl provider for AWS (moved)", False),
-    ("Seena Vazifedunn", 1, 1, ["tooling/infra"], "StreamHub: High-performance Managed SciStream as a Service", True),
-    ("Naomi Kolodisner", 6, 1, ["academy", "bio"], "Adaptive Tool Selection in a Scalable Genomics Pipeline", False),
-    ("Joshua Herman", 3, 1, ["montecarlo"], "Accelerating QMCPy Notebook Tests with Parsl", False),
-    ("Alex Brace", 6, 1, ["ml", "bio"], "Fast homology detection across 250M proteins with deep learning (precorded video)", False),
-    ("Benoit Cote", 3, 1, ["ml", "site"], "Inference service at ALCF", False),
-    ("Dan Katz", 4, 1, ["community"], "Parsl community sustainability", True),
+    ("Himanshi Yadav", None, 0, ["agents"], "Agentic Workflow for Document Analysis", False),
+    ("Mihael Hategan", None, 0, ["agents"], "Agents and Lightsources", False),
+    ("Saiful Islam", None, 0, ["packaging"], "Floability Backpacks: Packaging Workflows for Portable HPC Deployment", False),
+    ("Kyle Chard", None, 0, ["intro"], "Introduction To Apex", False),
   ]
 
 
@@ -82,7 +77,11 @@ talk_sessions = [BitVec(f'talk_{n}_in_session', BITFIELD) for n in range(0,len(t
 
 # two different session structures: 2 bigger sessions, or 3 smaller sessions, per day
 # session_sizes = [9,9,9,9]
-session_sizes = [7,7,7,7,7,7]
+session_sizes = [6,6,6,6,6,6]
+
+# TODO: some assert on session sizes here: if the sessions are too big, we can't
+# schedule n-1..n sized sessions.
+
 n_sessions = len(session_sizes)
 
 assert sum(session_sizes) >= len(talk_titles_prefs), "must be enough slots for each talk"
@@ -99,12 +98,8 @@ talks_in_valid_sessions = [And(t >= 1, t <= n_sessions) for t in talk_sessions]
 # session capacities
 
 def SessionSize(session, size):
-    if size == 0:
-     sp = 0
-    else:
-     sp = size - 1
     return And(AtMost(*[t == session for t in talk_sessions], size),
-               AtLeast(*[t == session for t in talk_sessions], 6),  # don't want sessions to be rounded down if they are shorter sessions... the longest sessions are the ones that can flex
+               AtLeast(*[t == session for t in talk_sessions], size-1),
               )
 
 sessions_have_sizes = [SessionSize(n+1, session_sizes[n]) for n in range(0,len(session_sizes))]
@@ -117,22 +112,22 @@ def OnDay(talk_session, day):
   else:
     raise RuntimeError("bad day")
 
-# YaduConstraints = Or(And(OnDay(talk_sessions[4], 1), OnDay(talk_sessions[23], 2)),
-#                      And(OnDay(talk_sessions[4], 2), OnDay(talk_sessions[23], 1)))
-  
-## num_moved = Sum(*[If(talk_sessions[n] == talk_titles_prefs[n][1], 0, talk_titles_prefs[n][2] if len(talk_titles_prefs[n]) > 2 else 1) for n in range(0,len(talk_titles_prefs)) if talk_titles_prefs[n][1] is not None])
 special_talk_constraints = [
-   # talk_sessions[0] == 1, # Kyle must talk first
-   OnDay(talk_sessions[5], 1),  # Josh can only do day 1 in person
+   talk_sessions[33] == 1, # Kyle must talk first for introduction
+   Or(talk_sessions[6] == 1, OnDay(talk_sessions[6], 2)),  # by email:  if possible I?d like to avoid being scheduled between 3 - 3:45 Central on the 14th.
+   OnDay(talk_sessions[19], 1),  # Could you please schedule my talk on Sept 14 if possible?
+
+
+   # OnDay(talk_sessions[5], 1),  # Josh can only do day 1 in person
    # talk_sessions[5] != talk_sessions[0], # GC intro should not be in same session as Parsl intro 
-   talk_sessions[5] <= talk_sessions[6], # GC intro should come before other GC talks
+   #talk_sessions[5] <= talk_sessions[6], # GC intro should come before other GC talks
 
    # these are deliberately different, due to content
-   talk_sessions[0] > 3,  # 3-languages talk should be on day 2
-   talk_sessions[31] !=  3, # Ben doesn't want to talk in TZ inconvenient times about monitoring
-   talk_sessions[0] > talk_sessions[31],  # ben's two talks should be in different sessions, and talk 31, being more serious, should come earlier?
+   #talk_sessions[0] > 3,  # 3-languages talk should be on day 2
+   #talk_sessions[31] !=  3, # Ben doesn't want to talk in TZ inconvenient times about monitoring
+   #talk_sessions[0] > talk_sessions[31],  # ben's two talks should be in different sessions, and talk 31, being more serious, should come earlier?
 
-   talk_sessions[34] >= talk_sessions[22],  # academy app talk should be after greg's main academy talk
+   #talk_sessions[34] >= talk_sessions[22],  # academy app talk should be after greg's main academy talk
    ]
 
 #  OnDay(talk_sessions[1], 1),  # andrew can only do day 1
@@ -151,17 +146,17 @@ special_talk_constraints = [
 
 
 possible_session_chairs = [
-  "Dan Katz",  #0
-  "Chris Janidlo", #1
-  "Yadu Babuji", #2
-  "Yadu Babuji", #3
-  "Kyle Chard", #4
-  "Kyle Chard", #5
+  "Chair A",  #0
+  "Chair B", #1
+  "Chair C", #2
+  "Chair D", #3
+  "Chair E", #4
+  "Chair F", #5
   ]
 
 # session numbers here start at 0, not 1
-# sticky_session_chairs = [None, None, None, None, None, None]
-sticky_session_chairs = [0, 2, 4, 3, 1, 5]
+sticky_session_chairs = [None, None, None, None, None, None]
+# sticky_session_chairs = [0, 2, 4, 3, 1, 5]
 
 session_chairs = [BitVec(f'session_{n}_has_chair', BITFIELD) for n in range(0,n_sessions)]
 
@@ -180,15 +175,15 @@ def ChairTalkExclusion(talk, chairnum):
   return And(*[Not(And(talk_sessions[talk] == session+1, session_chairs[session] == chairnum)) for session in range(0, n_sessions)])
 
 special_chair_constraints = [
-  session_chairs[0] != 1,  # Chris first time chair, so make two sessions happen before he chairs to get vibe
-  session_chairs[1] != 1,  # "
+  # session_chairs[0] != 1,  # Chris first time chair, so make two sessions happen before he chairs to get vibe
+  # session_chairs[1] != 1,  # "
   ]
 
 for sc_n in range(0, len(possible_session_chairs)):
-  print(f"Excluding talks for possibel session chair {sc_n} -- {possible_session_chairs[sc_n]}")
+  print(f"Excluding talks for possible session chair {sc_n} -- {possible_session_chairs[sc_n]}")
   for ses_n in range(0, len(talk_titles_prefs)):
     if talk_titles_prefs[ses_n][0] == possible_session_chairs[sc_n]:
-      print(f"Excluding speaker for talk {ses_n}")
+      print(f"Excluding speaker for talk {ses_n} from session {sc_n}")
       special_chair_constraints.append(ChairTalkExclusion(ses_n, sc_n))
 
 
@@ -296,37 +291,11 @@ if stickiness_factor:
 #  if sticky_session_chairs[n] is not None:
 #    s.add_soft(session_chairs[n] == sticky_session_chairs[n], weight="0.1")
 
-import time
-start= time.time()
-def hook(m):
-  print(f"callback: (time {time.time()-start})")
-  for o in s.objectives():
-    print(m.evaluate(o))
-  print("===")
-
-s.set_on_model(hook)
-
-print("solving")
-result = s.check()
-
-print(result)
-
-if result == unsat :
-    print(s.unsat_core())
-    raise RuntimeError("Cannot schedule ParslFest 2024 :(")
-
-m=s.model()
-print(m)
-print("objectives:")
-print(s.objectives())
-print("sexpr:")
-print(s.sexpr())
-print("stats:")
-print(s.statistics())
-print("\n\nformatted:")
+def format_solution(m):
+ print("\n\nformatted:")
 
 
-for session in range(1, n_sessions+1):
+ for session in range(1, n_sessions+1):
   chairname = possible_session_chairs[m.evaluate(session_chairs[session - 1]).as_long()]
   print(f"\nSession {session} - chair {chairname}")
   used = 0
@@ -349,3 +318,36 @@ for session in range(1, n_sessions+1):
     print("**SPARE SLOT**")
   if used > session_sizes[session-1]:
     print("**ERROR** too many talks assigned to this session")
+
+
+import time
+start= time.time()
+def hook(m):
+  print(f"callback: (time {time.time()-start})")
+  print("=== objectives ===")
+  for o in s.objectives():
+    print(m.evaluate(o))
+  print("=== formatted solution ===")
+  format_solution(m)
+
+s.set_on_model(hook)
+
+print("solving")
+result = s.check()
+
+print(result)
+
+if result == unsat :
+    print(s.unsat_core())
+    raise RuntimeError("Cannot schedule Apex 2026 :(")
+
+m=s.model()
+print(m)
+print("objectives:")
+print(s.objectives())
+print("sexpr:")
+print(s.sexpr())
+print("stats:")
+print(s.statistics())
+format_solution(m)
+
