@@ -9,7 +9,7 @@ from z3 import *
 BITFIELD = 4
 
 # how much we care about schedule stickiness
-stickiness_factor = True
+stickiness_factor = False
 
 talk_titles_prefs = \
   [
@@ -28,7 +28,7 @@ talk_titles_prefs = \
     # ("Kyle Chard", 1, 1, ["parslfest-meta"], "Introduction to ParslFest", True),
 
     #0 
-    ("Ben Clifford", None, 0.1, ["pl"], "HTEX Interchange in 3 languages", False),
+    ("Ben Clifford", 5, 0.1, ["pl"], "HTEX Interchange in 3 languages", False),
     ("James Klassen", 4, 1, ["geo/env", "imaging"], "Calculating optimal size of Parsl runs for DEM production", False),
     ("Zhao Zhang", 2, 1, ["ml"], "Training Neural Networks with Diamond", False),
     ("Sicheng Zhou", 1, 1, ["tooling/infra"], "WRATH: Workflow Resilience Across Task Hierarchies in Task-based Parallel Programming Frameworks", False),
@@ -56,7 +56,7 @@ talk_titles_prefs = \
     ("Will Engler", 2, 1, ["ml", "tooling/infra"], "Garden: Lessons learned from serving AI for Science models with Globus Compute", True),
     ("Greg Pauloski", 5, 1, ["academy"], "Academy", False),
     ("Mike Tynes", 2, 1, ["materials", "simulations", "ml"], "Distributed on-the-fly training of neural network potentials with Parsl and Colmena", True),
-    ("Matt Baughman", None, 1, ["tooling/infra", "multisite"], "Adaptive Task Management: Enabling Multi-Site Workflows with Globus Compute", True),
+    ("Matt Baughman", 2, 1, ["tooling/infra", "multisite"], "Adaptive Task Management: Enabling Multi-Site Workflows with Globus Compute", True),
     # ^ on programme as session 2
     ("Valerie Hayot-Sasson", 3, 1, ["provenance/repro"], "Facilitating Reproducibility Evaluations on HPC with Globus Compute and GitHub Actions", False),
     ("Arham Khan", 3, 1, ["text"], "LSHBloom: Memory-efficient, Extreme-scale Document Deduplication", True),
@@ -66,7 +66,7 @@ talk_titles_prefs = \
 
     #30
     ("Stefan Gary", 5, 1, ["tooling/infra", "multisite"], "Using parsl-perf to evaluate performance in a hybrid HPC environment", False),
-    ("Ben Clifford", None, 0.1, ["monitoring"], "Parsl monitoring message flows", False),
+    ("Ben Clifford", 4, 0.1, ["monitoring"], "Parsl monitoring message flows", False),
     ("Robert Underwood", 2, 1, ["ml", "text"], "Using Parsl to Power the Data Pipelines of AuroraGPT", False),
     # ("Scott Friedman", 5, 1, ["tooling/infra"], "An ephemeral Parsl provider for AWS (moved)", False),
     ("Seena Vazifedunn", 1, 1, ["tooling/infra"], "StreamHub: High-performance Managed SciStream as a Service", True),
@@ -231,10 +231,6 @@ s.add(session_chairs_are_valid)
 s.add(chairs_maximum_one_session)
 s.add(special_chair_constraints)
 
-if stickiness_factor:
-  objective_function = num_moved
-  s.minimize(objective_function)
-
 for session in range(1, n_sessions+1):
   num_in_session = Sum(*[If(talk_sessions[n] == session, 1, 0) for n in range(0, len(talk_titles_prefs))])
   num_in_person = Sum(*[If(talk_sessions[n] == session, 1, 0) for n in range(0, len(talk_titles_prefs)) if talk_titles_prefs[n][5]])
@@ -290,10 +286,25 @@ for topic in topics_deterministic:
         else:
           print(f"Adding a topic affinity for {a} and {b}")
           s.add_soft(a == b, weight=talk_constraint_strength)
+
+if stickiness_factor:
+  objective_function = num_moved
+  s.minimize(objective_function)
+
 # session chairs are sticky
-for n in range(n_sessions):
-  if sticky_session_chairs[n] is not None:
-    s.add_soft(session_chairs[n] == sticky_session_chairs[n], weight="0.1")
+# for n in range(n_sessions):
+#  if sticky_session_chairs[n] is not None:
+#    s.add_soft(session_chairs[n] == sticky_session_chairs[n], weight="0.1")
+
+import time
+start= time.time()
+def hook(m):
+  print(f"callback: (time {time.time()-start})")
+  for o in s.objectives():
+    print(m.evaluate(o))
+  print("===")
+
+s.set_on_model(hook)
 
 print("solving")
 result = s.check()
