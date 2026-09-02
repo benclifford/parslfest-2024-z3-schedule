@@ -79,7 +79,7 @@ talk_titles_prefs = \
     ("Himanshi Yadav", None, 0, ["agents"], "Agentic Workflow for Document Analysis", True),
     ("Mihael Hategan", None, 0, ["agents", "physics/chemistry"], "Agents and Lightsources", False),
     ("Saiful Islam", None, 0, ["packaging", "infrastructure"], "Floability Backpacks: Packaging Workflows for Portable HPC Deployment", True),
-    ("Kyle Chard", None, 0, ["intro"], "Introduction To APeX", True),
+    ("Kyle Chard", None, 0, ["intro"], "Welcome To APeX", True),
   ]
 
 
