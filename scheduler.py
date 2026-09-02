@@ -28,7 +28,7 @@ talk_titles_prefs = \
 
     #0
     ("Ben Clifford", None, 0, ["community", "parsl"], "Parsl Community Grants Closing Roundup", False),
-    ("Ben Clifford", None, 0, ["parsl", "infrastructure"], "Formal methods for Parsl block shutdown", False),
+    ("Ben Clifford", None, 0, ["parsl"], "Formal methods for Parsl block shutdown", False),
     ("Stephen Hudson", None, 0, ["agents", "infrastructure"], "AgentLab: Collaborative Agentic Campaigns across HPC Facilities", True),
     ("David Abramov", None, 0, ["agents"], "Agentic Workflows for Tomography and Knowledge Curation", False),
     ("Daniel Rosendo", None, 0, ["agents", "biology"], "An Agentic AI Framework to Accelerate Scientific Discovery in Plant Phenotyping", True),
@@ -41,9 +41,9 @@ talk_titles_prefs = \
 
     ("Logan Ward", None, 0, ["physics/chemistry", "agents"], "Agentic AI-Driven Molecule Design on HPC", False),
     ("Chandrachur Bhattacharya", None, 0, ["agents"], "AISAC", False),
-    ("Valesca Moura", None, 0, ["agents", "observability", "provenance"], "Agentic provenance", False),
+    ("Valesca Moura", None, 0, ["agents", "observability", "provenance"], "Instrumentation vs. Observability: Provenance Capture Trade-offs in Agentic Workflows", False),
     ("Valerie Hayot-Sasson", None, 0, ["infrastructure"], "Continuous reproducibility with Correct", False),
-    ("Geoffrey Lentner", None, 0, ["Globus Compute"], "The Anvil MEP and building on top of Globus Compute", True),
+    ("Geoffrey Lentner", None, 0, ["Globus Compute", "site"], "The Anvil MEP and building on top of Globus Compute", True),
     ("Mike Tynes", None, 0, [], "TBD", True),
     ("Alex Brace", None, 0, ["agents", "physics/chemistry"], "DeepDriveWE: An agentic approach to enhanced sampling molecular dynamics", True),
     ("Haotian Xie", None, 0, ["agents"], "Diamond Agents", True),
@@ -52,7 +52,7 @@ talk_titles_prefs = \
 
     #20
     ("Matt Sinclair", None, 0, ["agents", "biology"], "Federated deployment of an agentic biology framework at scale", False),
-    ("Harikrishna Tummalapalli", None, 0, ["parsl", "infrastructure"], "Ensemble Executor for Insane-Scale Compute", True),
+    ("Harikrishna Tummalapalli", None, 0, ["parsl", "site"], "Ensemble Executor for Insane-Scale Compute", True),
 
     #unregistered - assume remote
     ("Alex Zhang", None, 0, ["agents", "infrastructure"], "Per-action Authorization for Shared Agents", False),
