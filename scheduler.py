@@ -24,52 +24,49 @@ talk_titles_prefs = \
     # fourth entry is talk title
     # fifth entry is "in person" (true)  or "remote" (false)
 
-    # sheet row 2 
-    # ("Kyle Chard", 1, 1, ["parslfest-meta"], "Introduction to ParslFest", True),
-
-    # apex 2026
+    # APeX 2026
 
     #0
     ("Ben Clifford", None, 0, ["community", "parsl"], "Parsl Community Grants Closing Roundup", False),
-    ("Ben Clifford", None, 0, ["parsl", "pl"], "Formal methods for Parsl block shutdown", False),
-    ("Stephen Hudson", None, 0, ["agents"], "AgentLab: Collaborative Agentic Campaigns across HPC Facilities", False),
+    ("Ben Clifford", None, 0, ["parsl", "infrastructure"], "Formal methods for Parsl block shutdown", False),
+    ("Stephen Hudson", None, 0, ["agents", "infrastructure"], "AgentLab: Collaborative Agentic Campaigns across HPC Facilities", False),
     ("David Abramov", None, 0, ["agents"], "Agentic Workflows for Tomography and Knowledge Curation", False),
-    ("Daniel Rosendo", None, 0, ["agents"], "An Agentic AI Framework to Accelerate Scientific Discovery in Plant Phenotyping", False),
-    ("Matt Baughman", None, 0, ["agents"], "Tritium Splash: Using Agents to Drive Large-Scale Exploration of Multiphysics Simulations for Fusion Fuels", False),
+    ("Daniel Rosendo", None, 0, ["agents", "biology"], "An Agentic AI Framework to Accelerate Scientific Discovery in Plant Phenotyping", False),
+    ("Matt Baughman", None, 0, ["agents", "physics/chemistry"], "Tritium Splash: Using Agents to Drive Large-Scale Exploration of Multiphysics Simulations for Fusion Fuels", False),
     ("Max Burnette", None, 0, [], "Diamond Platform", False),
     ("Amal Gueroudji", None, 0, ["agents", "observability", "provenance"], "Provenance Collection for Agentic frameworks", False),
-    ("Owen Price-Skelly", None, 0, ["agents"], "Self-steering MLIP Committee with Rootstock and Academy Agents", False),
-    ("Chris Harrop", None, 0, [], "Academy Agents for Numerical Weather Prediction", False),
-
+    ("Owen Price-Skelly", None, 0, ["agents", "physics/chemistry"], "Self-steering MLIP Committee with Rootstock and Academy Agents", False),
+    ("Chris Harrop", None, 0, ["agents", "earth"], "Academy Agents for Numerical Weather Prediction", False),
     #10 
-    ("Logan Ward", None, 0, [], "TBD", False),
-    ("Chandrachur Bhattacharya", None, 0, [], "AISAC", False),
+
+    ("Logan Ward", None, 0, ["physics/chemistry", "agents"], "Agentic AI-Driven Molecule Design on HPC", False),
+    ("Chandrachur Bhattacharya", None, 0, ["agents"], "AISAC", False),
     ("Valesca Moura", None, 0, ["agents", "observability", "provenance"], "Agentic provenance", False),
-    ("Valerie Hayot-Sasson", None, 0, [], "Continuous reproducibility with Correct", False),
+    ("Valerie Hayot-Sasson", None, 0, ["infrastructure"], "Continuous reproducibility with Correct", False),
     ("Geoffrey Lentner", None, 0, ["Globus Compute"], "The Anvil MEP and building on top of Globus Compute", False),
     ("Mike Tynes", None, 0, [], "TBD", False),
-    ("Alex Brace", None, 0, ["agents"], "DeepDriveWE: An agentic approach to enhanced sampling molecular dynamics", False),
+    ("Alex Brace", None, 0, ["agents", "physics/chemistry"], "DeepDriveWE: An agentic approach to enhanced sampling molecular dynamics", False),
     ("Haotian Xie", None, 0, ["agents"], "Diamond Agents", False),
     ("Tim Dunn", None, 0, [], "TBD", False),
-    ("Suman Raj", None, 0, ["agents"], "Agents Migration across Federated Compute Resources", False),
+    ("Suman Raj", None, 0, ["infrastructure"], "Fairness-Aware Scheduling for Bursty HPC Workloads", False),
 
     #20
-    ("Matt Sinclair", None, 0, ["agents"], "Federated deployment of an agentic biology framework at scale", False),
-    ("Harikrishna Tummalapalli", None, 0, ["parsl"], "Ensemble Executor for Insane-Scale Compute", False),
-    ("Alex Zhang", None, 0, ["agents"], "Per-action Authorization for Shared Agents", False),
+    ("Matt Sinclair", None, 0, ["agents", "biology"], "Federated deployment of an agentic biology framework at scale", False),
+    ("Harikrishna Tummalapalli", None, 0, ["parsl", "infrastructure"], "Ensemble Executor for Insane-Scale Compute", False),
+    ("Alex Zhang", None, 0, ["agents", "infrastructure"], "Per-action Authorization for Shared Agents", False),
     ("Ryan Chard", None, 0, ["agents"], "Reputation as Community Memory for the Agentic Web", False),
     ("Augustus Ellerm", None, 0, [], "HPCBridge", False),
     ("Alok Kamatar", None, 0, [], "TBD", False),
     ("Yadu Babuji", None, 0, ["agents", "observability"], "Academy Dashboard", False),
     ("Kevin Hunter Kesling", None, 0, ["Globus Compute"], "TBD", False),
-    ("Haochen Pan", None, 0, [], "Resilient parallel workflows", False),
-    ("Seena Vazifedunn", None, 0, ["Globus Compute"], "Globus Tunnels + Compute", False),
+    ("Haochen Pan", None, 0, ["infrastructure"], "Resilient parallel workflows", False),
+    ("Seena Vazifedunn", None, 0, ["Globus Compute", "infrastructure"], "Globus Tunnels + Compute", False),
 
     #30
     ("Himanshi Yadav", None, 0, ["agents"], "Agentic Workflow for Document Analysis", False),
-    ("Mihael Hategan", None, 0, ["agents"], "Agents and Lightsources", False),
-    ("Saiful Islam", None, 0, ["packaging"], "Floability Backpacks: Packaging Workflows for Portable HPC Deployment", False),
-    ("Kyle Chard", None, 0, ["intro"], "Introduction To Apex", False),
+    ("Mihael Hategan", None, 0, ["agents", "physics/chemistry"], "Agents and Lightsources", False),
+    ("Saiful Islam", None, 0, ["packaging", "infrastructure"], "Floability Backpacks: Packaging Workflows for Portable HPC Deployment", False),
+    ("Kyle Chard", None, 0, ["intro"], "Introduction To APeX", False),
   ]
 
 
@@ -114,8 +111,13 @@ def OnDay(talk_session, day):
 
 special_talk_constraints = [
    talk_sessions[33] == 1, # Kyle must talk first for introduction
+
    Or(talk_sessions[6] == 1, OnDay(talk_sessions[6], 2)),  # by email:  if possible I?d like to avoid being scheduled between 3 - 3:45 Central on the 14th.
+
    OnDay(talk_sessions[19], 1),  # Could you please schedule my talk on Sept 14 if possible?
+
+   OnDay(talk_sessions[0], 1), # ben's two talks on different days
+   OnDay(talk_sessions[1], 2), # with the community one first
 
 
    # OnDay(talk_sessions[5], 1),  # Josh can only do day 1 in person
@@ -147,11 +149,11 @@ special_talk_constraints = [
 
 possible_session_chairs = [
   "Chair A",  #0
-  "Chair B", #1
-  "Chair C", #2
-  "Chair D", #3
-  "Chair E", #4
-  "Chair F", #5
+  "Chair B",  #1
+  "Chair C",  #2
+  "Chair D",  #3
+  "Chair E",  #4
+  "Chair F",  #5
   ]
 
 # session numbers here start at 0, not 1
@@ -296,13 +298,19 @@ def format_solution(m):
 
 
  for session in range(1, n_sessions+1):
+  if session == 1:
+    print("\n\n**** DAY 1 ****")
+  if session == 4:
+    print("\n\n**** DAY 2 ****")
   chairname = possible_session_chairs[m.evaluate(session_chairs[session - 1]).as_long()]
   print(f"\nSession {session} - chair {chairname}")
   used = 0
   for n in range(0, len(talk_titles_prefs)):
+
     if m.evaluate(talk_sessions[n]) == session:
       if talk_titles_prefs[n][1] is None:
-        print("**NEW** ", end='')
+        # print("**NEW** ", end='')
+        pass
       elif session != talk_titles_prefs[n][1]:
         print("**MOVED** ", end='')
       print(talk_titles_prefs[n][0], end='')
@@ -339,7 +347,7 @@ print(result)
 
 if result == unsat :
     print(s.unsat_core())
-    raise RuntimeError("Cannot schedule Apex 2026 :(")
+    raise RuntimeError("Cannot schedule APeX 2026 :(")
 
 m=s.model()
 print(m)
