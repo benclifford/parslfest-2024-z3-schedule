@@ -81,6 +81,7 @@ talk_titles_prefs = \
     ("Mihael Hategan", None, 0, ["agents", "physics/chemistry"], "Agents and Lightsources", False),
     ("Saiful Islam", None, 0, ["packaging", "infrastructure"], "Floability Backpacks: Packaging Workflows for Portable HPC Deployment", True),
     ("Kyle Chard", None, 0, ["intro"], "Welcome To APeX", True),
+    ("Chris Janidlo", None, 0, ["parsl", "Globus Compute"], "HTEX Protocol compatibility", True),
   ]
 
 
