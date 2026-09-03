@@ -29,7 +29,7 @@ talk_titles_prefs = \
     #0
     ("Ben Clifford", None, 0, ["community", "parsl"], "Parsl Community Grants Closing Roundup", False),
     ("Ben Clifford", None, 0, ["parsl", "insides"], "Formal methods for Parsl block shutdown", False),
-    ("Stephen Hudson", None, 0, ["agents", "multisite"], "AgentLab: Collaborative Agentic Campaigns across HPC Facilities", True),
+    ("Stephen Hudson", None, 0, ["agents", "multisite", "infrastructure"], "AgentLab: Collaborative Agentic Campaigns across HPC Facilities", True),
     ("David Abramov", None, 0, ["agents"], "Agentic Workflows for Tomography and Knowledge Curation", False),
     ("Daniel Rosendo", None, 0, ["agents", "biology"], "An Agentic AI Framework to Accelerate Scientific Discovery in Plant Phenotyping", True),
     ("Matt Baughman", None, 0, ["agents", "physics/chemistry"], "Tritium Splash: Using Agents to Drive Large-Scale Exploration of Multiphysics Simulations for Fusion Fuels", True),
