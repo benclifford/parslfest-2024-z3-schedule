@@ -69,14 +69,15 @@ talk_titles_prefs = \
     # unregistered - assume remote
     ("Kevin Hunter Kesling", None, 0, ["Globus Compute"], "TBD", False),
 
-    # unregistered - assume in person
-    ("Haochen Pan", None, 0, ["infrastructure"], "Resilient parallel workflows", True),
+    # haochen not giving a talk...
+    # ("Haochen Pan", None, 0, ["infrastructure"], "Resilient parallel workflows", True),
 
     
     ("Seena VazifeDunn", None, 0, ["Globus Compute", "infrastructure"], "Globus Tunnels + Compute", True),
 
-    #30
     ("Himanshi Yadav", None, 0, ["agents"], "Agentic Workflow for Document Analysis", True),
+
+    #30
     ("Mihael Hategan", None, 0, ["agents", "physics/chemistry"], "Agents and Lightsources", False),
     ("Saiful Islam", None, 0, ["packaging", "infrastructure"], "Floability Backpacks: Packaging Workflows for Portable HPC Deployment", True),
     ("Kyle Chard", None, 0, ["intro"], "Welcome To APeX", True),
@@ -123,7 +124,7 @@ def OnDay(talk_session, day):
     raise RuntimeError("bad day")
 
 special_talk_constraints = [
-   talk_sessions[33] == 1, # Kyle must talk first for introduction
+   talk_sessions[32] == 1, # Kyle must talk first for introduction
 
    Or(talk_sessions[6] == 1, OnDay(talk_sessions[6], 2)),  # by email:  if possible I?d like to avoid being scheduled between 3 - 3:45 Central on the 14th.
 
