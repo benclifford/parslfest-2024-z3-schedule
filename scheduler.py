@@ -28,8 +28,8 @@ talk_titles_prefs = \
 
     #0
     ("Ben Clifford", None, 0, ["community", "parsl"], "Parsl Community Grants Closing Roundup", False),
-    ("Ben Clifford", None, 0, ["parsl"], "Formal methods for Parsl block shutdown", False),
-    ("Stephen Hudson", None, 0, ["agents", "infrastructure"], "AgentLab: Collaborative Agentic Campaigns across HPC Facilities", True),
+    ("Ben Clifford", None, 0, ["parsl", "insides"], "Formal methods for Parsl block shutdown", False),
+    ("Stephen Hudson", None, 0, ["agents", "multisite"], "AgentLab: Collaborative Agentic Campaigns across HPC Facilities", True),
     ("David Abramov", None, 0, ["agents"], "Agentic Workflows for Tomography and Knowledge Curation", False),
     ("Daniel Rosendo", None, 0, ["agents", "biology"], "An Agentic AI Framework to Accelerate Scientific Discovery in Plant Phenotyping", True),
     ("Matt Baughman", None, 0, ["agents", "physics/chemistry"], "Tritium Splash: Using Agents to Drive Large-Scale Exploration of Multiphysics Simulations for Fusion Fuels", True),
@@ -55,33 +55,32 @@ talk_titles_prefs = \
     ("Harikrishna Tummalapalli", None, 0, ["parsl", "site"], "Ensemble Executor for Insane-Scale Compute", True),
 
     #unregistered - assume remote
-    ("Alex Zhang", None, 0, ["agents", "infrastructure"], "Per-action Authorization for Shared Agents", False),
+    ("Alex Zhang", None, 0, ["agents", "tools+techniques"], "Per-action Authorization for Shared Agents", False),
 
     # unregistered - assume remote
-    ("Ryan Chard", None, 0, ["agents"], "Reputation as Community Memory for the Agentic Web", False),
+    ("Ryan Chard", None, 0, ["agents", "tools+techniques"], "Reputation as Community Memory for the Agentic Web", False),
 
     ("Augustus Ellerm", None, 0, [], "HPCBridge", False),
     ("Alok Kamatar", None, 0, [], "TBD", True),
 
     # unregistered - assume in person
-    ("Yadu Babuji", None, 0, ["agents", "observability"], "Academy Dashboard", True),
+    ("Yadu Babuji", None, 0, ["agents", "observability", "tools+techniques"], "Academy Dashboard", True),
 
     # unregistered - assume remote
     ("Kevin Hunter Kesling", None, 0, ["Globus Compute"], "TBD", False),
 
     # haochen not giving a talk...
     # ("Haochen Pan", None, 0, ["infrastructure"], "Resilient parallel workflows", True),
-
     
-    ("Seena VazifeDunn", None, 0, ["Globus Compute", "infrastructure"], "Globus Tunnels + Compute", True),
+    ("Seena VazifeDunn", None, 0, ["Globus Compute", "multisite"], "Globus Tunnels + Compute", True),
 
-    ("Himanshi Yadav", None, 0, ["agents"], "Agentic Workflow for Document Analysis", True),
+    ("Himanshi Yadav", None, 0, ["agents", "text"], "Atomizing the Chicago Assyrian Dictionary: Agentic Workflow for Structuring Multi-Language Text Documents", True),
 
     #30
-    ("Mihael Hategan", None, 0, ["agents", "physics/chemistry"], "Agents and Lightsources", False),
+    ("Mihael Hategan", None, 0, ["agents", "tools+techniques"], "Reactive programming with Academy", False),
     ("Saiful Islam", None, 0, ["packaging", "infrastructure"], "Floability Backpacks: Packaging Workflows for Portable HPC Deployment", True),
     ("Kyle Chard", None, 0, ["intro"], "Welcome To APeX", True),
-    ("Chris Janidlo", None, 0, ["parsl", "Globus Compute"], "HTEX Protocol compatibility", True),
+    ("Chris Janidlo", None, 0, ["parsl", "Globus Compute", "insides"], "HTEX Protocol compatibility", True),
   ]
 
 
@@ -134,6 +133,11 @@ special_talk_constraints = [
    OnDay(talk_sessions[0], 1), # ben's two talks on different days
    OnDay(talk_sessions[1], 2), # with the community one first
 
+   Or(talk_sessions[16] == 1, talk_sessions[16] == 3),  # If possible, can I get a Monday (Sep 14th) slot? ?anytime except between 2-3pm works.
+
+   OnDay(talk_sessions[30], 1),  # the 14th is the only option.
+
+   talk_sessions[29] != 4  # just a preference for a time slot after 10 am
 
    # OnDay(talk_sessions[5], 1),  # Josh can only do day 1 in person
    # talk_sessions[5] != talk_sessions[0], # GC intro should not be in same session as Parsl intro 
