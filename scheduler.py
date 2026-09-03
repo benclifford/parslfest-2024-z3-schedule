@@ -42,7 +42,7 @@ talk_titles_prefs = \
     ("Logan Ward", None, 0, ["physics/chemistry", "agents"], "Agentic AI-Driven Molecule Design on HPC", False),
     ("Chandrachur Bhattacharya", None, 0, ["agents"], "AISAC", False),
     ("Valesca Moura", None, 0, ["agents", "observability", "provenance"], "Instrumentation vs. Observability: Provenance Capture Trade-offs in Agentic Workflows", False),
-    ("Valerie Hayot-Sasson", None, 0, ["infrastructure"], "Continuous reproducibility with Correct", False),
+    ("Valerie Hayot-Sasson", None, 0, ["tools+techniques"], "Continuous reproducibility with Correct", False),
     ("Geoffrey Lentner", None, 0, ["Globus Compute", "site"], "The Anvil MEP and building on top of Globus Compute", True),
     ("Mike Tynes", None, 0, [], "TBD", True),
     ("Alex Brace", None, 0, ["agents", "physics/chemistry"], "DeepDriveWE: An agentic approach to enhanced sampling molecular dynamics", True),
