@@ -29,42 +29,42 @@ talk_titles_prefs = \
     #0
     ("Ben Clifford", None, 0, ["community", "parsl"], "Parsl Community Grants Closing Roundup", False),
     ("Ben Clifford", None, 0, ["parsl", "insides"], "Formal methods for Parsl block shutdown", False),
-    ("Stephen Hudson", None, 0, ["agents", "multisite", "infrastructure"], "AgentLab: Collaborative Agentic Campaigns across HPC Facilities", True),
-    ("David Abramov", None, 0, ["agents"], "Agentic Workflows for Tomography and Knowledge Curation", False),
-    ("Daniel Rosendo", None, 0, ["agents", "biology"], "An Agentic AI Framework to Accelerate Scientific Discovery in Plant Phenotyping", True),
-    ("Matt Baughman", None, 0, ["agents", "physics/chemistry"], "Tritium Splash: Using Agents to Drive Large-Scale Exploration of Multiphysics Simulations for Fusion Fuels", True),
-    ("Max Burnette", None, 0, [], "Diamond Platform", False),
-    ("Amal Gueroudji", None, 0, ["agents", "observability", "provenance"], "Provenance Collection for Agentic frameworks", True),
-    ("Owen Price-Skelly", None, 0, ["agents", "physics/chemistry"], "Self-steering MLIP Committee with Rootstock and Academy Agents", True),
-    ("Chris Harrop", None, 0, ["agents", "earth"], "Academy Agents for Numerical Weather Prediction", False),
+    ("Stephen Hudson", None, 0, ["multisite", "infrastructure"], "AgentLab: Collaborative Agentic Campaigns across HPC Facilities", True),
+    ("David Abramov", None, 0, [], "Agentic Workflows for Tomography and Knowledge Curation", False),
+    ("Daniel Rosendo", None, 0, ["biology"], "An Agentic AI Framework to Accelerate Scientific Discovery in Plant Phenotyping", True),
+    ("Matt Baughman", None, 0, ["physics/chemistry"], "Tritium Splash: Using Agents to Drive Large-Scale Exploration of Multiphysics Simulations for Fusion Fuels", True),
+    ("Max Burnette", None, 0, ["diamond"], "Diamond Platform", False),
+    ("Amal Gueroudji", None, 0, ["observability", "provenance"], "Provenance Collection for Agentic frameworks", True),
+    ("Owen Price-Skelly", None, 0, ["physics/chemistry"], "Self-steering MLIP Committee with Rootstock and Academy Agents", True),
+    ("Chris Harrop", None, 0, ["earth"], "Academy Agents for Numerical Weather Prediction", False),
     #10 
 
-    ("Logan Ward", None, 0, ["physics/chemistry", "agents"], "Agentic AI-Driven Molecule Design on HPC", False),
-    ("Chandrachur Bhattacharya", None, 0, ["agents"], "AISAC", False),
-    ("Valesca Moura", None, 0, ["agents", "observability", "provenance"], "Instrumentation vs. Observability: Provenance Capture Trade-offs in Agentic Workflows", False),
+    ("Logan Ward", None, 0, ["physics/chemistry"], "Agentic AI-Driven Molecule Design on HPC", False),
+    ("Chandrachur Bhattacharya", None, 0, [], "AISAC", False),
+    ("Valesca Moura", None, 0, ["observability", "provenance"], "Instrumentation vs. Observability: Provenance Capture Trade-offs in Agentic Workflows", False),
     ("Valerie Hayot-Sasson", None, 0, ["tools+techniques"], "Continuous reproducibility with Correct", False),
     ("Geoffrey Lentner", None, 0, ["Globus Compute", "site"], "The Anvil MEP and building on top of Globus Compute", True),
-    ("Mike Tynes", None, 0, [], "TBD", True),
-    ("Alex Brace", None, 0, ["agents", "physics/chemistry"], "DeepDriveWE: An agentic approach to enhanced sampling molecular dynamics", True),
-    ("Haotian Xie", None, 0, ["agents"], "Diamond Agents", True),
+    ("Mike Tynes", None, 0, [], "Distributed on-the-fly Training of Neural Network Potentials with Parsl, Globus Compute, and Academy", True),
+    ("Alex Brace", None, 0, ["physics/chemistry"], "DeepDriveWE: An agentic approach to enhanced sampling molecular dynamics", True),
+    ("Haotian Xie", None, 0, ["diamond"], "Diamond Agents", True),
     ("Tim Dunn", None, 0, [], "TBD", False),
     ("Suman Raj", None, 0, ["infrastructure"], "Fairness-Aware Scheduling for Bursty HPC Workloads", True),
 
     #20
-    ("Matt Sinclair", None, 0, ["agents", "biology"], "Federated deployment of an agentic biology framework at scale", False),
+    ("Matt Sinclair", None, 0, ["biology"], "Federated deployment of an agentic biology framework at scale", False),
     ("Harikrishna Tummalapalli", None, 0, ["parsl", "site"], "Ensemble Executor for Insane-Scale Compute", True),
 
     #unregistered - assume remote
-    ("Alex Zhang", None, 0, ["agents", "tools+techniques"], "Per-action Authorization for Shared Agents", False),
+    ("SPARE or Alex Zhang", None, 0, ["tools+techniques"], "Per-action Authorization for Shared Agents", False),
 
     # unregistered - assume remote
-    ("Ryan Chard", None, 0, ["agents", "tools+techniques"], "Reputation as Community Memory for the Agentic Web", False),
+    ("Ryan Chard", None, 0, ["tools+techniques"], "Reputation as Community Memory for the Agentic Web", False),
 
-    ("Augustus Ellerm", None, 0, [], "HPCBridge", False),
-    ("Alok Kamatar", None, 0, [], "TBD", True),
+    ("Augustus Ellerm", None, 0, ["tools+techniques"], "HPCBridge", False),
+    ("Alok Kamatar", None, 0, ["insides"], "Persistent Agents and Other New Features in Academy 1.0", True),
 
     # unregistered - assume in person
-    ("Yadu Babuji", None, 0, ["agents", "observability", "tools+techniques"], "Academy Dashboard", True),
+    ("Yadu Babuji", None, 0, ["observability", "tools+techniques"], "Academy Dashboard", True),
 
     # unregistered - assume remote
     ("Kevin Hunter Kesling", None, 0, ["Globus Compute"], "TBD", False),
@@ -74,13 +74,14 @@ talk_titles_prefs = \
     
     ("Seena VazifeDunn", None, 0, ["Globus Compute", "multisite"], "Globus Tunnels + Compute", True),
 
-    ("Himanshi Yadav", None, 0, ["agents", "text"], "Atomizing the Chicago Assyrian Dictionary: Agentic Workflow for Structuring Multi-Language Text Documents", True),
+    ("Himanshi Yadav", None, 0, ["text"], "Atomizing the Chicago Assyrian Dictionary: Agentic Workflow for Structuring Multi-Language Text Documents", True),
 
     #30
-    ("Mihael Hategan", None, 0, ["agents", "tools+techniques"], "Reactive programming with Academy", False),
+    ("Mihael Hategan", None, 0, ["tools+techniques"], "Reactive programming with Academy", False),
     ("Saiful Islam", None, 0, ["packaging", "infrastructure"], "Floability Backpacks: Packaging Workflows for Portable HPC Deployment", True),
     ("Kyle Chard", None, 0, ["intro"], "Welcome To APeX", True),
     ("Chris Janidlo", None, 0, ["parsl", "Globus Compute", "insides"], "HTEX Protocol compatibility", True),
+    ("Hai Nguyen", None, 0, [], "A reference architecture for AI orchestration", True),
   ]
 
 
@@ -113,6 +114,14 @@ def SessionSize(session, size):
                AtLeast(*[t == session for t in talk_sessions], size-1),
               )
 
+
+def ExactSessionSize(session, size):
+    return And(AtMost(*[t == session for t in talk_sessions], size),
+               AtLeast(*[t == session for t in talk_sessions], size),
+              )
+
+
+
 sessions_have_sizes = [SessionSize(n+1, session_sizes[n]) for n in range(0,len(session_sizes))]
 
 def OnDay(talk_session, day):
@@ -137,7 +146,8 @@ special_talk_constraints = [
 
    OnDay(talk_sessions[30], 1),  # the 14th is the only option.
 
-   talk_sessions[29] != 4  # just a preference for a time slot after 10 am
+   talk_sessions[29] != 4,  # just a preference for a time slot after 10 am
+   ExactSessionSize(talk_sessions[22], 6)
 
    # OnDay(talk_sessions[5], 1),  # Josh can only do day 1 in person
    # talk_sessions[5] != talk_sessions[0], # GC intro should not be in same session as Parsl intro 
@@ -261,8 +271,8 @@ for session in range(1, n_sessions+1):
   # for 6 sessions - this can probably be computed as the lower and upper bounds of the fraction of talks that are in person
   # compared to the expected slot size, or something like that. or something more complicated for the particular slot based
   # on how many sessions are assigned to that actual slot - so that a 6 entry session always gets 3, but a 5 entry session can have 2?
-  s.add_soft(Or( And(num_in_person >= 2, num_in_person <=3, num_in_session == 5),
-            And(num_in_person >= 3, num_in_person <=3, num_in_session == 6),
+  s.add_soft(Or(And(num_in_person >= 3, num_in_person <=3, num_in_session == 5),
+            And(num_in_person >= 3, num_in_person <=4, num_in_session == 6),
             And(num_in_person >= 3, num_in_person <=4, num_in_session == 7)
           ),
           id='session_ratio'
