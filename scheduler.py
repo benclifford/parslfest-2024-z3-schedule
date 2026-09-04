@@ -67,7 +67,7 @@ talk_titles_prefs = \
     ("Yadu Babuji", None, 0, ["observability", "tools+techniques"], "Academy Dashboard", True),
 
     # unregistered - assume remote
-    ("Kevin Hunter Kesling", None, 0, ["Globus Compute"], "TBD", False),
+    ("Kevin Hunter Kesling", None, 0, ["Globus Compute", "insides"], "State of Globus Compute (2026 edition)", False),
 
     # haochen not giving a talk...
     # ("Haochen Pan", None, 0, ["infrastructure"], "Resilient parallel workflows", True),
@@ -82,6 +82,8 @@ talk_titles_prefs = \
     ("Kyle Chard", None, 0, ["intro"], "Welcome To APeX", True),
     ("Chris Janidlo", None, 0, ["parsl", "Globus Compute", "insides"], "HTEX Protocol compatibility", True),
     ("Hai Nguyen", None, 0, [], "A reference architecture for AI orchestration", True),
+    ("Akshat Singhania", None, 0, [], "Cognitive Routing of LLM Requests via Contextual Knowledge Building", True),
+    ("Gulesh Shukla", None, 0, ["observability"], "Observability and Academy Agents", False),
   ]
 
 
@@ -89,7 +91,7 @@ talk_sessions = [BitVec(f'talk_{n}_in_session', BITFIELD) for n in range(0,len(t
 
 # two different session structures: 2 bigger sessions, or 3 smaller sessions, per day
 # session_sizes = [9,9,9,9]
-session_sizes = [6,6,6,6,6,6]
+session_sizes = [7,7,7,7,7,7]
 
 # TODO: some assert on session sizes here: if the sessions are too big, we can't
 # schedule n-1..n sized sessions.
@@ -147,7 +149,11 @@ special_talk_constraints = [
    OnDay(talk_sessions[30], 1),  # the 14th is the only option.
 
    talk_sessions[29] != 4,  # just a preference for a time slot after 10 am
-   ExactSessionSize(talk_sessions[22], 6)
+   ExactSessionSize(talk_sessions[22], 7),
+
+   talk_sessions[6] <= talk_sessions[19],
+
+   talk_sessions[36] == 4,  # I will be on east coast and would prefer if I could present before noon eastern time. 
 
    # OnDay(talk_sessions[5], 1),  # Josh can only do day 1 in person
    # talk_sessions[5] != talk_sessions[0], # GC intro should not be in same session as Parsl intro 
@@ -271,9 +277,9 @@ for session in range(1, n_sessions+1):
   # for 6 sessions - this can probably be computed as the lower and upper bounds of the fraction of talks that are in person
   # compared to the expected slot size, or something like that. or something more complicated for the particular slot based
   # on how many sessions are assigned to that actual slot - so that a 6 entry session always gets 3, but a 5 entry session can have 2?
-  s.add_soft(Or(And(num_in_person >= 3, num_in_person <=3, num_in_session == 5),
+  s.add_soft(Or(And(num_in_person >= 2, num_in_person <=3, num_in_session == 5),
             And(num_in_person >= 3, num_in_person <=4, num_in_session == 6),
-            And(num_in_person >= 3, num_in_person <=4, num_in_session == 7)
+            And(num_in_person >= 3, num_in_person <=4, num_in_session == 7),
           ),
           id='session_ratio'
        )
