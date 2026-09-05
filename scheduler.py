@@ -151,9 +151,13 @@ special_talk_constraints = [
    talk_sessions[29] != 4,  # just a preference for a time slot after 10 am
    ExactSessionSize(talk_sessions[22], 7),
 
-   talk_sessions[6] <= talk_sessions[19],
+   talk_sessions[6] <= talk_sessions[17],  # preferred order for diamond talks
+   OnDay(talk_sessions[17], 1),  # I wonder if it is possible to put my parts(Diamond Agent) on the afternoon of Sep 14th. I have a conflicting?agenda on Sep 15th.
 
    talk_sessions[36] == 4,  # I will be on east coast and would prefer if I could present before noon eastern time. 
+
+   OnDay(talk_sessions[25], 1),  # component overviews should go on day 1
+   OnDay(talk_sessions[27], 1),
 
    # OnDay(talk_sessions[5], 1),  # Josh can only do day 1 in person
    # talk_sessions[5] != talk_sessions[0], # GC intro should not be in same session as Parsl intro 
