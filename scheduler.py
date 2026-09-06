@@ -318,7 +318,8 @@ for topic in topics_deterministic:
         if a is b:
           print("skipping self-pairing")
         elif id(a) > id(b):  # arbitrary ordering
-          print("skipping mirror pairing")
+          pass 
+          # print("skipping mirror pairing")
         else:
           print(f"Adding a topic affinity for {a} and {b}")
           s.add_soft(a == b, weight=talk_constraint_strength)
@@ -333,6 +334,43 @@ if stickiness_factor:
 #    s.add_soft(session_chairs[n] == sticky_session_chairs[n], weight="0.1")
 
 def format_solution(m):
+ print("\n\nformatted:")
+
+
+ for session in range(1, n_sessions+1):
+  if session == 1:
+    print("\n\n**** DAY 1 ****")
+  if session == 4:
+    print("\n\n**** DAY 2 ****")
+  chairname = possible_session_chairs[m.evaluate(session_chairs[session - 1]).as_long()]
+  print(f"\nSession {session} - chair {chairname}")
+  used = 0
+  for n in range(0, len(talk_titles_prefs)):
+
+    if m.evaluate(talk_sessions[n]) == session:
+      if talk_titles_prefs[n][1] is None:
+        # print("**NEW** ", end='')
+        pass
+      elif session != talk_titles_prefs[n][1]:
+        print("**MOVED** ", end='')
+      print("<li>", end='')
+      print(talk_titles_prefs[n][0], end='')
+      print(" - ", end='')
+      print(talk_titles_prefs[n][4], end='  ')
+      if talk_titles_prefs[n][5]:
+        print("(in person)", end=' ')
+      else:
+        print("(remote)", end=' ')
+      print("</li>")
+      # print(talk_titles_prefs[n][3])
+      used += 1
+  for _ in range(0, session_sizes[session-1] - used):
+    print("**SPARE SLOT**")
+  if used > session_sizes[session-1]:
+    print("**ERROR** too many talks assigned to this session")
+
+
+def x_format_solution(m):
  print("\n\nformatted:")
 
 
