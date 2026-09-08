@@ -55,7 +55,7 @@ talk_titles_prefs = \
     ("Harikrishna Tummalapalli", 2, 0, ["parsl", "site"], "Ensemble Executor for Insane-Scale Compute", True),
 
     #unregistered - assume remote
-    ("SPARE or Alex Zhang", 5, 0, ["tools+techniques"], "Per-action Authorization for Shared Agents", False),
+    ("SPARE or Alex Zhang", 3, 0, ["tools+techniques"], "Per-action Authorization for Shared Agents", False),
 
     # unregistered - assume remote
     ("Ryan Chard", 5, 0, ["tools+techniques"], "Reputation as Community Memory for the Agentic Web", False),
@@ -84,7 +84,7 @@ talk_titles_prefs = \
     ("Hai Nguyen", 5, 0, [], "A reference architecture for AI orchestration", True),
     ("Akshat Singhania", 4, 0, [], "Cognitive Routing of LLM Requests via Contextual Knowledge Building", True),
     ("Gulesh Shukla", 4, 0, ["observability"], "Observability and Academy Agents", False),
-    ("Parmanand Sinha", 6, 0, [], "No SSH Required: Building a Web-Based HPC Dispatch Service on Globus Compute", True),
+    ("Parmanand Sinha", 1, 0, [], "No SSH Required: Building a Web-Based HPC Dispatch Service on Globus Compute", True),
   ]
 
 
@@ -92,7 +92,7 @@ talk_sessions = [BitVec(f'talk_{n}_in_session', BITFIELD) for n in range(0,len(t
 
 # two different session structures: 2 bigger sessions, or 3 smaller sessions, per day
 # session_sizes = [9,9,9,9]
-session_sizes = [7,7,7,7,7,7]
+session_sizes = [7,7,7,6,6,6]
 
 # TODO: some assert on session sizes here: if the sessions are too big, we can't
 # schedule n-1..n sized sessions.
@@ -138,7 +138,7 @@ def OnDay(talk_session, day):
 special_talk_constraints = [
    talk_sessions[32] == 1, # Kyle must talk first for introduction
 
-   Or(talk_sessions[6] == 1, OnDay(talk_sessions[6], 2)),  # by email:  if possible I?d like to avoid being scheduled between 3 - 3:45 Central on the 14th.
+   talk_sessions[6] == 1,  # by email:  if possible I?d like to avoid being scheduled between 3 - 3:45 Central on the 14th.
 
    OnDay(talk_sessions[19], 1),  # Could you please schedule my talk on Sept 14 if possible?
 
