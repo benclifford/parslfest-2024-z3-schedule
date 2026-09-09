@@ -85,7 +85,7 @@ talk_titles_prefs = \
     ("Akshat Singhania", 4, 0, [], "Cognitive Routing of LLM Requests via Contextual Knowledge Building", True),
     ("Gulesh Shukla", 4, 0, ["observability"], "Observability and Academy Agents", False),
     ("Parmanand Sinha", 1, 0, [], "No SSH Required: Building a Web-Based HPC Dispatch Service on Globus Compute", True),
-    ("Alvaro Mayagoitia", None, 0, [], "TBD", False), 
+    ("Fahkrul Bhuiyan", None, 0, [], "ParslBox: A Computational Materials Workflow Executor for AI-Agents on High-Performance Computing Systems", False), 
     ("Jack Bryant", None, 0, ["tools+techniques"], "Building the Guardrails - How we use Globus Flows and Globus Compute to enforce access control and data hygiene", False),
     ("Andre Bauer", None, 0, ["site"], "A Glimpse on to the ACLF Inference Dataset", True),
   ]
