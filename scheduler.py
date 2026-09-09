@@ -85,6 +85,7 @@ talk_titles_prefs = \
     ("Akshat Singhania", 4, 0, [], "Cognitive Routing of LLM Requests via Contextual Knowledge Building", True),
     ("Gulesh Shukla", 4, 0, ["observability"], "Observability and Academy Agents", False),
     ("Parmanand Sinha", 1, 0, [], "No SSH Required: Building a Web-Based HPC Dispatch Service on Globus Compute", True),
+    ("Alvaro Mayagoitia", None, 0, [], "TBD", False), 
   ]
 
 
