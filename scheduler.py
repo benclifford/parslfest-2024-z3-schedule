@@ -86,6 +86,8 @@ talk_titles_prefs = \
     ("Gulesh Shukla", 4, 0, ["observability"], "Observability and Academy Agents", False),
     ("Parmanand Sinha", 1, 0, [], "No SSH Required: Building a Web-Based HPC Dispatch Service on Globus Compute", True),
     ("Alvaro Mayagoitia", None, 0, [], "TBD", False), 
+    ("Jack Bryant", None, 0, ["tools+techniques"], "Building the Guardrails - How we use Globus Flows and Globus Compute to enforce access control and data hygiene", False),
+    ("Andre Bauer", None, 0, ["site"], "A Glimpse on to the ACLF Inference Dataset", True),
   ]
 
 
@@ -93,7 +95,7 @@ talk_sessions = [BitVec(f'talk_{n}_in_session', BITFIELD) for n in range(0,len(t
 
 # two different session structures: 2 bigger sessions, or 3 smaller sessions, per day
 # session_sizes = [9,9,9,9]
-session_sizes = [7,7,7,6,6,6]
+session_sizes = [7,7,7,7,7,6]
 
 # TODO: some assert on session sizes here: if the sessions are too big, we can't
 # schedule n-1..n sized sessions.
@@ -328,14 +330,18 @@ for topic in topics_deterministic:
 
 if stickiness_factor:
   objective_function = num_moved
-  s.minimize(objective_function)
+  # soft stickiness:
+  # s.minimize(objective_function)
+
+  # attempt at hard stickiness:
+  s.add(num_moved == 0)
 
 # session chairs are sticky
 # for n in range(n_sessions):
 #  if sticky_session_chairs[n] is not None:
 #    s.add_soft(session_chairs[n] == sticky_session_chairs[n], weight="0.1")
 
-def format_solution(m):
+def x_format_solution(m):
  print("\n\nformatted:")
 
 
@@ -372,7 +378,7 @@ def format_solution(m):
     print("**ERROR** too many talks assigned to this session")
 
 
-def x_format_solution(m):
+def format_solution(m):
  print("\n\nformatted:")
 
 
