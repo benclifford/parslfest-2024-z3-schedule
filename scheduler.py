@@ -90,7 +90,7 @@ talk_titles_prefs = \
 
     #40
     ("Andre Bauer", 4, 0, ["site"], "A Glimpse on to the ACLF Inference Dataset", True),
-    ("Tanjin He", 1, 0, ["multisite"], "User Experience Sharing: Accessing Multiple HPC systems with Globus Compute and Parsl", False),  # actually unknown if they're in person or not?
+    ("Tanjin He", 1, 0, ["multisite"], "User Experience Sharing: Accessing Multiple HPC systems with Globus Compute and Parsl", False),
   ]
 
 
