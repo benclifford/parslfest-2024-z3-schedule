@@ -60,7 +60,7 @@ talk_titles_prefs = \
     # unregistered - assume remote
     ("Ryan Chard", 5, 0, ["tools+techniques"], "Reputation as Community Memory for the Agentic Web", False),
 
-    ("Augustus Ellerm", 5, 0, ["tools+techniques"], "HPCBridge", False),
+    ("Augustus Ellerm", 5, 0, ["tools+techniques"], "HPCBridge", True),
     ("Alok Kamatar", 2, 0, ["insides"], "Persistent Agents and Other New Features in Academy 1.0", True),
 
     # unregistered - assume in person
@@ -85,9 +85,12 @@ talk_titles_prefs = \
     ("Akshat Singhania", 4, 0, [], "Cognitive Routing of LLM Requests via Contextual Knowledge Building", True),
     ("Gulesh Shukla", 4, 0, ["observability"], "Observability and Academy Agents", False),
     ("Parmanand Sinha", 1, 0, [], "No SSH Required: Building a Web-Based HPC Dispatch Service on Globus Compute", True),
-    ("Fahkrul Bhuiyan", None, 0, [], "ParslBox: A Computational Materials Workflow Executor for AI-Agents on High-Performance Computing Systems", False), 
-    ("Jack Bryant", None, 0, ["tools+techniques"], "Building the Guardrails - How we use Globus Flows and Globus Compute to enforce access control and data hygiene", False),
-    ("Andre Bauer", None, 0, ["site"], "A Glimpse on to the ACLF Inference Dataset", True),
+    ("Fakhrul Bhuiyan", 2, 0, ["tools+techniques"], "ParslBox: A Computational Materials Workflow Executor for AI-Agents on High-Performance Computing Systems", True), 
+    ("Jack Bryant", 5, 0, ["tools+techniques"], "Building the Guardrails - How we use Globus Flows and Globus Compute to enforce access control and data hygiene", False),
+
+    #40
+    ("Andre Bauer", 4, 0, ["site"], "A Glimpse on to the ACLF Inference Dataset", True),
+    ("Tanjin He", 1, 0, ["multisite"], "User Experience Sharing: Accessing Multiple HPC systems with Globus Compute and Parsl", False),  # actually unknown if they're in person or not?
   ]
 
 
@@ -95,7 +98,7 @@ talk_sessions = [BitVec(f'talk_{n}_in_session', BITFIELD) for n in range(0,len(t
 
 # two different session structures: 2 bigger sessions, or 3 smaller sessions, per day
 # session_sizes = [9,9,9,9]
-session_sizes = [7,7,7,7,7,6]
+session_sizes = [8,7,7,7,7,6]
 
 # TODO: some assert on session sizes here: if the sessions are too big, we can't
 # schedule n-1..n sized sessions.
