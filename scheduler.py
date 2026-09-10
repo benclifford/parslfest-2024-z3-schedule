@@ -98,7 +98,7 @@ talk_sessions = [BitVec(f'talk_{n}_in_session', BITFIELD) for n in range(0,len(t
 
 # two different session structures: 2 bigger sessions, or 3 smaller sessions, per day
 # session_sizes = [9,9,9,9]
-session_sizes = [8,7,7,7,7,6]
+session_sizes = [8,8,8,7,7,6]
 
 # TODO: some assert on session sizes here: if the sessions are too big, we can't
 # schedule n-1..n sized sessions.
