@@ -27,40 +27,40 @@ talk_titles_prefs = \
     # APeX 2026
 
     #0
-    ("Ben Clifford", 2, 0, ["community", "parsl"], "Parsl Community Grants Closing Roundup", False),
-    ("Ben Clifford", 6, 0, ["parsl", "insides"], "Formal methods for Parsl block shutdown", False),
+    ("Ben Clifford", None, 0, ["community", "parsl"], "Parsl Community Grants Closing Roundup", False),
+    ("Ben Clifford", None, 0, ["parsl", "insides"], "Formal methods for Parsl block shutdown", False),
     ("Stephen Hudson", 3, 0, ["multisite", "infrastructure"], "AgentLab: Collaborative Agentic Campaigns across HPC Facilities", True),
     ("David Abramov", 3, 0, [], "Agentic Workflows for Tomography and Knowledge Curation", False),
-    ("Daniel Rosendo", 6, 0, ["biology"], "An Agentic AI Framework to Accelerate Scientific Discovery in Plant Phenotyping", True),
-    ("Matt Baughman", 6, 0, ["physics/chemistry"], "Tritium Splash: Using Agents to Drive Large-Scale Exploration of Multiphysics Simulations for Fusion Fuels", True),
+    ("Daniel Rosendo", 6, 0, ["science"], "An Agentic AI Framework to Accelerate Scientific Discovery in Plant Phenotyping", True),
+    ("Matt Baughman", 6, 0, ["science"], "Tritium Splash: Using Agents to Drive Large-Scale Exploration of Multiphysics Simulations for Fusion Fuels", True),
     ("Max Burnette", 1, 0, ["diamond"], "Diamond Platform", False),
     ("Amal Gueroudji", 4, 0, ["observability", "provenance"], "Provenance Collection for Agentic frameworks", True),
-    ("Owen Price-Skelly", 6, 0, ["physics/chemistry"], "Self-steering MLIP Committee with Rootstock and Academy Agents", True),
-    ("Chris Harrop", 1, 0, ["earth"], "Academy Agents for Numerical Weather Prediction", False),
+    ("Owen Price-Skelly", 6, 0, ["science"], "Self-steering MLIP Committee with Rootstock and Academy Agents", True),
+    ("Chris Harrop", 1, 0, ["science"], "Academy Agents for Numerical Weather Prediction", False),
     #10 
 
-    ("Logan Ward", 6, 0, ["physics/chemistry"], "Agentic AI-Driven Molecule Design on HPC", False),
+    ("Logan Ward", 6, 0, ["science"], "Agentic AI-Driven Molecule Design on HPC", False),
     ("Chandrachur Bhattacharya", 4, 0, [], "AISAC", False),
     ("Valesca Moura", 4, 0, ["observability", "provenance"], "Instrumentation vs. Observability: Provenance Capture Trade-offs in Agentic Workflows", False),
     ("Valerie Hayot-Sasson", 5, 0, ["tools+techniques"], "Continuous reproducibility with Correct", False),
     ("Geoffrey Lentner", 2, 0, ["Globus Compute", "site"], "The Anvil MEP and building on top of Globus Compute", True),
     ("Mike Tynes", 5, 0, [], "Distributed on-the-fly Training of Neural Network Potentials with Parsl, Globus Compute, and Academy", True),
-    ("Alex Brace", 1, 0, ["physics/chemistry"], "DeepDriveWE: An agentic approach to enhanced sampling molecular dynamics", True),
+    ("Alex Brace", 1, 0, ["science"], "DeepDriveWE: An agentic approach to enhanced sampling molecular dynamics", True),
     ("Haotian Xie", 1, 0, ["diamond"], "Diamond Agents", True),
-    ("Tim Dunn", 1, 0, [], "TBD", False),
+    ("Tim Dunn", 2, 0, ["site"], "Academy at SLAC: Stateful Agents for Autonomous Science", False),
     ("Suman Raj", 3, 0, ["infrastructure"], "Fairness-Aware Scheduling for Bursty HPC Workloads", True),
 
     #20
-    ("Matt Sinclair", 6, 0, ["biology"], "Federated deployment of an agentic biology framework at scale", False),
+    ("Matt Sinclair", 6, 0, ["science"], "Federated deployment of an agentic biology framework at scale", False),
     ("Harikrishna Tummalapalli", 2, 0, ["parsl", "site"], "Ensemble Executor for Insane-Scale Compute", True),
 
     #unregistered - assume remote
-    ("SPARE or Alex Zhang", 3, 0, ["tools+techniques"], "Per-action Authorization for Shared Agents", False),
+    ("Alex Zhang", 3, 0, ["tools+techniques"], "Per-action Authorization for Shared Agents", False),
 
     # unregistered - assume remote
-    ("Ryan Chard", 5, 0, ["tools+techniques"], "Reputation as Community Memory for the Agentic Web", False),
+    ("Ryan Chard", None, 0, ["tools+techniques"], "Reputation as Community Memory for the Agentic Web", False),
 
-    ("Augustus Ellerm", 5, 0, ["tools+techniques"], "HPCBridge", True),
+    ("Augustus Ellerm", None, 0, ["tools+techniques"], "HPCBridge", True), # was 5
     ("Alok Kamatar", 2, 0, ["insides"], "Persistent Agents and Other New Features in Academy 1.0", True),
 
     # unregistered - assume in person
@@ -78,19 +78,20 @@ talk_titles_prefs = \
 
     #30
     ("Mihael Hategan", 3, 0, ["tools+techniques"], "Reactive programming with Academy", False),
-    ("Saiful Islam", 3, 0, ["packaging", "infrastructure"], "Floability Backpacks: Packaging Workflows for Portable HPC Deployment", True),
+    ("Saiful Islam", 3, 0, ["tools+techniques", "infrastructure"], "Floability Backpacks: Packaging Workflows for Portable HPC Deployment", True),
     ("Kyle Chard", 1, 0, ["intro"], "Welcome To APeX", True),
     ("Chris Janidlo", 2, 0, ["parsl", "Globus Compute", "insides"], "HTEX Protocol compatibility", True),
-    ("Hai Nguyen", 5, 0, [], "A reference architecture for AI orchestration", True),
+    ("Hai Nguyen", 5, 0, ["tools+techniques"], "A reference architecture for AI orchestration", True),
     ("Akshat Singhania", 4, 0, [], "Cognitive Routing of LLM Requests via Contextual Knowledge Building", True),
     ("Gulesh Shukla", 4, 0, ["observability"], "Observability and Academy Agents", False),
-    ("Parmanand Sinha", 1, 0, [], "No SSH Required: Building a Web-Based HPC Dispatch Service on Globus Compute", True),
-    ("Fakhrul Bhuiyan", 2, 0, ["tools+techniques"], "ParslBox: A Computational Materials Workflow Executor for AI-Agents on High-Performance Computing Systems", True), 
+    ("Parmanand Sinha", 1, 0, ["tools+techniques"], "No SSH Required: Building a Web-Based HPC Dispatch Service on Globus Compute", True),
+    ("Fakhrul Bhuiyan", 2, 0, ["tools+techniques"], "ParslBox: A Computational Materials Workflow Executor for AI-Agents on High-Performance Computing Systems", True),
     ("Jack Bryant", 5, 0, ["tools+techniques"], "Building the Guardrails - How we use Globus Flows and Globus Compute to enforce access control and data hygiene", False),
 
     #40
     ("Andre Bauer", 4, 0, ["site"], "A Glimpse on to the ACLF Inference Dataset", True),
     ("Tanjin He", 1, 0, ["multisite"], "User Experience Sharing: Accessing Multiple HPC systems with Globus Compute and Parsl", False),
+    ("Murat Keceli", 6, 0, ["science"], "ChemGraph: Agentic AI on HPC", False),
   ]
 
 
@@ -98,7 +99,7 @@ talk_sessions = [BitVec(f'talk_{n}_in_session', BITFIELD) for n in range(0,len(t
 
 # two different session structures: 2 bigger sessions, or 3 smaller sessions, per day
 # session_sizes = [9,9,9,9]
-session_sizes = [8,8,8,7,7,6]
+session_sizes = [8,8,8,7,7,7]
 
 # TODO: some assert on session sizes here: if the sessions are too big, we can't
 # schedule n-1..n sized sessions.
@@ -291,6 +292,7 @@ for session in range(1, n_sessions+1):
   s.add_soft(Or(And(num_in_person >= 2, num_in_person <=3, num_in_session == 5),
             And(num_in_person >= 3, num_in_person <=4, num_in_session == 6),
             And(num_in_person >= 3, num_in_person <=4, num_in_session == 7),
+            And(num_in_person >= 4, num_in_person <=5, num_in_session == 8),
           ),
           id='session_ratio'
        )
@@ -336,7 +338,7 @@ if stickiness_factor:
   # soft stickiness:
   # s.minimize(objective_function)
 
-  # attempt at hard stickiness:
+  # hard stickiness:
   s.add(num_moved == 0)
 
 # session chairs are sticky
@@ -397,8 +399,7 @@ def format_solution(m):
 
     if m.evaluate(talk_sessions[n]) == session:
       if talk_titles_prefs[n][1] is None:
-        # print("**NEW** ", end='')
-        pass
+        print("**NEW** ", end='')
       elif session != talk_titles_prefs[n][1]:
         print("**MOVED** ", end='')
       print(talk_titles_prefs[n][0], end='')
